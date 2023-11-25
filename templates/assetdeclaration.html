@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SKIC Inventory Website</title>
+      <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
+
+    <link rel="shortcut icon" type="image/png" href="../static/images/logos/favicon.png"/>
+    <link rel="stylesheet" href="../static/css/styles.min.css"/>
+    <link rel="stylesheet" href="../static/css/flash_message.css">
+    <link rel="stylesheet" href="../static/css/display_assets.css">
+</head>
+
+<body>
+<div class="fixed-header" id="flask-message-header">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!--------------------------------------
+      Sidebar
+      ---------------------------------------->
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+            <div class="brand-logo d-flex align-items-center justify-content-between">
+                <a href="{{ url_for('display_assets') }}" class="text-nowrap logo-img">
+                    <img src="../static/images/logos/dark-logo.svg" width="180" alt=""/>
+                </a>
+                <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                    <i class="ti ti-x fs-8"></i>
+                </div>
+            </div>
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                <ul id="sidebarnav">
+
+
+                    <!--Functionality Section-->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">FUNC</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link active" href="{{ url_for('display_assets') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-article"></i>
+                </span>
+                            <span class="hide-menu">Asset Declaration</span>
+                        </a>
+                    </li>
+
+
+                    <!--Authorisation Section-->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">AUTH</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ url_for('profile') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-user-plus"></i>
+                </span>
+                            <span class="hide-menu">My Profile</span>
+                        </a>
+                    </li>
+
+                    <!--Extra Section-->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">EXTRA</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ url_for('index') }}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-mood-happy"></i>
+                </span>
+                            <span class="hide-menu">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+
+
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <h2 class="mb-4">Asset Declaration</h2>
+            <!--------------------------------------
+            Revenue Collapsible
+           !---------------------------------------->
+            <div class="row"
+                 style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+                <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">Revenue
+                    Management
+                </button>
+                <div class="content">
+                    <div class="row">
+                        <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">Revenue
+                            Management</h2>
+                    </div>
+
+                    <div class="row">
+                        <!--Individual Revenue Table-->
+                        <div class="col-lg-6 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                                        Individual Revenue</h5>
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap mb-0 align-middle">
+                                            <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Description</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for row in indRevenues %}
+                                                <tr>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                    </td>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Household Revenue Table-->
+                        <div class="col-lg-6 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                                        Household Revenue</h5>
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap mb-0 align-middle">
+                                            <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Description</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                {% for row in houseRevenues %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor %}
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Additional Revenue Table -->
+                    <form class="row">
+                        <div class="col-lg-12 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="row" style="padding:30px">
+                                    <div class="col px-0" style="padding-left:8px!important;">
+                                        <h2 class="card-title fw-semibold mb-4">Additional Revenue Management</h2>
+                                    </div>
+                                    <div class="col px-0" >
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px;"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#revenueModal">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="px-0 mt-4">
+                                        <table class="table table-striped nowrap jDataTable w-100 row-border"
+                                               id="revenues_tb">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <h6>Action</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>No.</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Description</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Type</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Total</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for row in revenues %}
+                                                <tr>
+                                                    <td class="border-bottom-0">
+                                                        <button type="button"
+                                                                class="btn btn-danger btn-delete"> Delete
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-secondary btn-modify m-1"
+                                                                data-bs-target="#revenueModal" data-bs-toggle="modal">
+                                                            Modify
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.id }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.description }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.type }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.total }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <!--------------------------------------
+            Expenses Collapsible
+           !---------------------------------------->
+            <div class="row"
+                 style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+                <button class="collapsible" style="border:0!important;border-bottom:1px solid black!important;">Expenses
+                    Management
+                </button>
+                <div class="content">
+                    <div class="row">
+                        <div class="row">
+                            <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">
+                                Expenses Management</h2>
+                        </div>
+                        <!--Individual Expenses Table-->
+                        <div class="col-lg-6 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                                        Individual Expenses</h5>
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap mb-0 align-middle">
+                                            <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Description</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for row in indExpenses %}
+                                                <tr>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                    </td>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                    </td>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Household Expenses Table-->
+                        <div class="col-lg-6 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="card-body p-4">
+                                    <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                                        Household Expenses</h5>
+                                    <div class="table-responsive">
+                                        <table class="table text-nowrap mb-0 align-middle">
+                                            <thead class="text-dark fs-4">
+                                            <tr>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Description</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                                                </th>
+                                                <th class="border-bottom-0">
+                                                    <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for row in houseExpenses %}
+                                                <tr>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                    </td>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                    </td>
+                                                    <td class="border-bottom-0">
+                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Additional Expenses Table-->
+                    <form class="row">
+                        <div class="col-lg-12 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="row" style="padding:30px">
+                                    <div class="col px-0" style="padding-left:8px!important;">
+                                        <h2 class="card-title fw-semibold mb-4">Additional Expenses Management</h2>
+                                    </div>
+                                    <div class="col px-0">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
+                                                    data-bs-toggle="modal"
+                                                    data-bs-target="#expenseModal">
+                                                Add
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="px-0 mt-4">
+                                        <table class="table table-striped nowrap jDataTable w-100 row-border"
+                                               id="expenses_tb">
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <h6>Action</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>No.</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Description</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Type</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Monthly Deduction</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Total</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            {% for row in expenses %}
+                                                <tr>
+                                                    <td class="border-bottom-0">
+                                                        <button type="button"
+                                                                class="btn btn-danger btn-delete m-1"> Delete
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-secondary btn-modify m-1"
+                                                                data-bs-target="#expenseModal" data-bs-toggle="modal">
+                                                            Modify
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.id }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.description }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.type }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.monthly_deduction }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.total }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!--------------------------------------
+           Inventory Collapsible
+           !---------------------------------------->
+            <div class="row"
+                 style="border: 1px solid black; border-radius: 5px ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+                <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">
+                    Inventory Management
+                </button>
+                <div class="content">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="card-title fw-semibold mb-4 mt-4"
+                                    style="font-size: 30px;  padding-left:30px">Inventory
+                                    Management</h2>
+                            </div>
+                            <div class="col">
+                                <div class="d-flex justify-content-end mt-4">
+                                    <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
+                                            data-bs-target="#inventoryModal" data-bs-toggle="modal">Add
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Inventory Table-->
+                        <div class="col-lg-12">
+                            <div class="card w-100">
+                                <div class="card-body p-4 pt-2">
+                                    <div class="px-0">
+                                        <table class="table table-striped nowrap jDataTable w-100" id="inventories_tb">
+
+                                            <!--Table Header-->
+                                            <thead>
+                                            <tr>
+                                                <th>
+                                                    <h6>Actions</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>No.</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Type</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Owner</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Inventory Description</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Registration Certificate Number</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Date of Ownership</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Quantity Amount</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Quantity Size</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Acquisition Cost （RM）</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Estimated Current Value (RM)</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Method of Acquisition</h6>
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <!-- End of Table Header-->
+
+                                            <!--Table Body-->
+                                            <tbody>
+                                            {% for row in inventories %}
+                                                <tr>
+                                                    <!--Actions-->
+                                                    <td>
+                                                        <button type="button"
+                                                                class="btn btn-danger btn-delete m-1"> Delete
+                                                        </button>
+                                                        <button type="button"
+                                                                class="btn btn-secondary btn-modify m-1"
+                                                                data-bs-target="#inventoryModal" data-bs-toggle="modal">
+                                                            Modify
+                                                        </button>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.id }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.type }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.owner }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.inv_description }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.reg_certificate_no }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.date_of_ownership }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.quantity_amount }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.quantity_size }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.acquisition_cost }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.estimated_current_value }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <h6>{{ row.method_of_acquisition }}</h6>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                            <!--End of Table Body-->
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--------------------------------------
+            Declaration Collapsible
+           !---------------------------------------->
+            <div class="row">
+                <button class="collapsible">Declaration</button>
+                <div class="content">
+                    <div class="row">
+
+                        <div class="col-lg-12 d-flex align-items-stretch">
+                            <div class="card w-100">
+                                <div class="row" style="padding:30px">
+                                    <div class="col">
+                                        <h2 class="card-title fw-semibold mb-4">Declaration</h2>
+                                    </div>
+                                    <p>I confirm that the information provided above is accurate and up-to-date. <br>
+                                        I am the lawful owner of these assets, and I am responsible for all legal
+                                        obligations associated
+                                        with them.<br>
+                                        I understand the significance of this declaration, and I am aware of the
+                                        consequences of providing
+                                        false information or misrepresentation of ownership.</p>
+                                    <div class="row">
+                                        <div class="d-flex justify-content-end">
+                                            <button type="button" class="btn btn-outline-primary m-1"
+                                                    style="width: 200px"
+                                                    id="printAssets">View
+                                            </button>
+                                            <button type="button" class="btn btn-primary m-1" id="commitAssets"
+                                                    style="width: 200px">Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="revenueModal" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="revenueModalLabel">Revenue Management</h4>
+                <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
+                        data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form content -->
+                <form id="revenue_form">
+                    <input name="email" hidden="hidden" value="{{ email }}">
+                    <input name="id" value="" hidden="hidden">
+                    <div class="mb-3 form-group">
+                        <label for="revenueDescription" class="form-label">Description*</label>
+                        <input type="text" name="description" class="form-control" id="revenueDescription" required
+                               placeholder="Enter the description.">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="revenueType" class="form-label">Type*</label>
+                        <select id="revenueType" name="type" class="form-select" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Household">Household</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="revenueTotal" class="form-label">Total (RM)*</label>
+                        <input type="number" name="total" class="form-control" id="revenueTotal" step="0.01"
+                               placeholder="Enter the total." required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="submitButton"
+                                style="width: 300px; margin: 10px;">Submit
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                                style="width: 300px; margin: 10px;">Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="expenseModal" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="revenueModalLabel">Expense Management</h4>
+                <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
+                        data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form content -->
+                <form id="expense_form">
+                    <input name="email" hidden="hidden" value="{{ email }}">
+                    <input name="id" value="" hidden="hidden">
+                    <div class="mb-3 form-group">
+                        <label for="expenseDescription" class="form-label">Description*</label>
+                        <input type="text" name="description" class="form-control" id="expenseDescription"
+                               required placeholder="Enter the description.">
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="expenseType" class="form-label">Type*</label>
+                        <select id="expenseType" name="type" class="form-select" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Household">Household</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="revenuetotal" class="form-label">Monthly Deduction (RM)*</label>
+                        <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
+                               placeholder="Enter the monthly deduction." required>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="revenuetotal" class="form-label">Total (RM)*</label>
+                        <input type="number" name="total" class="form-control" step="0.01"
+                               placeholder="Enter the total." required>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="submitButton"
+                                style="width: 300px; margin: 10px;">Submit
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                                style="width: 300px; margin: 10px;">Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="inventoryModalLabel">Inventory Management</h4>
+                <button type="button" class="close bg-white border-0" style="width: 30px; height: 30px;"
+                        data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Form content -->
+                <form id="inventory_form">
+                    <input name="id" value="" hidden="hidden">
+                    <input name="email" hidden="hidden" value="{{ email }}">
+                    <div class="mb-3 form-group">
+                        <label for="invType" class="form-label">Type*</label>
+                        <select id="invType" name="type" class="form-select" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Household">Household</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="owner" class="form-label">Owner*</label>
+                        <input type="text" class="form-control" name="owner" id="owner" placeholder="Enter the owner."
+                               required>
+                    </div>
+
+                    <div class="mb-3  form-group">
+                        <label for="desc" class="form-label">Inventory Description*</label>
+                        <input type="text" class="form-control" name="invDescription" id="desc"
+                               placeholder="Enter the asset description." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="regNo" class="form-label">Registration Certificate Number*</label>
+                        <input type="text" class="form-control" name="regCertificateNo" id="regNo"
+                               placeholder="Enter the registration certificate number." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="dateOfOwnership" class="form-label">Date of Ownership*</label>
+                        <input type="date" class="form-control" name="dateOfOwnership" id="dateOfOwnership"
+                               placeholder="Enter the date of ownership." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="quantity" class="form-label">Quantity Amount*</label>
+                        <input type="text" class="form-control" name="quantityAmount" id="quantityAmount"
+                               placeholder="Enter the quantity amount." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="ownershipSize" class="form-label">Ownership Size*</label>
+                        <input type="text" class="form-control" name="ownershipSize" id="ownershipSize"
+                               placeholder="Enter the ownership size." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="quantitySize" class="form-label">Quantity Size*</label>
+                        <input type="text" class="form-control" name="quantitySize" id="quantitySize"
+                               placeholder="Enter the quantity size." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="acquisitionCost" class="form-label">Acquisition Cost (RM)*</label>
+                        <input type="text" class="form-control" name="acquisitionCost" id="acquisitionCost"
+                               placeholder="Enter the acquisition cost." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="estimatedValue" class="form-label">Estimated Current Value (RM)*</label>
+                        <input type="text" class="form-control" name="estimatedCurrentValue" id="estimatedValue"
+                               placeholder="Enter the estimated current value." required>
+                    </div>
+
+                    <div class="mb-3 form-group">
+                        <label for="acquisitionMethod" class="form-label">Method of Acquisition*</label>
+                        <input type="text" class="form-control" name="methodOfAcquisition" id="acquisitionMethod"
+                               placeholder="Enter the method of acquisition." required>
+                    </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" id="submitInventoryButton"
+                                style="width: 300px; margin: 10px;">Submit
+                        </button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                                style="width: 300px; margin: 10px;">Cancel
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type='hidden' id='userAssets' data-assets='{{ user_assets_json | safe }}'>
+
+<script src="../static/vendor/jquery-3.7.1.min.js"></script>
+<script src="../static/vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+    $('.collapsible').on('click', function () {
+       $(this).siblings('.content').slideToggle('slow');
+    });
+</script>
+
+<script src="../static/js/assets_manage.js"></script>
+<script src="../static/js/fade_flash.js"></script>
+</body>
+
+</html>

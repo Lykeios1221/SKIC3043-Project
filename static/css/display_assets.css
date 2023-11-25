@@ -1,0 +1,28 @@
+.dataTables_wrapper .dt-buttons{
+    width:100%;
+    margin-bottom: 20px;
+    background-color: #007bff; /* Primary button background color */
+    border-color: #007bff; /* Primary button border color */
+    color: #ffffff; /* Text color for the primary button */
+}
+
+.dataTables_wrapper .dt-buttons .btn{
+    border:1px solid darkblue;
+}
+
+/* Add border-bottom to all DataTable rows */
+.jDataTable th h6 {
+    font-weight: 700!important;
+    margin-bottom:0;
+}
+
+.jDataTable td h6 {
+    font-weight: 500!important;
+    margin-bottom:0;
+}
+
+.jDataTable .btn {
+    margin:0!important;
+    margin-right:10px!important;
+}
+

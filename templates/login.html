@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/login_style.css">
+    <link rel="stylesheet" href="../static/css/flash_message.css">
+    <title>Log In Inventory Management</title>
+</head>
+
+<body>
+<div class="fixed-header" id="flask-message-header">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<div class="container" id="container">
+    <div class="form-container sign-up">
+        <form action="{{ url_for('signup') }}" method="POST" id="signup_form">
+            {{ sign_up_form.csrf_token }}
+            <h1>Create Account</h1>
+            {{ sign_up_form.name( type="text", placeholder="Name", required="required") }}
+
+            <div class="tooltip">
+                {{ sign_up_form.signup_email(class="form-control w-100", placeholder="Email", required="required") }}
+                <span class="tooltiptext" id="email_tooltip">Email tooltip text</span>
+            </div>
+            <div class="tooltip hover-fade-in-out">
+                {{ sign_up_form.signup_password(class="form-control w-100", placeholder="Password", required="required") }}
+                <span class="tooltiptext arrow-top-left" style="width: 350px!important;bottom: -70%!important;">
+                    It must include at least one uppercase and one lowercase letter, contain at least one special
+                    character and one digit number, and be between 8 to 20 characters in length.
+                </span>
+            </div>
+
+             {{ sign_up_form.recaptcha }}
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+
+    <div class="form-container sign-in">
+        <form action="{{ url_for('login') }}" method="POST">
+            {{ login_form.csrf_token }}
+            <h1>Sign In</h1>
+
+            <div class="mb-3" style="width:100%!important;">
+                {{ login_form.login_email(class="form-control w-100", placeholder="Email", required="required") }}
+            </div>
+
+            <div class="mb-3" style="width:100%!important;">
+                {{ login_form.login_password(class="form-control w-100", placeholder="Password", required="required") }}
+            </div>
+
+            {{ login_form.recaptcha }}
+            <a href="{{ url_for('forgot_password_page') }}">Forgot password</a>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+
+
+    <div class="toggle-container">
+        <div class="toggle">
+            <div class="toggle-panel toggle-left">
+                <h1>Welcome Back!</h1>
+                <p>Enter your personal details to use all of site features</p>
+                <button class="hidden" id="login">Sign In</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+                <h1>Hello, Friend!</h1>
+                <p>Register with your personal details to use all of site features</p>
+                <button class="hidden" id="register">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="errorDialog" title="Error">
+    <p id="errorMessage">Default error message.</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="../static/js/login_script.js"></script>
+<script src="../static/js/signup.js"></script>
+<script src="../static/js/fade_flash.js"></script>
+</body>
+</html>

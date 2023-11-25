@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="../static/images/logos/favicon.png"/>
+    <link rel="stylesheet" href="../static/css/styles.min.css"/>
+    <link rel="stylesheet" href="../static/css/flash_message.css">
+</head>
+
+<body>
+<div class="fixed-header" id="flask-message-header">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+<!-- Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+            <div class="brand-logo d-flex align-items-center justify-content-between">
+                <a href="{{ url_for('display_assets') }}" class="text-nowrap logo-img">
+                    <img src="../static/images/logos/dark-logo.svg" width="180" alt=""/>
+                </a>
+                <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+                    <i class="ti ti-x fs-8"></i>
+                </div>
+            </div>
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                <ul id="sidebarnav">
+
+                    <!-- Functionality Section -->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">FUNC</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ url_for('display_assets') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-article"></i>
+                                </span>
+                            <span class="hide-menu">Asset Declaration</span>
+                        </a>
+                    </li>
+
+                    <!-- Authorisation Section -->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">AUTH</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link active" href="{{ url_for('profile') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-user-plus"></i>
+                                </span>
+                            <span class="hide-menu">My Profile</span>
+                        </a>
+                    </li>
+
+                    <!-- Extra Section -->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">EXTRA</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="{{ url_for('index') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-mood-happy"></i>
+                                </span>
+                            <span class="hide-menu">Log Out</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
+    <!-- Sidebar End -->
+    <!-- Main wrapper -->
+    <div class="body-wrapper">
+
+        <!-- Content Goes Here -->
+
+        <div class="container-fluid">
+            <!-- Success Message Placeholder -->
+            <div class="alert alert-success" role="alert" id="successProfileMessage" style="display: none;"></div>
+
+            <!-- Cancel Message Placeholder -->
+            <div class="alert alert-warning" role="alert" id="failureProfileMessage" style="display: none;"></div>
+
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="{{ url_for('edit_profile') }}" method="POST">
+                            <!-- Personal Information -->
+                            <h5 class="card-title fw-semibold mb-4">Personal Information</h5>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label for="exampleInputName" class="form-label">Name*</label>
+                                        <input type="text" class="form-control" name="name" id="exampleInputName"
+                                               aria-describedby="nameHelp"
+                                               value="{{ profile.name if profile.name else '' }}" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="exampleInputDate" class="form-label">Date of Birth*</label>
+                                        <input type="date" class="form-control" name="birth" id="exampleInputDate"
+                                               aria-describedby="dateHelp"
+                                               value="{{ profile.birth if profile.birth else '' }}"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputID" class="form-label">Identity Card Number*</label>
+                                        <input type="text" class="form-control" name="ic" id="exampleInputID"
+                                               aria-describedby="idHelp"
+                                               value="{{ profile.ic if profile.ic else '' }}" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="addressLine1" class="form-label">Address*</label>
+                                        <div id="addressLine1Help" class="form-text"></div>
+                                        <input type="text" class="form-control" name="addr1" id="addressLine1"
+                                               aria-describedby="addressLine1Help"
+                                               value="{{ profile.addr1 if profile.addr1 else '' }}" required>
+
+                                        <div id="addressLine2Help" class="form-text"></div>
+                                        <input type="text" class="form-control" name="addr2" id="addressLine2"
+                                               aria-describedby="addressLine2Help"
+                                               value="{{ profile.addr2 if profile.addr2 else '' }}" required>
+
+                                        <div id="addressLine3Help" class="form-text"></div>
+                                        <input type="text" class="form-control" name="addr3" id="addressLine3"
+                                               aria-describedby="addressLine3Help"
+                                               value="{{ profile.addr3 if profile.addr3 else '' }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputContact" class="form-label">Contact Number*</label>
+                                        <input type="tel" class="form-control" name="phone" id="exampleInputContact"
+                                               aria-describedby="contactHelp"
+                                               value="{{ profile.phone if profile.phone else '' }}" required>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Personal Information -->
+
+                            <!-- Service Information -->
+                            <h5 class="card-title fw-semibold mb-4">Service Information</h5>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label for="firstPublicServingDate" class="form-label">First Public Serving
+                                            Date*</label>
+                                        <input type="date" class="form-control" name="firstServingDate"
+                                               id="firstPublicServingDate" aria-describedby="dateHelp"
+                                               value="{{ profile.first_public_serving_date if profile.first_public_serving_date else '' }}"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="currentPublicServingDate" class="form-label">Current Public
+                                            Serving Date*</label>
+                                        <input type="date" class="form-control" name="currentServingDate"
+                                               id="currentPublicServingDate" aria-describedby="dateHelp"
+                                               value="{{ profile.current_public_serving_date if profile.current_public_serving_date else '' }}"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="serviceName" class="form-label">Service Name*</label>
+                                        <input type="text" class="form-control" name="serviceName" id="serviceName"
+                                               aria-describedby="serviceNameHelp"
+                                               value="{{ profile.service_name if profile.service_name else '' }}"
+                                               required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="serviceGroup" class="form-label">Service Group*</label>
+                                        <input type="text" class="form-control" name="serviceGroup" id="serviceGroup"
+                                               aria-describedby="serviceGroupHelp"
+                                               value="{{ profile.service_group if profile.service_group else '' }}"
+                                               required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="gradeLevel" class="form-label">Real Grade/Level*</label>
+                                        <input type="text" class="form-control" name="grade" id="gradeLevel"
+                                               aria-describedby="gradeLevelHelp"
+                                               value="{{ profile.grade if profile.grade else '' }}" required>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="jobTitle" class="form-label">Job Title*</label>
+                                        <input type="text" class="form-control" name="job" id="jobTitle"
+                                               aria-describedby="jobTitleHelp"
+                                               value="{{ profile.job if profile.job else '' }}" required>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Service Information -->
+
+                            <!-- Spouse Information -->
+                            <h5 class="card-title fw-semibold mb-4">Spouse Information</h5>
+                            <div class="card">
+                                <div class="card-body">
+
+                                    <div class="mb-3">
+                                        <label for="exampleInputSpouseName" class="form-label">Spouse's
+                                            Name</label>
+                                        <input type="text" class="form-control" name="spouseName"
+                                               id="exampleInputSpouseName" aria-describedby="spouseNameHelp"
+                                               value="{{ profile.spouse_name if profile.spouse_name else '' }}">
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Spouse Information -->
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary" id="submitProfileButton"
+                                        style="width: 300px; margin: 10px;">Submit
+                                </button>
+                                <a href="{{ url_for('profile') }}">
+                                    <button type="button" class="btn btn-outline-primary"
+                                            id="cancelProfileButton" style="width: 300px; margin: 10px;">Cancel
+                                    </button>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Ends Here -->
+</div>
+</div>
+</div>
+
+<script src="../static/vendor/jquery-3.7.1.min.js"></script>
+<script src="../static/vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../static/js/fade_flash.js"></script>
+</body>
+

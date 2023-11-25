@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/styles.min.css"/>
+    <style>
+
+        .card-body {
+            background-color: #f8f9fa; /* Light grey background */
+            border-bottom: 0 !important;
+            padding: 20px;
+        }
+
+        .card .row {
+            margin-bottom: 15px;
+        }
+
+        /* Style for the strong elements */
+        .col-5 {
+            font-weight: bold;
+        }
+
+        /* Style for the spans within the rows */
+        .card .row {
+            margin-left: 5px;
+            margin-right: 10px;
+            border-bottom: 1px solid rgba(169, 169, 169, 0.5);
+            padding-bottom: 2px; /* Add some padding to separate the text from the border */
+        }
+
+        .card-body span {
+            white-space: pre-wrap;
+        }
+
+        .card-header {
+            padding-left: 50px;
+        }
+
+        table {
+            display: inline-table;
+        }
+
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h1 class="text-center">User Details</h1>
+
+    <!-- Profile Details -->
+    <div class="card shadow mt-4">
+        <h2 class="card-header">Profile Details</h2>
+        <div class="row card-body">
+            <div class="col-6" style="border-right: 1px darkgrey solid">
+                <div class="row"><strong class="col-5">Email</strong><span
+                        class="col-7">:{{ profile_detail.email }}</span></div>
+                <div class="row"><strong class="col-5">Name</strong><span
+                        class="col-7">:{{ profile_detail.name }}</span></div>
+                <div class="row"><strong class="col-5">Birth</strong><span
+                        class="col-7">:{{ profile_detail.birth }}</span></div>
+                <div class="row"><strong class="col-5">IC</strong><span class="col-7">:{{ profile_detail.ic }}</span>
+                </div>
+                <div class="row"><strong class="col-5">Address 1</strong><span
+                        class="col-7">:{{ profile_detail.addr1 }}</span></div>
+                <div class="row"><strong class="col-5">Address 2</strong><span
+                        class="col-7">:{{ profile_detail.addr2 }}</span></div>
+                <div class="row"><strong class="col-5">Address 3</strong><span
+                        class="col-7">:{{ profile_detail.addr3 }}</span></div>
+                <div class="row"><strong class="col-5">Phone:</strong><span
+                        class="col-7">{{ profile_detail.phone }}</span></div>
+            </div>
+            <div class="col-6">
+                <div class="row"><strong class="col-5">First Public Serving Date:</strong><span
+                        class="col-7">{{ profile_detail.first_public_serving_date }}</span></div>
+                <div class="row"><strong class="col-5">Current Public Serving Date:</strong><span
+                        class="col-7">{{ profile_detail.current_public_serving_date }}</span></div>
+                <div class="row"><strong class="col-5">Service Name:</strong><span
+                        class="col-7">{{ profile_detail.service_name }}</span></div>
+                <div class="row"><strong class="col-5">Service Group:</strong><span
+                        class="col-7">{{ profile_detail.service_group }}</span></div>
+                <div class="row"><strong class="col-5">Grade:</strong><span
+                        class="col-7">{{ profile_detail.grade }}</span></div>
+                <div class="row"><strong class="col-5">Job:</strong><span class="col-7">{{ profile_detail.job }}</span>
+                </div>
+                <div class="row"><strong class="col-5">Spouse Name:</strong><span
+                        class="col-7">{{ profile_detail.spouse_name }}</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Revenue -->
+    <div class="mt-4 card">
+        <h2 class="card-header">Revenue</h2>
+        <div class="card-body" style="padding:0 50px 0 50px!important;">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in revenue %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Expense -->
+    <div class="mt-4 card"  >
+        <h2 class="card-header">Expense</h2>
+        <div class="card-body table-responsive" style="padding:0 50px 0 50px!important;">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                    <th>Monthly Deduction</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in expense %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.monthly_deduction }}</td>
+                        <td>{{ item.total }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Inventory -->
+    <div class="mt-4 card break-card">
+        <h2 class="card-header">Inventory</h2>
+        <div class="card-body table-responsive" style="padding:0 50px 0 50px!important;">
+            <table class="table table-striped break-table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Type</th>
+                    <th>Owner</th>
+                    <th>Description</th>
+                    <th>Reg Certificate No</th>
+                    <th>Date of Ownership</th>
+                    <th>Quantity Amount</th>
+                    <th>Ownership Size</th>
+                    <th>Quantity Size</th>
+                    <th>Acquisition Cost</th>
+                    <th>Estimated Current Value</th>
+                    <th>Method of Acquisition</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in inventory %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.email }}</td>
+                        <td>{{ item.type }}</td>
+                        <td>{{ item.owner }}</td>
+                        <td>{{ item.inv_description }}</td>
+                        <td>{{ item.reg_certificate_no }}</td>
+                        <td>{{ item.date_of_ownership }}</td>
+                        <td>{{ item.quantity_amount }}</td>
+                        <td>{{ item.ownership_size }}</td>
+                        <td>{{ item.quantity_size }}</td>
+                        <td>{{ item.acquisition_cost }}</td>
+                        <td>{{ item.estimated_current_value }}</td>
+                        <td>{{ item.method_of_acquisition }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="../static/vendor/jquery-3.7.1.min.js"></script>
+<script src="../static/vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

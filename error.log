@@ -1,0 +1,134 @@
+2023-11-14 22:42:47,833 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-11-14 22:42:47,833 [INFO]: [33mPress CTRL+C to quit[0m
+2023-11-14 22:43:03,760 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-11-14 22:43:03,760 [INFO]: [33mPress CTRL+C to quit[0m
+2023-11-14 22:43:29,844 [INFO]: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2023-11-14 22:43:29,845 [INFO]: [33mPress CTRL+C to quit[0m
+2023-11-14 22:43:29,848 [INFO]:  * Restarting with stat
+2023-11-14 22:43:30,507 [WARNING]:  * Debugger is active!
+2023-11-14 22:43:30,509 [INFO]:  * Debugger PIN: 108-059-497
+2023-11-14 22:45:25,282 [WARNING]:  * Debugger is active!
+2023-11-14 22:45:25,284 [INFO]:  * Debugger PIN: 108-059-497
+2023-11-14 22:46:08,077 [INFO]:  * Detected change in 'C:\\Users\\derri\\Downloads\\SKIC Inventory idk (1)\\SKIC Inventory idk\\skic.py', reloading
+2023-11-14 22:55:38,849 [ERROR]: An error occurred during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 22:55:39,130 [ERROR]: An error occurred during sign-up: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 22:56:31,074 [ERROR]: An error occurred during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:30:03,532 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:32:59,034 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:34:04,462 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:35:49,425 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:36:30,913 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:36:38,959 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:38:09,517 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:38:57,031 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:39:24,506 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:41:06,989 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:41:38,318 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:44:49,244 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:08,915 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:19,346 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:27,351 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:29,371 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:30,799 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:32,919 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:34,748 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:47:36,384 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:49:12,788 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:52:28,830 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:58:09,861 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:58:35,978 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-14 23:59:14,570 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:04:18,935 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:05:43,565 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:06:04,791 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:07:43,345 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:08:31,553 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:09:26,894 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:11:59,572 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:13:20,620 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:14:22,092 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:14:36,384 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:16:20,740 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:17:59,360 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:18:54,534 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:28:33,895 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:29:41,124 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:29:43,998 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:31:01,483 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:31:08,951 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:31:36,380 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 00:31:57,304 [ERROR]: MySQL Error during email verification: (1146, "Table 'secure software.profil' doesn't exist")
+2023-11-15 17:54:10,300 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 17:54:34,312 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 17:58:16,120 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:03:54,595 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:15:54,195 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:15:54,195 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:17:01,052 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:17:01,052 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:18:55,325 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:18:55,325 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:30:46,528 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:30:46,528 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:35:30,909 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 18:35:30,909 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 19:47:03,336 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 19:47:03,336 [ERROR]: An unexpected error occurred during email verification: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2023-11-15 19:48:32,869 [ERROR]: An unexpected error occurred during email verification: name 'User' is not defined
+2023-11-15 19:50:37,303 [ERROR]: An unexpected error occurred during email verification: name 'User' is not defined
+2023-11-15 19:50:54,924 [ERROR]: An unexpected error occurred during email verification: name 'User' is not defined
+2023-11-15 20:49:03,969 [ERROR]: MySQL Error during email verification: (MySQLdb.OperationalError) (1054, "Unknown column 'user.hashed_password' in 'field list'")
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.hashed_password AS user_hashed_password, user.authorized_status AS user_authorized_status 
+FROM user 
+WHERE user.email = %s 
+ LIMIT %s]
+[parameters: ('derricksaw123@gmail.com', 1)]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2023-11-15 20:50:40,113 [ERROR]: An unexpected error occurred: 'hashed_password' is an invalid keyword argument for User
+2023-11-16 08:59:58,516 [ERROR]: An unexpected error occurred: generate_token() missing 1 required positional argument: 'email'
+2023-11-16 09:04:08,707 [ERROR]: An unexpected error occurred: name 'reach' is not defined
+2023-11-16 09:05:12,061 [ERROR]: An unexpected error occurred: Could not build url for endpoint 'api.confirm_email' with values ['token']. Did you mean 'confirm_email' instead?
+2023-11-16 09:06:09,831 [ERROR]: An unexpected error occurred: 'MAIL_DEFAULT_SENDER'
+2023-11-16 09:08:29,528 [ERROR]: An unexpected error occurred: [WinError 10061] No connection could be made because the target machine actively refused it
+2023-11-16 09:15:34,094 [ERROR]: An unexpected error occurred: [WinError 10061] No connection could be made because the target machine actively refused it
+2023-11-16 09:17:59,358 [ERROR]: An unexpected error occurred: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1129)
+2023-11-16 09:18:55,948 [ERROR]: An unexpected error occurred: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials b13-20020a056a00114d00b006baa1cf561dsm3370598pfm.0 - gsmtp')
+2023-11-16 09:31:09,746 [ERROR]: An unexpected error occurred: (535, b'5.7.8 Username and Password not accepted. Learn more at\n5.7.8  https://support.google.com/mail/?p=BadCredentials jw16-20020a170903279000b001b53953f306sm8066242plb.178 - gsmtp')
+2023-11-16 13:16:22,251 [ERROR]: An unexpected error occurred: derricksaw123@gmail.com
+2023-11-17 00:57:52,977 [ERROR]: An unexpected error occurred: Could not build url for endpoint 'assets' with values ['filename']. Did you mean 'static' instead?
+2023-11-19 22:43:51,666 [ERROR]: IntegrityError: (MySQLdb.IntegrityError) (1062, "Duplicate entry 'derricksaw123@gmail.com' for key 'PRIMARY'")
+[SQL: INSERT INTO user (username, email, password, authorized_status) VALUES (%s, %s, %s, %s)]
+[parameters: ('derrick', 'derricksaw123@gmail.com', '$2b$12$WLsDHeP6o6wM3gvNq1zh9ewnBUYbUCWSiTmT0/84Wia6AD5ujpigC', 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-19 22:50:51,080 [ERROR]: IntegrityError: (MySQLdb.IntegrityError) (1062, "Duplicate entry 'derricksaw123@gmail.com' for key 'PRIMARY'")
+[SQL: INSERT INTO user (username, email, password, authorized_status) VALUES (%s, %s, %s, %s)]
+[parameters: ('derrick', 'derricksaw123@gmail.com', '$2b$12$zW5gkFO7sTZKG6WBeCy1mO3wVCy0X.n8mRoDf4GFlHCc0WXK3Kf.6', 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-19 22:51:51,467 [ERROR]: IntegrityError: (MySQLdb.IntegrityError) (1062, "Duplicate entry 'derricksaw123@gmail.com' for key 'PRIMARY'")
+[SQL: INSERT INTO user (username, email, password, authorized_status) VALUES (%s, %s, %s, %s)]
+[parameters: ('derrick', 'derricksaw123@gmail.com', '$2b$12$4xdD.6vlx.O/h/RZo2.XIerBjgKpMVdBbLUfAZlRjCUTAkfGfrzz2', 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-19 22:52:31,494 [ERROR]: IntegrityError: (MySQLdb.IntegrityError) (1062, "Duplicate entry 'derricksaw123@gmail.com' for key 'PRIMARY'")
+[SQL: INSERT INTO user (username, email, password, authorized_status) VALUES (%s, %s, %s, %s)]
+[parameters: ('derrick', 'derricksaw123@gmail.com', '$2b$12$cV/6/QLZqFfiYJc1NeO6h.vqdU8xk7CNHL57s7hoaervqj33uXWqi', 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-20 12:02:07,300 [ERROR]: Error add/update revenue item: hasattr(): attribute name must be string
+2023-11-20 12:02:18,753 [ERROR]: Error add/update revenue item: hasattr(): attribute name must be string
+2023-11-23 08:53:19,282 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 08:58:36,368 [ERROR]: IntegrityError: (MySQLdb.IntegrityError) (1062, "Duplicate entry 'derricksaw123@gmail.com' for key 'PRIMARY'")
+[SQL: INSERT INTO user (username, email, password, authorized_status) VALUES (%s, %s, %s, %s)]
+[parameters: ('derrick', 'derricksaw123@gmail.com', '$2b$12$HQkrMUfFARPW4LVgmCDHsu4S4f2I0rA4KmA3ablWrqfJUL1rLoAf6', 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+2023-11-23 09:01:47,054 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:07:43,060 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:14:20,982 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:30:10,052 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:38:11,906 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:41:56,552 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 09:43:49,279 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-23 10:00:20,425 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-25 22:47:48,190 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-25 22:59:12,335 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
