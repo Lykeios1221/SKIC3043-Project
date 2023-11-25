@@ -108,7 +108,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for item in revenue %}
+                {% for item in assets_json.revenue %}
                     <tr>
                         <td>{{ item.id }}</td>
                         <td>{{ item.email }}</td>
@@ -138,7 +138,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for item in expense %}
+                {% for item in assets_json.expense %}
                     <tr>
                         <td>{{ item.id }}</td>
                         <td>{{ item.email }}</td>
@@ -176,7 +176,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for item in inventory %}
+                {% for item in assets_json.inventory %}
                     <tr>
                         <td>{{ item.id }}</td>
                         <td>{{ item.email }}</td>

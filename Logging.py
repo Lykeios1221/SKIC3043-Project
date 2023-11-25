@@ -14,6 +14,7 @@ error_handler = logging.FileHandler('error.log')
 error_handler.setFormatter(logging.Formatter('%(asctime)s [%(levelname)s]: %(message)s'))
 error_logger.addHandler(error_handler)
 
+
 def log_access_activity(message):
     access_logger.info(message)
 

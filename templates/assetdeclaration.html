@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SKIC Inventory Website</title>
-      <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
@@ -140,15 +140,17 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in indRevenues %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets_json.revenues %}
+                                                {% if row.type == 'Individual' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -176,8 +178,8 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                {% for row in houseRevenues %}
+                                            {% for row in user_assets_json.revenues %}
+                                                {% if row.type == 'Household' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -186,8 +188,8 @@
                                                             <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
                                                         </td>
                                                     </tr>
-                                                {% endfor %}
-                                            </tr>
+                                                {% endif %}
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -204,7 +206,7 @@
                                     <div class="col px-0" style="padding-left:8px!important;">
                                         <h2 class="card-title fw-semibold mb-4">Additional Revenue Management</h2>
                                     </div>
-                                    <div class="col px-0" >
+                                    <div class="col px-0">
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px;"
                                                     data-bs-toggle="modal"
@@ -239,7 +241,7 @@
                                             </thead>
 
                                             <tbody>
-                                            {% for row in revenues %}
+                                            {% for row in user_assets_json.revenues %}
                                                 <tr>
                                                     <td class="border-bottom-0">
                                                         <button type="button"
@@ -313,18 +315,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in indExpenses %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets_json.expenses %}
+                                                {% if row.type == 'Individual' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -354,18 +358,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in houseExpenses %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets_json.expenses %}
+                                                {% if row.type == 'Household' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -419,7 +425,7 @@
                                             </thead>
 
                                             <tbody>
-                                            {% for row in expenses %}
+                                            {% for row in user_assets_json.expenses %}
                                                 <tr>
                                                     <td class="border-bottom-0">
                                                         <button type="button"
@@ -536,7 +542,7 @@
 
                                             <!--Table Body-->
                                             <tbody>
-                                            {% for row in inventories %}
+                                            {% for row in user_assets_json.inventories %}
                                                 <tr>
                                                     <!--Actions-->
                                                     <td>
@@ -860,7 +866,7 @@
 
 <script>
     $('.collapsible').on('click', function () {
-       $(this).siblings('.content').slideToggle('slow');
+        $(this).siblings('.content').slideToggle('slow');
     });
 </script>
 
