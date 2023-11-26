@@ -11,7 +11,7 @@ from flask_login import LoginManager, current_user, login_user, login_required, 
 from flask_mail import Mail, Message
 from sqlalchemy import exc
 
-from logging import log_access_activity, log_error
+from app_logging import log_access_activity, log_error
 from model import User, db, EmailAuthenticator, Profile, Revenue, Expense, Inventory, LoginForm, SignupForm, \
     ResetPasswordForm
 from app import app
@@ -259,7 +259,7 @@ def reset_password(token):
     except Exception as e:
         log_error(f"An unexpected error occurred: {str(e)}")
         flash("An unexpected error occurred. Please try again later.", "danger")
-    return redirect(url_for('index'))
+    return redirect(url_for('forgot_password_page'))
 
 
 @app.route('/profile')
