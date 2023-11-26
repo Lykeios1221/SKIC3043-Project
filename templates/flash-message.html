@@ -1,0 +1,15 @@
+{% block message %}
+    <div class="fixed-header" id="flask-message-header">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
