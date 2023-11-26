@@ -35,7 +35,6 @@ def user_loader(user_email):
 
 @app.route('/')
 def index():
-    logout_user()
     login_form = LoginForm()
     sign_up_form = SignupForm()
     return render_template('login.html', login_form=login_form, sign_up_form=sign_up_form)
