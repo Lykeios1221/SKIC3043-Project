@@ -1,5 +1,6 @@
 from datetime import datetime
 from smtplib import SMTPException
+from typing import re
 
 from flask import render_template, request, flash, url_for, redirect, jsonify
 from flask_apscheduler import APScheduler
@@ -10,8 +11,8 @@ from flask_login import LoginManager, current_user, login_user, login_required, 
 from flask_mail import Mail, Message
 from sqlalchemy import exc
 
-from Logging import log_access_activity, log_error
-from Model import User, db, EmailAuthenticator, Profile, Revenue, Expense, Inventory, LoginForm, SignupForm, \
+from logging import log_access_activity, log_error
+from model import User, db, EmailAuthenticator, Profile, Revenue, Expense, Inventory, LoginForm, SignupForm, \
     ResetPasswordForm
 from app import app
 
@@ -37,7 +38,7 @@ def user_loader(user_email):
 def index():
     login_form = LoginForm()
     sign_up_form = SignupForm()
-    return render_template('login.html', login_form=login_form, sign_up_form=sign_up_form)
+    return render_template('index.html', login_form=login_form, sign_up_form=sign_up_form)
 
 
 @app.route('/login', methods=['POST'])
@@ -101,11 +102,11 @@ def signup():
             confirm_url = url_for("confirm_email", token=token, _external=True)
             subject = "SKIC3043: Please confirm your email"
             msg = Message(subject, recipients=[email],
-                html=render_template('verification_email.html', confirm_url=confirm_url),
-                sender='flaskemailbotf@gmail.com', )
+                          html=render_template('verification-email.html', confirm_url=confirm_url),
+                          sender='flaskemailbotf@gmail.com', )
             mail.send(message=msg)
             log_access_activity(f"User '{name}' signed up with email '{email}'. Verification email sent.")
-            return render_template('VerifyRequest.html')
+            return render_template('verify-request.html')
         except exc.IntegrityError as e:
             log_error(f"IntegrityError: {str(e)}")
             flash("An unexpected error occurred. Try again later.", 'danger')
@@ -196,7 +197,7 @@ def confirm_email(token):
 @app.route('/forgot_password_page')
 def forgot_password_page():
     form = ResetPasswordForm()
-    return render_template('forgot_password.html', form=form)
+    return render_template('forgot-password.html', form=form)
 
 
 @app.route('/send_reset_email', methods=['POST'])
@@ -212,11 +213,11 @@ def send_reset_email():
             confirm_url = url_for("reset_password", token=token, _external=True)
             subject = "SKIC3043: Request for reset password"
             msg = Message(subject, recipients=[email],
-                html=render_template('reset_password_email.html', confirm_url=confirm_url),
-                sender='flaskemailbotf@gmail.com', )
+                          html=render_template('reset-password-email.html', confirm_url=confirm_url),
+                          sender='flaskemailbotf@gmail.com', )
             mail.send(message=msg)
             log_access_activity(f"Reset password instructions have been sent to '{email}'.")
-            return render_template('VerifyRequest.html')
+            return render_template('verify-request.html')
         except RateLimitExceeded as e:
             log_access_activity(f"Rate limit exceeded for reset password of email {email}. Error: {e.description}")
             flash('Rate limit exceeded for sending reset password email. Try again later.', 'danger')
@@ -324,7 +325,7 @@ def display_assets():
                    'inventories': [inventory.as_dict() for inventory in Inventory.query.filter_by(email=email).all()]}
     user_assets_camel_case = convert_keys_to_camel_case(user_assets)
     user_assets_json = jsonify(user_assets_camel_case)
-    return render_template('assetdeclaration.html', user_assets_json=user_assets_json, email=current_user.email)
+    return render_template('assets.html', user_assets_json=user_assets_json, email=current_user.email)
 
 
 @limiter.limit("5 per minute", key_func=lambda: current_user.email, error_message='Too many attempts.')
@@ -336,7 +337,7 @@ def check_manage_assets_rate():
 def manage_assets():
     try:
         check_manage_assets_rate()
-        data = request.get_json()
+        data = convert_keys_to_snake_case(request.get_json())
         # Handle revenues additions and modifications
         for item in data.get('revenuesChanges', {}).get('additions', []) + data.get('revenuesChanges', {}).get(
                 'modifications', []):
@@ -454,7 +455,7 @@ def delete_inventory(item):
 def get_print_assets():
     profile_detail = Profile.query.get(current_user.email)
     assets_json = request.get_json()
-    return render_template('print_assets.html', profile_detail=profile_detail, assets_json=assets_json)
+    return render_template('print-assets.html', profile_detail=profile_detail, assets_json=assets_json)
 
 
 def update_from_dict(model_instance, data):
@@ -498,5 +499,17 @@ def convert_keys_to_camel_case(dictionary):
         return {to_camel_case(key): convert_keys_to_camel_case(value) for key, value in dictionary.items()}
     elif isinstance(dictionary, list):
         return [convert_keys_to_camel_case(item) for item in dictionary]
+    else:
+        return dictionary
+
+
+def convert_keys_to_snake_case(dictionary):
+    def to_snake_case(snake_str):
+        return re.sub('([a-z0-9])([A-Z])', r'\1_\2', snake_str).lower()
+
+    if isinstance(dictionary, dict):
+        return {to_snake_case(key): convert_keys_to_snake_case(value) for key, value in dictionary.items()}
+    elif isinstance(dictionary, list):
+        return [convert_keys_to_snake_case(item) for item in dictionary]
     else:
         return dictionary

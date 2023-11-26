@@ -506,9 +506,9 @@ $(document).ready(function () {
         var expenseChanges = compareArrays(originalExpenses, expenses);
 
         var changes = {
-            'revenuesChanges': convertKeysToSnakeCase(revenueChanges),
-            'expensesChanges': convertKeysToSnakeCase(expenseChanges),
-            'inventoriesChange': convertKeysToSnakeCase(inventoryChanges)
+            'revenuesChanges': revenueChanges,
+            'expensesChanges': expenseChanges,
+            'inventoriesChange': inventoryChanges
         };
         sendChangesToServer(changes, "/manage_assets");
     });
@@ -531,22 +531,3 @@ $(document).ready(function () {
         });
     });
 })
-
-function convertKeysToSnakeCase(obj) {
-    if (obj === null || typeof obj !== 'object') {
-        return obj;
-    }
-
-    if (Array.isArray(obj)) {
-        return obj.map(item => convertKeysToSnakeCase(item));
-    }
-
-    const snakeCaseObj = {};
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            const snakeCaseKey = key.replace(/[A-Z]/g, match => `_${match.toLowerCase()}`);
-            snakeCaseObj[snakeCaseKey] = convertKeysToSnakeCase(obj[key]);
-        }
-    }
-    return snakeCaseObj;
-}
