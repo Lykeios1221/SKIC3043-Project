@@ -23,6 +23,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'dialect+driver://username:password@host
 ```
 
 ## Run
-To run it locally, please install [xampp](https://www.apachefriends.org/) and start Apache and MySQL server   
+To run it locally, please install [xampp](https://www.apachefriends.org/), and start Apache & MySQL modules
 
 **_NOTE:_** Only the [main.py](main.py) file should be run
