@@ -12,7 +12,7 @@ pip install -r requirement.txt
 
 To setup the database, follows the below structure:
 
-<img style="background-color: white" src="database.svg"/>
+<img style="background-color: white" src="/database.svg" alt="database structure"/>
 
 Or simply import the [secure_software.sql](secure_software.sql)
 
