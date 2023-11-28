@@ -18,4 +18,6 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = '6LctxBQpAAAAAPWXDeszLc6JdfN4qzWJEFEh4bB4'
 app.config['RECAPTCHA_PRIVATE_KEY'] = '6LctxBQpAAAAABurREhgk1Uh_iRYIQlNX2bbkzGz'
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 
+app.config['PERMANENT_SESSION_LIFETIME'] = 120
+
 import api

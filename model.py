@@ -53,8 +53,8 @@ class Profile(db.Model):
 
 
 class Revenue(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     description = db.Column(db.String(255), nullable=False)
     type = db.Column(db.String(255), nullable=False)
     total = db.Column(db.Numeric(19, 2), nullable=False)
@@ -67,8 +67,8 @@ class Revenue(db.Model):
 
 
 class Expense(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     description = db.Column(db.String(255), nullable=False)
     type = db.Column(db.String(255), nullable=False)
     monthly_deduction = db.Column(db.Numeric(19, 2), nullable=False)
@@ -83,8 +83,8 @@ class Expense(db.Model):
 
 
 class Inventory(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), nullable=False)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     type = db.Column(db.String(255), nullable=False)
     owner = db.Column(db.String(255), nullable=False)
     inv_description = db.Column(db.String(255), nullable=False)

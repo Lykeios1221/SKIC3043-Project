@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SKIC Inventory Website</title>
-      <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
@@ -14,22 +14,13 @@
 
     <link rel="shortcut icon" type="image/png" href="../static/images/logos/favicon.png"/>
     <link rel="stylesheet" href="../static/css/styles.min.css"/>
-    <link rel="stylesheet" href="../static/css/flash_message.css">
-    <link rel="stylesheet" href="../static/css/display_assets.css">
+    <link rel="stylesheet" href="../static/css/flash-message.css">
+    <link rel="stylesheet" href="../static/css/display-assets.css">
 </head>
 
 <body>
-<div class="fixed-header" id="flask-message-header">
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="flash-message {{ category }}">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-</div>
+{% include "flash-message.html" %}
+
 <!--  Body Wrapper -->
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
@@ -37,71 +28,7 @@
     <!--------------------------------------
       Sidebar
       ---------------------------------------->
-    <aside class="left-sidebar">
-        <!-- Sidebar scroll-->
-        <div>
-            <div class="brand-logo d-flex align-items-center justify-content-between">
-                <a href="{{ url_for('display_assets') }}" class="text-nowrap logo-img">
-                    <img src="../static/images/logos/dark-logo.svg" width="180" alt=""/>
-                </a>
-                <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
-                    <i class="ti ti-x fs-8"></i>
-                </div>
-            </div>
-            <!-- Sidebar navigation-->
-            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
-                <ul id="sidebarnav">
-
-
-                    <!--Functionality Section-->
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">FUNC</span>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link active" href="{{ url_for('display_assets') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                            <span class="hide-menu">Asset Declaration</span>
-                        </a>
-                    </li>
-
-
-                    <!--Authorisation Section-->
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">AUTH</span>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ url_for('profile') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-user-plus"></i>
-                </span>
-                            <span class="hide-menu">My Profile</span>
-                        </a>
-                    </li>
-
-                    <!--Extra Section-->
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">EXTRA</span>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ url_for('index') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-mood-happy"></i>
-                </span>
-                            <span class="hide-menu">Log Out</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- End Sidebar navigation -->
-        </div>
-        <!-- End Sidebar scroll-->
-    </aside>
-
+    {% include "sidebar.html" %}
 
     <div class="body-wrapper">
         <div class="container-fluid">
@@ -140,15 +67,17 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in indRevenues %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets.revenues %}
+                                                {% if row.type == 'Individual' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -176,8 +105,8 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                {% for row in houseRevenues %}
+                                            {% for row in user_assets.revenues %}
+                                                {% if row.type == 'Household' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -186,8 +115,8 @@
                                                             <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
                                                         </td>
                                                     </tr>
-                                                {% endfor %}
-                                            </tr>
+                                                {% endif %}
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>
@@ -197,27 +126,25 @@
 
                     </div>
                     <!-- Additional Revenue Table -->
-                    <form class="row">
+                    <div class="row">
                         <div class="col-lg-12 d-flex align-items-stretch">
                             <div class="card w-100">
                                 <div class="row" style="padding:30px">
                                     <div class="col px-0" style="padding-left:8px!important;">
                                         <h2 class="card-title fw-semibold mb-4">Additional Revenue Management</h2>
                                     </div>
-                                    <div class="col px-0" >
+                                    <div class="col px-0">
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px;"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#revenueModal">
+                                                    data-bs-target="#revenue-modal">
                                                 Add
                                             </button>
                                         </div>
                                     </div>
-
-
                                     <div class="px-0 mt-4">
                                         <table class="table table-striped nowrap jDataTable w-100 row-border"
-                                               id="revenues_tb">
+                                               id="revenue-table">
                                             <thead>
                                             <tr>
                                                 <th>
@@ -239,40 +166,43 @@
                                             </thead>
 
                                             <tbody>
-                                            {% for row in revenues %}
+                                            {% for row in user_assets.revenues %}
                                                 <tr>
                                                     <td class="border-bottom-0">
-                                                        <button type="button"
-                                                                class="btn btn-danger btn-delete"> Delete
-                                                        </button>
-                                                        <button type="button"
-                                                                class="btn btn-secondary btn-modify m-1"
-                                                                data-bs-target="#revenueModal" data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
+                                                        <form method="POST" class="revenue-row-form">
+                                                            <input type="hidden" name="data" value="{{ row }}">
+                                                            <button type="submit" name="action" value="delete"
+                                                                    class="btn btn-danger"> Delete
+                                                            </button>
+                                                            <button type="submit" name="action" value="modify"
+                                                                    class="btn btn-secondary m-1"
+                                                                    data-bs-target="#revenue-modal"
+                                                                    data-bs-toggle="modal">
+                                                                Modify
+                                                            </button>
+                                                        </form>
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.id }}</h6>
+                                                    <td class="h6">
+                                                        {{ row.id }}
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.description }}</h6>
+                                                    <td class="h6">
+                                                        {{ row.description }}
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.type }}</h6>
+                                                    <td class="h6">
+                                                        {{ row.type }}
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.total }}</h6>
+                                                    <td class="h6">
+                                                        {{ row.total }}
                                                     </td>
                                                 </tr>
                                             {% endfor %}
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
 
                 </div>
             </div>
@@ -313,18 +243,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in indExpenses %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets.expenses %}
+                                                {% if row.type == 'Individual' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -354,18 +286,20 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            {% for row in houseExpenses %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthly_deduction }}</h6>
-                                                    </td>
-                                                </tr>
+                                            {% for row in user_assets.expenses %}
+                                                {% if row.type == 'Household' %}
+                                                    <tr>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                                                        </td>
+                                                        <td class="border-bottom-0">
+                                                            <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endif %}
                                             {% endfor %}
                                             </tbody>
                                         </table>
@@ -376,7 +310,7 @@
                     </div>
 
                     <!--Additional Expenses Table-->
-                    <form class="row">
+                    <div class="row">
                         <div class="col-lg-12 d-flex align-items-stretch">
                             <div class="card w-100">
                                 <div class="row" style="padding:30px">
@@ -387,14 +321,14 @@
                                         <div class="d-flex justify-content-end">
                                             <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
                                                     data-bs-toggle="modal"
-                                                    data-bs-target="#expenseModal">
+                                                    data-bs-target="#expense-modal">
                                                 Add
                                             </button>
                                         </div>
                                     </div>
                                     <div class="px-0 mt-4">
                                         <table class="table table-striped nowrap jDataTable w-100 row-border"
-                                               id="expenses_tb">
+                                               id="expense-table">
                                             <thead>
                                             <tr>
                                                 <th>
@@ -419,43 +353,36 @@
                                             </thead>
 
                                             <tbody>
-                                            {% for row in expenses %}
+                                            {% for row in user_assets.expenses %}
                                                 <tr>
                                                     <td class="border-bottom-0">
-                                                        <button type="button"
-                                                                class="btn btn-danger btn-delete m-1"> Delete
-                                                        </button>
-                                                        <button type="button"
-                                                                class="btn btn-secondary btn-modify m-1"
-                                                                data-bs-target="#expenseModal" data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
+                                                        <form method="POST" class="expense-row-form">
+                                                            <input type="hidden" name="data" value="{{ row }}">
+                                                            <button type="submit" name="action" value="delete"
+                                                                    class="btn btn-danger"> Delete
+                                                            </button>
+                                                            <button type="submit" name="action" value="modify"
+                                                                    class="btn btn-secondary m-1"
+                                                                    data-bs-target="#expense-modal"
+                                                                    data-bs-toggle="modal">
+                                                                Modify
+                                                            </button>
+                                                        </form>
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.id }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.description }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.type }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.monthly_deduction }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.total }}</h6>
-                                                    </td>
+                                                    <td class="h6">{{ row.id }}</td>
+                                                    <td class="h6">{{ row.description }}</td>
+                                                    <td class="h6">{{ row.type }}</td>
+                                                    <td class="h6">{{ row.monthlyDeduction }}</td>
+                                                    <td class="h6">{{ row.total }}</td>
                                                 </tr>
                                             {% endfor %}
-
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
@@ -478,7 +405,7 @@
                             <div class="col">
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
-                                            data-bs-target="#inventoryModal" data-bs-toggle="modal">Add
+                                            data-bs-target="#inventory-modal" data-bs-toggle="modal">Add
                                     </button>
                                 </div>
                             </div>
@@ -489,7 +416,8 @@
                             <div class="card w-100">
                                 <div class="card-body p-4 pt-2">
                                     <div class="px-0">
-                                        <table class="table table-striped nowrap jDataTable w-100" id="inventories_tb">
+                                        <table class="table table-striped nowrap jDataTable w-100"
+                                               id="inventory-table">
 
                                             <!--Table Header-->
                                             <thead>
@@ -536,52 +464,34 @@
 
                                             <!--Table Body-->
                                             <tbody>
-                                            {% for row in inventories %}
+                                            {% for row in user_assets.inventories %}
                                                 <tr>
                                                     <!--Actions-->
                                                     <td>
-                                                        <button type="button"
-                                                                class="btn btn-danger btn-delete m-1"> Delete
-                                                        </button>
-                                                        <button type="button"
-                                                                class="btn btn-secondary btn-modify m-1"
-                                                                data-bs-target="#inventoryModal" data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
+                                                        <form method="POST" class="inventory-row-form">
+                                                            <input type="hidden" name="data" value="{{ row }}">
+                                                            <button type="submit" name="action" value="delete"
+                                                                    class="btn btn-danger"> Delete
+                                                            </button>
+                                                            <button type="submit" name="action" value="modify"
+                                                                    class="btn btn-secondary m-1"
+                                                                    data-bs-target="#inventory-modal"
+                                                                    data-bs-toggle="modal">
+                                                                Modify
+                                                            </button>
+                                                        </form>
                                                     </td>
-                                                    <td>
-                                                        <h6>{{ row.id }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.type }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.owner }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.inv_description }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.reg_certificate_no }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.date_of_ownership }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.quantity_amount }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.quantity_size }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.acquisition_cost }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.estimated_current_value }}</h6>
-                                                    </td>
-                                                    <td>
-                                                        <h6>{{ row.method_of_acquisition }}</h6>
-                                                    </td>
+                                                    <td class="h6">{{ row.id }}</td>
+                                                    <td class="h6">{{ row.type }}</td>
+                                                    <td class="h6">{{ row.owner }}</td>
+                                                    <td class="h6">{{ row.invDescription }}</td>
+                                                    <td class="h6">{{ row.regCertificateNo }} </td>
+                                                    <td class="h6">{{ row.dateOfOwnership }}</td>
+                                                    <td class="h6">{{ row.quantityAmount }}</td>
+                                                    <td class="h6">{{ row.quantitySize }}</td>
+                                                    <td class="h6">{{ row.acquisitionCost }}</td>
+                                                    <td class="h6">{{ row.estimatedCurrentValue }}</td>
+                                                    <td class="h6">{{ row.methodOfAcquisition }}</td>
                                                 </tr>
                                             {% endfor %}
                                             </tbody>
@@ -642,7 +552,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="revenueModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="revenue-modal" tabindex="-1" role="dialog"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -655,9 +565,9 @@
             </div>
             <div class="modal-body">
                 <!-- Form content -->
-                <form id="revenue_form">
-                    <input name="email" hidden="hidden" value="{{ email }}">
-                    <input name="id" value="" hidden="hidden">
+                <form id="revenue-form" method="POST">
+                    <input name="email" type="hidden" value="{{ email }}">
+                    <input name="id" value="" type="hidden">
                     <div class="mb-3 form-group">
                         <label for="revenueDescription" class="form-label">Description*</label>
                         <input type="text" name="description" class="form-control" id="revenueDescription" required
@@ -690,7 +600,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="expenseModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="expense-modal" tabindex="-1" role="dialog"
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -703,7 +613,7 @@
             </div>
             <div class="modal-body">
                 <!-- Form content -->
-                <form id="expense_form">
+                <form id="expense-form" method="POST">
                     <input name="email" hidden="hidden" value="{{ email }}">
                     <input name="id" value="" hidden="hidden">
                     <div class="mb-3 form-group">
@@ -743,7 +653,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="inventoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="inventory-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -755,7 +665,7 @@
             </div>
             <div class="modal-body">
                 <!-- Form content -->
-                <form id="inventory_form">
+                <form id="inventory-form" method="POST">
                     <input name="id" value="" hidden="hidden">
                     <input name="email" hidden="hidden" value="{{ email }}">
                     <div class="mb-3 form-group">
@@ -842,7 +752,7 @@
 </div>
 
 
-<input type='hidden' id='userAssets' data-assets='{{ user_assets_json | safe }}'>
+<input type='hidden' id='userAssets' data-assets='{{ user_assets }}'>
 
 <script src="../static/vendor/jquery-3.7.1.min.js"></script>
 <script src="../static/vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
@@ -860,12 +770,12 @@
 
 <script>
     $('.collapsible').on('click', function () {
-       $(this).siblings('.content').slideToggle('slow');
+        $(this).siblings('.content').slideToggle('slow');
     });
 </script>
 
-<script src="../static/js/assets_manage.js"></script>
-<script src="../static/js/fade_flash.js"></script>
+<script src="../static/js/manage-assets.js"></script>
+<script src="../static/js/flash-fade.js"></script>
 </body>
 
 </html>

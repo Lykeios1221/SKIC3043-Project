@@ -1,0 +1,49 @@
+/* Tooltip container */
+.tooltip {
+    z-index: 9999;
+    position: relative;
+    display: inline-block;
+    width: 100% !important;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    width: 180px;
+    background-color: rgb(91, 108, 211);
+    color: #fff;
+    text-align: justify;
+    padding: 10px 10px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 20%;
+    left: 121%;
+    margin-left: -60px;
+}
+
+
+/* Common Tooltip arrow styles */
+.tooltip .tooltiptext::after,
+.tooltip .arrow-top-left.tooltiptext::after {
+    z-index: 9999;
+    content: "";
+    position: absolute;
+    right: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent #555 transparent transparent;
+}
+
+/* Tooltip arrow pointing left */
+.tooltip .tooltiptext::after {
+    top: 50%;
+    margin-top: -5px;
+}
+
+/* Custom Tooltip arrow style for arrow-top-left */
+.tooltip .arrow-top-left.tooltiptext::after {
+    top: 20%;
+    margin-top: -5px;
+}

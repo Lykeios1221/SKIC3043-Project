@@ -1,6 +1,16 @@
+const container = document.getElementById('container');
+const registerBtn = document.getElementById('register');
+const loginBtn = document.getElementById('login');
+
+registerBtn.addEventListener('click', () => {
+    container.classList.add("active");
+});
+
+loginBtn.addEventListener('click', () => {
+    container.classList.remove("active");
+});
+
 $(document).ready(function () {
-    // hide initially to appear with fade effect later
-    $('.tooltiptext').hide();
 
     // Intercept the sign-up form submission for verification
     $("#signup_form").on('submit', function (e) {
@@ -47,13 +57,6 @@ $(document).ready(function () {
         });
     });
 
-    // Make tooltips appear on hover
-    $('.hover-fade-in-out').hover(function () {
-        $(this).children('.tooltiptext').fadeIn('fast');
-    }, function () {
-        $(this).children('.tooltiptext').fadeOut('fast');
-    });
-
     // Config error dialog
     $("#errorDialog").dialog({
         autoOpen: false,
@@ -74,3 +77,4 @@ $(document).ready(function () {
     });
     $('#errorDialog').siblings(".ui-dialog-titlebar").prepend("<span class='ui-icon ui-icon-alert' style='float:left;margin: 4px 4px 0px -2px;'></span>");
 });
+
