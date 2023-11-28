@@ -1199,3 +1199,503 @@
 2023-11-25 23:01:11,537 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
 2023-11-25 23:01:11,754 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
 2023-11-25 23:01:15,367 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-26 11:01:51,330 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-26 11:01:51,759 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-26 11:01:55,136 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-26 11:02:02,751 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-26 11:05:35,070 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-26 11:05:47,380 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-26 11:05:47,925 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-26 11:05:51,168 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-26 11:06:00,235 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-26 11:06:23,726 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 11:06:23,741 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-26 17:11:39,343 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 17:11:39,585 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 17:16:59,391 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 17:16:59,652 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 18:57:25,969 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 18:57:26,200 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 19:00:12,122 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 19:00:12,374 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 19:08:31,102 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 19:08:31,358 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 19:53:44,820 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 19:53:45,069 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 20:42:39,262 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 20:42:39,512 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 20:54:29,555 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 20:54:29,794 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 20:57:16,764 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 20:57:16,995 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 21:09:08,239 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 21:09:08,475 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 21:33:10,930 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 21:33:11,378 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 22:51:48,167 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 22:51:48,424 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-26 23:40:12,398 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-26 23:40:12,743 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-27 00:18:20,502 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-27 00:18:20,756 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-27 09:21:13,195 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-27 09:21:13,884 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-27 20:26:36,459 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-27 20:26:36,719 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 00:02:00,573 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 00:02:00,833 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 00:02:10,743 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 00:03:05,707 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 00:03:51,648 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 00:03:51,649 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 00:05:07,180 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 00:05:07,180 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 01:05:46,236 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 01:05:46,492 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 01:05:56,845 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 01:05:56,846 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 01:56:47,072 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 01:56:47,074 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 01:59:01,783 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 01:59:01,783 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:02:23,525 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:02:23,526 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:04:21,365 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:04:21,365 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:07:25,859 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:07:25,861 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:09:02,951 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:09:02,951 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:09:08,598 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:09:08,599 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:10:26,341 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:10:26,342 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:11:07,887 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:11:07,887 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 02:12:19,942 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 02:12:19,951 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 11:54:41,541 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 11:54:41,792 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 11:54:50,034 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 11:55:37,394 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 11:55:37,632 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 11:55:42,882 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 11:55:42,891 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:08:13,868 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:08:14,110 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:08:22,839 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:08:22,840 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:09:24,872 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:09:24,873 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:09:58,958 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:09:58,959 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:11:17,397 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:11:17,397 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:12:04,406 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:12:04,407 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:12:24,677 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:12:24,678 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:13:10,638 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:13:44,350 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:13:44,603 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:13:52,113 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:14:27,321 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:14:27,322 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:21:36,325 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:21:36,335 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:21:48,283 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:21:48,289 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:22:28,261 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:22:28,266 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:22:40,857 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:22:40,861 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:22:51,267 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:22:51,270 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:23:31,969 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:23:31,979 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:38:47,211 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:38:47,221 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:38:51,530 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:38:51,538 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:39:00,586 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:39:00,593 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 12:45:04,038 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:45:04,327 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:45:07,055 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:45:07,304 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:47:44,599 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:47:44,874 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:07,130 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:07,381 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:51,638 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:51,894 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:55,617 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:55,866 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:58,302 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:48:58,561 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 12:49:23,348 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:23,600 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:26,289 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:26,526 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:28,618 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:28,851 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 12:49:33,005 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:33,259 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 12:49:43,480 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:49:43,763 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:49:48,303 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 12:50:00,021 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 12:50:21,832 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 12:50:43,497 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:50:43,783 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:50:47,641 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:50:47,892 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:50:50,764 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:50:51,042 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:51:06,960 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:51:07,200 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:51:21,414 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 12:51:21,665 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 12:51:28,621 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 12:52:05,983 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 12:52:35,971 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 12:52:59,786 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 12:52:59,967 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 12:53:03,385 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 12:53:22,205 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-28 13:00:19,688 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 13:00:19,941 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 13:01:27,177 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 13:01:27,430 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 13:01:40,611 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 13:01:40,837 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 13:03:58,536 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 13:03:58,794 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 13:05:01,134 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 13:05:11,245 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:05:11,398 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:05:13,603 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:05:24,027 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-28 13:06:16,009 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:06:16,174 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:06:18,612 [INFO]: User 'DERRICK SAW WEI HENG' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:06:23,515 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-28 13:19:06,059 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:19:06,212 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:19:08,854 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:20:27,741 [INFO]: Email 'derricksaw123@gmail.com' registered failed due to waiting for verification
+2023-11-28 13:20:35,912 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:20:36,101 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:20:38,246 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:22:15,764 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:22:15,946 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:22:18,720 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:23:30,532 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:23:30,741 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:23:33,590 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:24:22,586 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:24:22,772 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:24:25,691 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:25:20,030 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:25:20,261 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:25:23,440 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:27:24,490 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:27:24,672 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:27:27,749 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:29:35,552 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:29:35,727 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:29:37,775 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:31:11,358 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:31:11,601 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:31:14,502 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:35:04,957 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:35:05,200 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:35:07,347 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:37:04,544 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:37:04,692 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:37:06,871 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:41:27,116 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:41:38,239 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:43:30,314 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:44:24,958 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:44:51,416 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:45:24,312 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:46:34,718 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 13:46:34,886 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 13:46:37,906 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 13:47:01,320 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-28 14:29:14,226 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 14:29:14,470 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 15:29:21,024 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = True.
+2023-11-28 15:29:34,435 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 15:29:34,599 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 15:29:47,750 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 15:29:47,909 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 15:29:59,357 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 15:29:59,494 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 15:30:10,561 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 15:30:10,706 [INFO]: Rate limit exceeded for sign-up attempts of email. Error: Too many attempts.
+2023-11-28 15:30:53,523 [INFO]: Email duplication verification for 'derricksaw123@gmail.com' was successful. Duplicated status = False.
+2023-11-28 15:30:53,697 [INFO]: Sign-up attempt with email 'derricksaw123@gmail.com'.
+2023-11-28 15:30:56,173 [INFO]: User 'derrick' signed up with email 'derricksaw123@gmail.com'. Verification email sent.
+2023-11-28 15:31:08,600 [INFO]: User with email 'derricksaw123@gmail.com' is verified.
+2023-11-28 15:31:24,184 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 15:31:24,408 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 15:31:44,049 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:31:45,968 [INFO]: Reset password instructions have been sent to 'derricksaw1231@gmail.com'.
+2023-11-28 15:35:33,070 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:37:02,437 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:38:13,780 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:39:37,417 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:40:47,348 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:42:39,042 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:42:48,803 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:42:55,467 [INFO]: Rate limit exceeded for reset password of email derricksaw1231@gmail.com. Error: Failed send reset password email attempts.
+2023-11-28 15:43:58,506 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:44:11,526 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:44:18,335 [INFO]: Attempt to send mail for reset password to 'derricksaw1231@gmail.com'.
+2023-11-28 15:44:30,948 [INFO]: Rate limit exceeded for reset password of email derricksaw1231@gmail.com. Error: Failed send reset password email attempts.
+2023-11-28 15:44:44,238 [INFO]: Rate limit exceeded for reset password of email derricksaw123@gmail.com. Error: Failed send reset password email attempts.
+2023-11-28 15:45:13,544 [INFO]: Rate limit exceeded for reset password of email derricksaw123@gmail.com. Error: Failed send reset password email attempts.
+2023-11-28 15:45:42,709 [INFO]: Rate limit exceeded for reset password of email derricksaw123@gmail.com. Error: Failed send reset password email attempts.
+2023-11-28 15:47:17,772 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 15:47:20,467 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 15:49:43,311 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 15:49:45,286 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 15:59:57,644 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:00:34,673 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:00:37,932 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:02:07,650 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:02:10,101 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:04:24,195 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:04:26,132 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:05:34,913 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:05:36,941 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:08:27,336 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:08:30,292 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:10:07,492 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:10:09,580 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:12:00,763 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:12:03,445 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 16:12:18,809 [INFO]: User with email 'derricksaw123@gmail.com' reset password successfully.
+2023-11-28 16:13:24,042 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 16:13:24,278 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 16:13:35,221 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 16:13:35,463 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 16:40:34,049 [INFO]: Attempt to send mail for reset password to 'derricksaw123@gmail.com'.
+2023-11-28 16:40:36,115 [INFO]: Reset password instructions have been sent to 'derricksaw123@gmail.com'.
+2023-11-28 17:50:38,455 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:50:38,713 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:50:48,564 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:50:48,825 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 17:51:15,543 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:51:15,552 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 17:51:37,902 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:51:37,917 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 17:51:48,999 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:52:03,242 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:53:02,113 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 17:53:02,119 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 17:53:40,186 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:55:03,930 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:55:31,472 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:56:35,381 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:57:56,551 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 17:59:13,353 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 18:00:38,603 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:00:38,612 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:03:29,396 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:03:29,667 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 18:03:41,449 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:03:41,459 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:04:29,161 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:04:29,167 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:05:41,758 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:05:42,001 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:05:50,609 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:05:50,902 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 18:09:34,615 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:09:34,898 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 18:11:05,652 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:11:05,661 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:12:30,285 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:12:30,537 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 18:12:36,551 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:12:36,558 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:12:41,956 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:12:41,962 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:12:52,506 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 18:12:58,666 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 18:13:49,167 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 18:25:26,992 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:25:27,246 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 18:25:29,963 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 18:26:54,509 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:26:54,519 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:27:00,913 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:27:00,920 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 18:27:05,206 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 18:27:05,212 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:11,155 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:11,429 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 19:56:21,495 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:21,505 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:27,210 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:27,215 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:34,296 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:34,301 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:39,939 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:39,945 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:47,794 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 19:56:47,800 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 19:56:53,328 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:00:23,315 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:23,590 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:00:28,665 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:28,674 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:00:33,390 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:33,396 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:00:38,223 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:38,229 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:00:42,835 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:42,840 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:00:47,537 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:00:47,542 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:00:52,398 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:01:39,986 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:01:39,992 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:01:54,635 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:01:54,641 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:01:58,936 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:01:58,940 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:02:04,228 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:02:04,233 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:02:09,399 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:02:09,404 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:02:13,974 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:02:19,624 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:03:31,263 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:03:31,272 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:03:37,690 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:03:37,695 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:03:41,949 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:04:06,293 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:04:06,307 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:04:11,685 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:04:11,690 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:04:16,330 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:04:24,747 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:05:02,415 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:05:33,420 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:06:29,846 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:09:02,236 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:09:02,490 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:09:07,401 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:09:12,936 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:11:05,657 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:11:11,106 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:11:40,265 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:11:40,276 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:11:48,761 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:11:48,767 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:11:53,906 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:15:14,734 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:15:15,005 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:18:46,031 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:18:46,307 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:20:10,500 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:20:10,755 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:20:16,042 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:20:16,296 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:20:31,847 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:20:32,143 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:22:13,895 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:22:14,136 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:22:23,610 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:22:23,856 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:22:32,017 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:22:32,259 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:26:57,982 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:26:58,269 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:31:44,936 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:31:45,243 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:32:47,850 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:32:48,151 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:32:57,011 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:32:57,282 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:33:00,551 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:33:00,817 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:33:04,705 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:33:05,019 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:34:09,643 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:10,122 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:17,588 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:17,987 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:20,872 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:21,182 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:23,890 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:34:24,392 [INFO]: Rate limit exceeded for login attempts of email derricksaw123@gmail.com. Error: Failed login attempts.
+2023-11-28 20:36:18,281 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:36:18,717 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:36:23,786 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:36:23,801 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:36:28,620 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:36:28,627 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:36:33,284 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:38:08,076 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:38:08,081 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:38:12,305 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:39:40,744 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:39:40,992 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:39:45,972 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:39:45,983 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:39:51,059 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:39:51,065 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:39:55,495 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:39:55,501 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:39:59,835 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:39:59,841 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:40:04,180 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:40:04,186 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:40:10,384 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:41:13,641 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:41:13,646 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:41:18,347 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:41:18,353 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:41:22,526 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:41:22,532 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:41:26,442 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:41:26,447 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:41:30,270 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:41:30,276 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:41:35,767 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:43:05,624 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:05,874 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:08,694 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:09,045 [INFO]: Failed login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:15,050 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:15,306 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:43:20,110 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:20,116 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:43:24,243 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:24,246 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:43:30,359 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:30,364 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:43:33,335 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:43:33,343 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-11-28 20:46:20,192 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:46:20,444 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-11-28 20:48:16,208 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:48:16,231 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-28 20:48:21,045 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:48:21,052 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-28 20:48:23,171 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:48:23,176 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-28 20:48:24,788 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:48:24,794 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-28 20:48:26,668 [INFO]: Edit profile attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:48:26,675 [INFO]: Profile of emailderricksaw123@gmail.com has been edited
+2023-11-28 20:48:28,485 [INFO]: Rate limit exceeded for edit profile attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:48:32,262 [INFO]: Rate limit exceeded for edit profile attempts of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-11-28 20:54:47,679 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-11-28 20:54:47,970 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.

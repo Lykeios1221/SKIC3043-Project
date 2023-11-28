@@ -132,3 +132,14 @@ WHERE user.email = %s
 2023-11-23 10:00:20,425 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
 2023-11-25 22:47:48,190 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
 2023-11-25 22:59:12,335 [ERROR]: An unexpected error occurred: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+2023-11-28 12:22:40,859 [ERROR]: Error deleting item: 'scoped_session' object has no attribute 'delete_asset'
+2023-11-28 12:22:51,269 [ERROR]: Error deleting item: 'scoped_session' object has no attribute 'delete_asset'
+2023-11-28 15:35:33,075 [ERROR]: Error generating reset password token for 'derricksaw1231@gmail.com': Query.filter_by() takes 1 positional argument but 2 were given
+2023-11-28 15:37:02,443 [ERROR]: Error generating reset password token for 'derricksaw1231@gmail.com': Query.filter_by() takes 1 positional argument but 2 were given
+2023-11-28 15:38:13,785 [ERROR]: Error generating reset password token for 'derricksaw1231@gmail.com': Query.filter_by() takes 1 positional argument but 2 were given
+2023-11-28 15:49:26,657 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-11-28 15:49:53,065 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-11-28 15:59:57,658 [ERROR]: Error generating reset password token for 'derricksaw123@gmail.com': Could not build url for endpoint 'reset_password_confirm' with values ['token']. Did you mean 'reset_password' instead?
+2023-11-28 16:04:53,309 [ERROR]: An error occurred during reset password confirmation: Query.filter_by() takes 1 positional argument but 2 were given
+2023-11-28 16:35:27,696 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-11-28 16:35:34,184 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
