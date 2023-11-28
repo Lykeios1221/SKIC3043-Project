@@ -70,24 +70,24 @@
                         class="col-7">:{{ profile_detail.addr2 }}</span></div>
                 <div class="row"><strong class="col-5">Address 3</strong><span
                         class="col-7">:{{ profile_detail.addr3 }}</span></div>
-                <div class="row"><strong class="col-5">Phone:</strong><span
-                        class="col-7">{{ profile_detail.phone }}</span></div>
+                <div class="row"><strong class="col-5">Phone</strong><span
+                        class="col-7">:{{ profile_detail.phone }}</span></div>
             </div>
             <div class="col-6">
-                <div class="row"><strong class="col-5">First Public Serving Date:</strong><span
-                        class="col-7">{{ profile_detail.first_public_serving_date }}</span></div>
-                <div class="row"><strong class="col-5">Current Public Serving Date:</strong><span
-                        class="col-7">{{ profile_detail.current_public_serving_date }}</span></div>
-                <div class="row"><strong class="col-5">Service Name:</strong><span
-                        class="col-7">{{ profile_detail.service_name }}</span></div>
-                <div class="row"><strong class="col-5">Service Group:</strong><span
-                        class="col-7">{{ profile_detail.service_group }}</span></div>
-                <div class="row"><strong class="col-5">Grade:</strong><span
-                        class="col-7">{{ profile_detail.grade }}</span></div>
-                <div class="row"><strong class="col-5">Job:</strong><span class="col-7">{{ profile_detail.job }}</span>
+                <div class="row"><strong class="col-5">First Public Serving Date</strong><span
+                        class="col-7">:{{ profile_detail.first_public_serving_date }}</span></div>
+                <div class="row"><strong class="col-5">Current Public Serving Date</strong><span
+                        class="col-7">:{{ profile_detail.current_public_serving_date }}</span></div>
+                <div class="row"><strong class="col-5">Service Name</strong><span
+                        class="col-7">:{{ profile_detail.service_name }}</span></div>
+                <div class="row"><strong class="col-5">Service Group</strong><span
+                        class="col-7">:{{ profile_detail.service_group }}</span></div>
+                <div class="row"><strong class="col-5">Grade</strong><span
+                        class="col-7">:{{ profile_detail.grade }}</span></div>
+                <div class="row"><strong class="col-5">Job</strong><span class="col-7">:{{ profile_detail.job }}</span>
                 </div>
-                <div class="row"><strong class="col-5">Spouse Name:</strong><span
-                        class="col-7">{{ profile_detail.spouse_name }}</span></div>
+                <div class="row"><strong class="col-5">Spouse Name</strong><span
+                        class="col-7">:{{ profile_detail.spouse_name }}</span></div>
             </div>
         </div>
 
@@ -144,7 +144,7 @@
                         <td>{{ item.email }}</td>
                         <td>{{ item.description }}</td>
                         <td>{{ item.type }}</td>
-                        <td>{{ item.monthly_deduction }}</td>
+                        <td>{{ item.monthlyDeduction }}</td>
                         <td>{{ item.total }}</td>
                     </tr>
                 {% endfor %}
@@ -182,15 +182,15 @@
                         <td>{{ item.email }}</td>
                         <td>{{ item.type }}</td>
                         <td>{{ item.owner }}</td>
-                        <td>{{ item.inv_description }}</td>
-                        <td>{{ item.reg_certificate_no }}</td>
-                        <td>{{ item.date_of_ownership }}</td>
-                        <td>{{ item.quantity_amount }}</td>
-                        <td>{{ item.ownership_size }}</td>
-                        <td>{{ item.quantity_size }}</td>
-                        <td>{{ item.acquisition_cost }}</td>
-                        <td>{{ item.estimated_current_value }}</td>
-                        <td>{{ item.method_of_acquisition }}</td>
+                        <td>{{ item.invDescription }}</td>
+                        <td>{{ item.regCertificateNo }}</td>
+                        <td>{{ item.dateOfOwnership }}</td>
+                        <td>{{ item.quantityAmount }}</td>
+                        <td>{{ item.ownershipSize }}</td>
+                        <td>{{ item.quantitySize }}</td>
+                        <td>{{ item.acquisitionCost }}</td>
+                        <td>{{ item.estimatedCurrentValue }}</td>
+                        <td>{{ item.methodOfAcquisition }}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
