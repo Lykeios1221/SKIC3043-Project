@@ -1,15 +1,22 @@
+import io
+import os
 import re
 from datetime import datetime
+from pathlib import Path
 from smtplib import SMTPException
 
-from flask import render_template, request, flash, url_for, redirect
+from flask import render_template, request, flash, url_for, redirect, jsonify
 from flask_apscheduler import APScheduler
 from flask_bcrypt import Bcrypt
+from flask_caching import Cache
 from flask_limiter import Limiter, RateLimitExceeded
 from flask_limiter.util import get_remote_address
 from flask_login import LoginManager, current_user, login_user, login_required, logout_user
 from flask_mail import Mail, Message
+from pypdf import PdfReader, PdfWriter
+from pypdf.errors import PyPdfError
 from sqlalchemy import exc
+from werkzeug.utils import secure_filename
 
 from app import app
 from app_logging import log_access_activity, log_error
@@ -28,6 +35,8 @@ login_manager.login_message = u"Login session expired. Please login again."
 login_manager.login_message_category = 'danger'
 
 tokens = []
+
+cache = Cache(app)
 
 limiter = Limiter(app=app, key_func=lambda: current_user.email, storage_uri="memory://", )
 
@@ -368,12 +377,32 @@ def convert_keys_to_camel_case(dictionary):
         return dictionary
 
 
+@app.route('/validate_pdf', methods=['POST'])
+@login_required
+def validate_pdf():
+    try:
+        files = request.files
+        key = list(files.keys())[0]
+        file_bytes = list(files.values())[0].read()
+        PdfReader(io.BytesIO(file_bytes))
+        cache.set(f'{current_user.email}_{key}', file_bytes)
+        result = True
+    except PyPdfError as e:
+        log_error(f'Unable to parse the PDF bytes: {str(e)}')
+        result = False
+    except Exception as e:
+        log_error(f'Unable to cache uploaded items: {str(e)}')
+        result = False
+    return jsonify(result=result)
+
+
 @app.route('/manage_assets', methods=['POST'])
 @login_required
 def manage_assets():
     try:
         check_manage_assets_rate()
         data = convert_keys_to_snake_case(request.get_json())
+        print(data)
         process_changes(Revenue, data)
         process_changes(Expense, data)
         process_changes(Inventory, data)
@@ -421,10 +450,20 @@ def process_changes(asset_class, data):
             if asset:
                 update_from_dict(asset, item)
             else:
-                new_asset = asset_class(**item)
-                new_asset.id = None
-                db.session.add(new_asset)
+                asset = asset_class(**item)
+                asset.id = None
+                db.session.add(asset)
             db.session.commit()
+            Path(f"asset_pdfs/{current_user.email}").mkdir(exist_ok=True)
+            type = str(asset_class.__table__.name).lower()
+            filename = f"{type}_{item['id']}"
+            file_bytes = cache.get(f'{current_user.email}_{filename}')
+            print(file_bytes)
+            PdfReader(io.BytesIO(file_bytes))
+            filename = secure_filename(f'{type}_{asset.id}.pdf')
+            file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
+            with open(file, 'wb') as f:
+                f.write(file_bytes)
         except Exception as e:
             db.session.rollback()
             log_error(f"Error add/update item {asset}: {str(e)}")
@@ -435,6 +474,10 @@ def process_changes(asset_class, data):
             if asset:
                 db.session.delete(asset)
                 db.session.commit()
+                type = str(asset_class.__table__.name).lower()
+                filename = secure_filename(f'{type}_{asset.id}.pdf')
+                file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
+                os.remove(file)
         except Exception as e:
             log_error(f"Error deleting item: {str(e)}")
             db.session.rollback()
@@ -473,3 +516,12 @@ def check_token_expiration():
     # Remove expired/invalid tokens
     for token in tokens_to_remove:
         tokens.remove(token)
+
+
+@app.route('/test', methods=['POST'])
+def test():
+    print('reach')
+    pdf = request.files['revenueFile']
+    reader = PdfReader(pdf)
+    PdfWriter(clone_from=reader).write('hello.pdf')
+    return "false"
