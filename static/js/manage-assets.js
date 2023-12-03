@@ -37,6 +37,7 @@ $(document).ready(function () {
         }
     }
 
+
     $('#revenue-form').on('submit', function (evt) {
         processAssetsSubmitForm(evt, 'revenue', $(this), revenues);
     })
@@ -49,22 +50,48 @@ $(document).ready(function () {
         processAssetsSubmitForm(evt, 'inventory', $(this), inventories);
     })
 
-    function processAssetsSubmitForm(evt, type, form, storage) {
+    async function processAssetsSubmitForm(evt, type, form, storage) {
         evt.preventDefault();
         const dataDict = formMapToDict(form);
-        const table = $(`#${type}-table`).DataTable();
-        let rowIndex = undefined;
-        if (dataDict.id === '') {
-            dataDict['id'] = 'temp_' + storageIndex[type];
-            storageIndex[type]++;
+        const inputElement = $(`#${type}File`)[0];
+        const id = dataDict.id === ''? 'temp_' + storageIndex[type]: dataDict.id;
+        const valid = await validatePDF(`${type}_${id}`, inputElement);
+        if (valid) {
+            const table = $(`#${type}-table`).DataTable();
+            let rowIndex = undefined;
+            if (dataDict.id === '') {
+                dataDict['id'] = id;
+                storageIndex[type]++;
+            } else {
+                removeFromStorage(storage, dataDict['id'])
+                rowIndex = table.column(1).data().indexOf(String(dataDict['id']));
+            }
+            storage.push(dataDict);
+            const rowForm = generateRowForm(type, dataDict);
+            drawTableRow(table, rowForm, excludeEntryByKey(dataDict, 'email').map(e => e[1]), rowIndex);
+            $(`#${type}-modal`).modal('hide');
         } else {
-            removeFromStorage(storage, dataDict['id'])
-            rowIndex = table.column(1).data().indexOf(String(dataDict['id']));
+            $(inputElement).parent().find('.invalid-feedback').hide().fadeIn('fast').delay(3000).fadeOut('fast');
         }
-        storage.push(dataDict);
-        const rowForm = generateRowForm(type, dataDict);
-        drawTableRow(table, rowForm, excludeEntryByKey(dataDict, 'email').map(e => e[1]), rowIndex);
-        $(`#${type}-modal`).modal('hide');
+    }
+
+    function validatePDF(key, inputElement) {
+        return new Promise(function (resolve, reject) {
+            const formData = new FormData();
+            formData.append(key, inputElement.files[0]);
+            $.ajax({
+                type: 'post',
+                url: 'validate_pdf',
+                contentType: false,
+                processData: false,
+                data: formData
+            }).done(function (response) {
+                const valid = response['result'];
+                resolve(valid);
+            }).fail(function () {
+                reject("Validation failed due to AJAX error.");
+            });
+        });
     }
 
     function generateRowForm(dataType, dataDict) {
@@ -81,7 +108,7 @@ $(document).ready(function () {
     function excludeEntryByKey(dict, key) {
         return Object.entries(dict)
             .filter(entry => !entry[0]
-                .includes('email'));
+                .includes(key));
     }
 
     function formMapToDict(form) {
@@ -233,7 +260,6 @@ $(document).ready(function () {
         isButtonClicked = false;
     });
 
-
     $('#commitAssets').on('click', function () {
         var originalRevenues = JSON.parse(JSON.stringify(userAssets.revenues));
         var originalInventories = JSON.parse(JSON.stringify(userAssets.inventories));
@@ -255,10 +281,16 @@ $(document).ready(function () {
         for (const modifiedItem of modifiedArray) {
             const originalItem = originalArray.find(item => String(item.id) === String(modifiedItem.id));
             if (!originalItem) {
-                // Item is not in the original array, consider it an addition
                 additions.push(modifiedItem);
             } else {
-                modifications.push(modifiedItem);
+                let modified = Object.keys(originalItem).some(function (key) {
+                    console.log(originalItem[key])
+                    console.log(modifiedItem[key])
+                    return originalItem[key] !== modifiedItem[key];
+                })
+                if (modified) {
+                    modifications.push(modifiedItem);
+                }
             }
         }
 
