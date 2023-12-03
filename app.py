@@ -20,4 +20,13 @@ app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 
 app.config['PERMANENT_SESSION_LIFETIME'] = 120
 
+# app.config['UPLOAD_FOLDER'] = 'cache'
+app.config['UPLOAD_EXTENSIONS'] = ['pdf']
+app.config['UPLOAD_FOLDER'] = 'asset_pdfs'
+app.config['MAX_CONTENT_LENGTH'] = 2 * 1000 * 1000
+
+app.config['CACHE_TYPE'] = 'FileSystemCache'
+app.config['CACHE_THRESHOLD'] = 1000
+app.config['CACHE_DIR'] = 'cache'
+
 import api
