@@ -540,13 +540,9 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>
@@ -568,6 +564,14 @@
                 <form id="revenue-form" method="POST">
                     <input name="email" type="hidden" value="{{ email }}">
                     <input name="id" value="" type="hidden">
+                    <div class="mb-3 form-group">
+                        <label for="revenueFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+                        <input type="file" name="revenueFile" class="form-control" id="revenueFile"
+                               accept="application/pdf" required>
+                        <div class="invalid-feedback">
+                            Please select a valid PDF or refresh and try again.
+                        </div>
+                    </div>
                     <div class="mb-3 form-group">
                         <label for="revenueDescription" class="form-label">Description*</label>
                         <input type="text" name="description" class="form-control" id="revenueDescription" required
@@ -614,6 +618,13 @@
             <div class="modal-body">
                 <!-- Form content -->
                 <form id="expense-form" method="POST">
+                    <div class="mb-3 form-group">
+                        <label for="expenseFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+                        <input type="file" name="expenseFile" class="form-control" id="expenseFile" required>
+                        <div class="invalid-feedback">
+                            Please select a valid PDF or refresh and try again.
+                        </div>
+                    </div>
                     <input name="email" hidden="hidden" value="{{ email }}">
                     <input name="id" value="" hidden="hidden">
                     <div class="mb-3 form-group">
@@ -630,13 +641,14 @@
                         </select>
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="revenuetotal" class="form-label">Monthly Deduction (RM)*</label>
+                        <label for="expenseMonthly" class="form-label">Monthly Deduction (RM)*</label>
                         <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
+                               id="expenseMonthly"
                                placeholder="Enter the monthly deduction." required>
                     </div>
                     <div class="mb-3 form-group">
-                        <label for="revenuetotal" class="form-label">Total (RM)*</label>
-                        <input type="number" name="total" class="form-control" step="0.01"
+                        <label for="expenseTotal" class="form-label">Total (RM)*</label>
+                        <input type="number" name="total" class="form-control" step="0.01" id="expenseTotal"
                                placeholder="Enter the total." required>
                     </div>
                     <div class="d-flex justify-content-center">
@@ -668,13 +680,23 @@
                 <form id="inventory-form" method="POST">
                     <input name="id" value="" hidden="hidden">
                     <input name="email" hidden="hidden" value="{{ email }}">
-                    <div class="mb-3 form-group">
-                        <label for="invType" class="form-label">Type*</label>
-                        <select id="invType" name="type" class="form-select" required>
-                            <option value="" disabled selected>Select an option</option>
-                            <option value="Individual">Individual</option>
-                            <option value="Household">Household</option>
-                        </select>
+                    <div class="row">
+                        <div class="mb-3 form-group col-md-6">
+                            <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+                            <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
+                                   required>
+                            <div class="invalid-feedback">
+                                Please select a valid PDF or refresh and try again.
+                            </div>
+                        </div>
+                        <div class="mb-3 form-group col-md-6">
+                            <label for="invType" class="form-label">Type*</label>
+                            <select id="invType" name="type" class="form-select" required>
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Household">Household</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="mb-3 form-group">
                         <label for="owner" class="form-label">Owner*</label>
