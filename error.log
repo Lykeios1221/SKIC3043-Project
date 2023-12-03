@@ -143,3 +143,129 @@ WHERE user.email = %s
 2023-11-28 16:04:53,309 [ERROR]: An error occurred during reset password confirmation: Query.filter_by() takes 1 positional argument but 2 were given
 2023-11-28 16:35:27,696 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
 2023-11-28 16:35:34,184 [ERROR]: An unexpected error occurred: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-12-01 21:50:02,512 [ERROR]: Error add/update item None: 'file' is an invalid keyword argument for Revenue
+2023-12-01 22:05:37,897 [ERROR]: Error add/update item None: 'file' is an invalid keyword argument for Revenue
+2023-12-02 00:42:42,139 [ERROR]: Error add/update item None: 'file' is an invalid keyword argument for Revenue
+2023-12-03 15:49:06,880 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 15:49:06,907 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 15:53:30,988 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 15:53:30,994 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 15:53:31,003 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 15:53:57,180 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 15:53:57,187 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 15:53:57,194 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 16:00:04,061 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 16:00:04,068 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 16:00:04,077 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 16:00:04,086 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_21'
+2023-12-03 16:00:13,052 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 16:00:13,058 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 16:00:13,061 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'revenue_27.pdf'
+2023-12-03 16:00:13,066 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 16:00:13,073 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_21'
+2023-12-03 16:00:49,543 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 16:00:49,550 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 16:00:49,552 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'revenue_27.pdf'
+2023-12-03 16:00:49,558 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 16:00:49,565 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_21'
+2023-12-03 16:01:47,158 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_25'
+2023-12-03 16:01:47,165 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'revenue_26'
+2023-12-03 16:01:47,182 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_20'
+2023-12-03 16:01:47,188 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'expense_21'
+2023-12-03 16:11:09,612 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:11:09,670 [ERROR]: Error add/update item <Revenue(id=28, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:09,681 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:09,689 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:09,704 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:09,712 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,539 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:11:50,578 [ERROR]: Error add/update item <Revenue(id=29, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,584 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,590 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,597 [ERROR]: Error add/update item <Revenue(id=28, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,604 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:11:50,611 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 16:22:31,175 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:23:50,847 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:24:43,080 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:25:42,742 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:28:59,213 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 16:29:25,419 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:20:02,551 [ERROR]: Unable to cache uploaded items: PdfReader.read() missing 1 required positional argument: 'stream'
+2023-12-03 18:24:03,302 [ERROR]: Unable to cache uploaded items: PdfReader.read() missing 1 required positional argument: 'stream'
+2023-12-03 18:27:46,099 [ERROR]: Unable to cache uploaded items: PdfReader.read() missing 1 required positional argument: 'stream'
+2023-12-03 18:28:13,059 [ERROR]: Unable to cache uploaded items: PdfReader.read() missing 1 required positional argument: 'stream'
+2023-12-03 18:29:21,522 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:29:46,682 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:30:53,893 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:32:15,987 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:33:05,586 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:38:14,833 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:38:42,681 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:39:09,888 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:39:18,462 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:39:47,990 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:41:29,442 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:41:40,885 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:41:42,947 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:42:19,218 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:45:58,563 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:46:27,860 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:46:33,770 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 18:54:41,943 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 19:11:10,834 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 19:11:23,371 [ERROR]: Error add/update item <Revenue(id=30, email=derricksaw123@gmail.com, description=sdaaa1234, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,379 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,385 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,393 [ERROR]: Error add/update item <Revenue(id=28, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,399 [ERROR]: Error add/update item <Revenue(id=29, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,410 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:11:23,417 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,405 [ERROR]: Error add/update item <Revenue(id=31, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,413 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,419 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,426 [ERROR]: Error add/update item <Revenue(id=28, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,434 [ERROR]: Error add/update item <Revenue(id=29, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,441 [ERROR]: Error add/update item <Revenue(id=30, email=derricksaw123@gmail.com, description=sdaaa1234, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,456 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:16:48,466 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:25:03,741 [ERROR]: Error add/update item <Revenue(id=32, email=derricksaw123@gmail.com, description=sdaaa123, type=Household, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,518 [ERROR]: Error add/update item <Revenue(id=33, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,529 [ERROR]: Error add/update item <Revenue(id=25, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,535 [ERROR]: Error add/update item <Revenue(id=26, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,542 [ERROR]: Error add/update item <Revenue(id=28, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,548 [ERROR]: Error add/update item <Revenue(id=29, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,556 [ERROR]: Error add/update item <Revenue(id=30, email=derricksaw123@gmail.com, description=sdaaa1234, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,564 [ERROR]: Error add/update item <Revenue(id=31, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,571 [ERROR]: Error add/update item <Revenue(id=32, email=derricksaw123@gmail.com, description=sdaaa123, type=Household, total=2321.01)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,582 [ERROR]: Error add/update item <Expense(id=20, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 19:31:31,590 [ERROR]: Error add/update item <Expense(id=21, email=derricksaw123@gmail.com, description=test, type=Individual, monthly_deduction=123.00, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:21:22,652 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 23:21:30,722 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 23:22:04,776 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 23:22:35,042 [ERROR]: Unable to parse the PDF bytes: Stream has ended unexpectedly
+2023-12-03 23:22:43,325 [ERROR]: Error add/update item <Revenue(id=34, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:26:03,132 [ERROR]: Error add/update item <Revenue(id=35, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:28:09,696 [ERROR]: Error add/update item <Revenue(id=36, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:33:18,465 [ERROR]: Error add/update item <Revenue(id=37, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:38:27,634 [ERROR]: Error add/update item <Revenue(id=38, email=derricksaw123@gmail.com, description=test, type=Individual, total=123.00)>: 'NoneType' object is not subscriptable
+2023-12-03 23:41:22,682 [ERROR]: Error add/update item <Revenue(id=40, email=derricksaw123@gmail.com, description=sdaaa1234, type=Individual, total=2321.01)>: Cannot read an empty file
+2023-12-03 23:42:14,888 [ERROR]: Error add/update item <Revenue(id=41, email=derricksaw123@gmail.com, description=sdaaa123, type=Individual, total=2321.01)>: Cannot read an empty file
+2023-12-03 23:44:44,399 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_34.pdf'
+2023-12-03 23:44:44,404 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_35.pdf'
+2023-12-03 23:44:44,407 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_36.pdf'
+2023-12-03 23:44:44,411 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_37.pdf'
+2023-12-03 23:44:44,415 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_38.pdf'
+2023-12-03 23:44:44,419 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_39.pdf'
+2023-12-03 23:44:44,423 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_40.pdf'
+2023-12-03 23:44:44,426 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_41.pdf'
+2023-12-03 23:45:39,525 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_34.pdf'
+2023-12-03 23:45:39,533 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_35.pdf'
+2023-12-03 23:45:39,539 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_36.pdf'
+2023-12-03 23:45:39,546 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_37.pdf'
+2023-12-03 23:45:39,551 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_38.pdf'
+2023-12-03 23:45:39,557 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_39.pdf'
+2023-12-03 23:45:39,561 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_40.pdf'
+2023-12-03 23:45:39,566 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_41.pdf'
+2023-12-03 23:50:34,309 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-03 23:54:45,765 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
