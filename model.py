@@ -58,9 +58,11 @@ class Revenue(db.Model):
     description = db.Column(db.String(255), nullable=False)
     type = db.Column(db.String(255), nullable=False)
     total = db.Column(db.Numeric(19, 2), nullable=False)
+    approve_status = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
-        return f"<Revenue(id={self.id}, email={self.email}, description={self.description}, type={self.type}, total={self.total})>"
+        return (f"<Revenue(id={self.id}, email={self.email}, description={self.description}, type={self.type}, "
+                f"total={self.total}, approve_status={self.approve_status})>")
 
     def as_dict(self):
         return {column.name: str(getattr(self, column.name)) for column in self.__table__.columns}
@@ -73,10 +75,11 @@ class Expense(db.Model):
     type = db.Column(db.String(255), nullable=False)
     monthly_deduction = db.Column(db.Numeric(19, 2), nullable=False)
     total = db.Column(db.Numeric(19, 2), nullable=False)
+    approve_status = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return f"<Expense(id={self.id}, email={self.email}, description={self.description}, type={self.type}, " \
-               f"monthly_deduction={self.monthly_deduction}, total={self.total})>"
+               f"monthly_deduction={self.monthly_deduction}, total={self.total}, approve_status={self.approve_status})>"
 
     def as_dict(self):
         return {column.name: str(getattr(self, column.name)) for column in self.__table__.columns}
@@ -96,6 +99,7 @@ class Inventory(db.Model):
     acquisition_cost = db.Column(db.Numeric(19, 2), nullable=False)
     estimated_current_value = db.Column(db.Numeric(19, 2), nullable=False)
     method_of_acquisition = db.Column(db.String(255), nullable=False)
+    approve_status = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
         return f"<Inventory(id={self.id}, email={self.email}, type={self.type}, owner={self.owner}, " \
@@ -103,7 +107,7 @@ class Inventory(db.Model):
                f"date_of_ownership={self.date_of_ownership}, quantity_amount={self.quantity_amount}, " \
                f"ownership_size={self.ownership_size}, quantity_size={self.quantity_size}, " \
                f"acquisition_cost={self.acquisition_cost}, estimated_current_value={self.estimated_current_value}, " \
-               f"method_of_acquisition={self.method_of_acquisition})>"
+               f"method_of_acquisition={self.method_of_acquisition}, approve_status={self.approve_status})>"
 
     def as_dict(self):
         return {column.name: str(getattr(self, column.name)) for column in self.__table__.columns}
@@ -115,21 +119,18 @@ class LoginForm(FlaskForm):
     recaptcha = RecaptchaField()
 
     def __repr__(self):
-        return f"<LoginForm(login_email={self.login_email.data}, login_password={self.login_password.data}, recaptcha={self.recaptcha.data})>"
+        return (f"<LoginForm(login_email={self.login_email.data}, login_password={self.login_password.data}, "
+                f"recaptcha={self.recaptcha.data})>")
 
 
 class SignupForm(FlaskForm):
     name = StringField('Name', validators=[InputRequired()])
     signup_email = StringField('Email', validators=[InputRequired(), Email()])
-    signup_password = PasswordField('Password', validators=[
-        InputRequired(),
-        Regexp(
-            r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$',
+    signup_password = PasswordField('Password', validators=[InputRequired(),
+        Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$',
             message="Password must include at least one uppercase and one lowercase letter, "
                     "contain at least one special character and one digit number, "
-                    "and be between 8 to 20 characters in length."
-        )
-    ])
+                    "and be between 8 to 20 characters in length.")])
     recaptcha = RecaptchaField()
 
     def __repr__(self):
@@ -153,12 +154,8 @@ class EmailAuthenticator:
     def confirm_token(token, expiration=3600):
         serializer = URLSafeTimedSerializer(app.config["SECRET_KEY"])
         try:
-            email = serializer.loads(
-                token, salt=app.config["SECURITY_PASSWORD_SALT"], max_age=expiration
-            )
+            email = serializer.loads(token, salt=app.config["SECURITY_PASSWORD_SALT"], max_age=expiration)
             return True, email
         except (SignatureExpired, BadSignature):
-            email = serializer.loads(
-                token, salt=app.config["SECURITY_PASSWORD_SALT"]
-            )
+            email = serializer.loads(token, salt=app.config["SECURITY_PASSWORD_SALT"])
             return False, email
