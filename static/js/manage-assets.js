@@ -37,7 +37,6 @@ $(document).ready(function () {
         }
     }
 
-
     $('#revenue-form').on('submit', function (evt) {
         processAssetsSubmitForm(evt, 'revenue', $(this), revenues);
     })
@@ -54,7 +53,7 @@ $(document).ready(function () {
         evt.preventDefault();
         const dataDict = formMapToDict(form);
         const inputElement = $(`#${type}File`)[0];
-        const id = dataDict.id === ''? 'temp_' + storageIndex[type]: dataDict.id;
+        const id = dataDict.id === '' ? 'temp_' + storageIndex[type] : dataDict.id;
         const valid = await validatePDF(`${type}_${id}`, inputElement);
         if (valid) {
             const table = $(`#${type}-table`).DataTable();
@@ -101,6 +100,8 @@ $(document).ready(function () {
             <button type="submit" name="action" value="delete" class="btn btn-danger">Delete</button>
             <button type="submit" name="action" value="modify" class="btn btn-secondary m-1"
                     data-bs-target="#${dataType}-modal" data-bs-toggle="modal">Modify</button>
+             <button type="button" name="action" value="modify" class="btn btn-warning m-1" 
+             onclick="viewPdf('revenue', '${dataDict['id']}')">View</button>
         </form>
     `;
     }
@@ -166,7 +167,6 @@ $(document).ready(function () {
                         return 'Details for item';
                     }
                 }), renderer: function (api, rowIdx, columns) {
-                    // Clone the columns and remove the last column (button column) from the cloned array
                     const clonedColumns = columns.slice(1);
 
                     // Render the details in the modal with the modified columns array
@@ -333,4 +333,18 @@ $(document).ready(function () {
             }
         });
     });
+
+    window.viewPdf = function viewPdf(type, id) {
+        $.ajax({
+            url: 'send_pdf',
+            data: {filename: `${type}_${id}`},
+            xhrFields: {
+                responseType: 'blob'
+            }
+        }).done(function (data) {
+            let url = URL.createObjectURL(data);
+            console.log(url)
+            window.open(url, '_blank');
+        });
+    }
 })
