@@ -5,7 +5,7 @@ from datetime import datetime
 from pathlib import Path
 from smtplib import SMTPException
 
-from flask import render_template, request, flash, url_for, redirect, jsonify
+from flask import render_template, request, flash, url_for, redirect, jsonify, send_from_directory, send_file
 from flask_apscheduler import APScheduler
 from flask_bcrypt import Bcrypt
 from flask_caching import Cache
@@ -402,7 +402,6 @@ def manage_assets():
     try:
         check_manage_assets_rate()
         data = convert_keys_to_snake_case(request.get_json())
-        print(data)
         process_changes(Revenue, data)
         process_changes(Expense, data)
         process_changes(Inventory, data)
@@ -446,6 +445,7 @@ def process_changes(asset_class, data):
                 setattr(model_instance, key, value)
 
         asset = asset_class.query.get(item['id'])
+        item['approve_status'] = False
         try:
             if asset:
                 update_from_dict(asset, item)
@@ -458,7 +458,6 @@ def process_changes(asset_class, data):
             type = str(asset_class.__table__.name).lower()
             filename = f"{type}_{item['id']}"
             file_bytes = cache.get(f'{current_user.email}_{filename}')
-            print(file_bytes)
             PdfReader(io.BytesIO(file_bytes))
             filename = secure_filename(f'{type}_{asset.id}.pdf')
             file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
@@ -473,10 +472,10 @@ def process_changes(asset_class, data):
             asset = asset_class.query.get(item['id'])
             if asset:
                 db.session.delete(asset)
-                db.session.commit()
                 type = str(asset_class.__table__.name).lower()
                 filename = secure_filename(f'{type}_{asset.id}.pdf')
                 file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
+                db.session.commit()
                 os.remove(file)
         except Exception as e:
             log_error(f"Error deleting item: {str(e)}")
@@ -488,6 +487,17 @@ def process_changes(asset_class, data):
         add_or_update_asset(asset_class, item)
     for item in data.get(f'{asset_type}_changes', {}).get('deletions', []):
         delete_asset(asset_class, item)
+
+
+@app.route('/send_pdf')
+def send_pdf():
+    filename = request.args.get('filename')
+    user_dir = os.path.join(app.config['UPLOAD_FOLDER'], current_user.email)
+    if os.path.exists(os.path.join(user_dir, filename + '.pdf')):
+        return send_from_directory(user_dir, filename + '.pdf', as_attachment=False)
+    else:
+        file = cache.get(f'{current_user.email}_{filename}')
+        return send_file(io.BytesIO(file), as_attachment=False, mimetype='application/pdf')
 
 
 @app.route('/get_print_assets', methods=['POST'])
@@ -516,12 +526,3 @@ def check_token_expiration():
     # Remove expired/invalid tokens
     for token in tokens_to_remove:
         tokens.remove(token)
-
-
-@app.route('/test', methods=['POST'])
-def test():
-    print('reach')
-    pdf = request.files['revenueFile']
-    reader = PdfReader(pdf)
-    PdfWriter(clone_from=reader).write('hello.pdf')
-    return "false"

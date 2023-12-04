@@ -53,7 +53,7 @@
                             <div class="card w-100">
                                 <div class="card-body p-4">
                                     <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                        Individual Revenue</h5>
+                                        Approved Individual Revenue</h5>
                                     <div class="table-responsive">
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
@@ -68,7 +68,7 @@
                                             </thead>
                                             <tbody>
                                             {% for row in user_assets.revenues %}
-                                                {% if row.type == 'Individual' %}
+                                                {% if row.type == 'Individual' and row.approveStatus == 'True' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -91,7 +91,7 @@
                             <div class="card w-100">
                                 <div class="card-body p-4">
                                     <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                        Household Revenue</h5>
+                                        Approved Household Revenue</h5>
                                     <div class="table-responsive">
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
@@ -106,7 +106,7 @@
                                             </thead>
                                             <tbody>
                                             {% for row in user_assets.revenues %}
-                                                {% if row.type == 'Household' %}
+                                                {% if row.type == 'Household' and row.approveStatus == 'True' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -154,6 +154,9 @@
                                                     <h6>No.</h6>
                                                 </th>
                                                 <th>
+                                                    <h6>Approved</h6>
+                                                </th>
+                                                <th>
                                                     <h6>Description</h6>
                                                 </th>
                                                 <th>
@@ -175,15 +178,23 @@
                                                                     class="btn btn-danger"> Delete
                                                             </button>
                                                             <button type="submit" name="action" value="modify"
-                                                                    class="btn btn-secondary m-1"
+                                                                    class="btn btn-secondary mx-1"
                                                                     data-bs-target="#revenue-modal"
                                                                     data-bs-toggle="modal">
                                                                 Modify
+                                                            </button>
+                                                            <button type="button" name="action" value="modify"
+                                                                    class="btn btn-warning m-1"
+                                                                    onclick="viewPdf('revenue', {{ row.id }})">
+                                                                View
                                                             </button>
                                                         </form>
                                                     </td>
                                                     <td class="h6">
                                                         {{ row.id }}
+                                                    </td>
+                                                    <td class="h6">
+                                                        {{ row.approveStatus }}
                                                     </td>
                                                     <td class="h6">
                                                         {{ row.description }}
@@ -226,7 +237,7 @@
                             <div class="card w-100">
                                 <div class="card-body p-4">
                                     <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                        Individual Expenses</h5>
+                                        Approved Individual Expenses</h5>
                                     <div class="table-responsive">
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
@@ -244,7 +255,7 @@
                                             </thead>
                                             <tbody>
                                             {% for row in user_assets.expenses %}
-                                                {% if row.type == 'Individual' %}
+                                                {% if row.type == 'Individual' and row.approveStatus == 'True' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -269,7 +280,7 @@
                             <div class="card w-100">
                                 <div class="card-body p-4">
                                     <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                        Household Expenses</h5>
+                                        Approved Household Expenses</h5>
                                     <div class="table-responsive">
                                         <table class="table text-nowrap mb-0 align-middle">
                                             <thead class="text-dark fs-4">
@@ -287,7 +298,7 @@
                                             </thead>
                                             <tbody>
                                             {% for row in user_assets.expenses %}
-                                                {% if row.type == 'Household' %}
+                                                {% if row.type == 'Household' and row.approveStatus == 'True' %}
                                                     <tr>
                                                         <td class="border-bottom-0">
                                                             <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
@@ -338,6 +349,9 @@
                                                     <h6>No.</h6>
                                                 </th>
                                                 <th>
+                                                    <h6>Approved</h6>
+                                                </th>
+                                                <th>
                                                     <h6>Description</h6>
                                                 </th>
                                                 <th>
@@ -370,6 +384,7 @@
                                                         </form>
                                                     </td>
                                                     <td class="h6">{{ row.id }}</td>
+                                                    <td class="h6">{{ row.approveStatus }}</td>
                                                     <td class="h6">{{ row.description }}</td>
                                                     <td class="h6">{{ row.type }}</td>
                                                     <td class="h6">{{ row.monthlyDeduction }}</td>
@@ -410,8 +425,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!--Inventory Table-->
+                        <!--Manage Inventory Table-->
                         <div class="col-lg-12">
                             <div class="card w-100">
                                 <div class="card-body p-4 pt-2">
@@ -427,6 +441,9 @@
                                                 </th>
                                                 <th>
                                                     <h6>No.</h6>
+                                                </th>
+                                                <th>
+                                                    <h6>Approved</h6>
                                                 </th>
                                                 <th>
                                                     <h6>Type</h6>
@@ -482,6 +499,7 @@
                                                         </form>
                                                     </td>
                                                     <td class="h6">{{ row.id }}</td>
+                                                    <td class="h6">{{ row.approveStatus }}</td>
                                                     <td class="h6">{{ row.type }}</td>
                                                     <td class="h6">{{ row.owner }}</td>
                                                     <td class="h6">{{ row.invDescription }}</td>
@@ -572,6 +590,7 @@
                             Please select a valid PDF or refresh and try again.
                         </div>
                     </div>
+                    <input type="hidden" name="approveStatus" value="False">
                     <div class="mb-3 form-group">
                         <label for="revenueDescription" class="form-label">Description*</label>
                         <input type="text" name="description" class="form-control" id="revenueDescription" required
@@ -680,23 +699,21 @@
                 <form id="inventory-form" method="POST">
                     <input name="id" value="" hidden="hidden">
                     <input name="email" hidden="hidden" value="{{ email }}">
-                    <div class="row">
-                        <div class="mb-3 form-group col-md-6">
-                            <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-                            <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
-                                   required>
-                            <div class="invalid-feedback">
-                                Please select a valid PDF or refresh and try again.
-                            </div>
+                    <div class="mb-3 form-group">
+                        <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+                        <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
+                               required>
+                        <div class="invalid-feedback">
+                            Please select a valid PDF or refresh and try again.
                         </div>
-                        <div class="mb-3 form-group col-md-6">
-                            <label for="invType" class="form-label">Type*</label>
-                            <select id="invType" name="type" class="form-select" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Household">Household</option>
-                            </select>
-                        </div>
+                    </div>
+                    <div class="mb-3 form-group">
+                        <label for="invType" class="form-label">Type*</label>
+                        <select id="invType" name="type" class="form-select" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Individual">Individual</option>
+                            <option value="Household">Household</option>
+                        </select>
                     </div>
                     <div class="mb-3 form-group">
                         <label for="owner" class="form-label">Owner*</label>
