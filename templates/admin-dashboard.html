@@ -1,0 +1,423 @@
+{% extends "base.html" %}
+{% block stylesheet %}
+    <style>
+        .form-delete {
+            border-color: red;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form-delete:focus {
+            border-color: dodgerblue;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <section id="section-revenues" class="row container card">
+            <div class="card-header">
+                <span class="h5">Revenue Management</span>
+            </div>
+            <div class="card-body">
+                <div class="container rounded-1 border border-1 border-dark border-opacity-25 p-5 shadow">
+                    <table class="table table-striped nowrap jDataTable w-100"
+                           id="revenue-table">
+                        <thead>
+                        <tr>
+                            <th class="h6">Action</th>
+                            <th class="h6">No.</th>
+                            <th class="h6">Approved</th>
+                            <th class="h6">Description</th>
+                            <th class="h6">Type</th>
+                            <th class="h6">Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for row in revenues %}
+                            <tr>
+                                <td class="border-bottom-0">
+                                    <button type="button" name="action" value="delete"
+                                            class="btn btn-danger"
+                                            onclick="setDeleteModal('revenue', {{ row.id }})">
+                                        Delete
+                                    </button>
+                                    {% if row.approveStatus == 'False' %}
+                                        <button type="button" name="action" value="{{ row.id }}"
+                                                class="btn btn-secondary mx-1"
+                                                onclick="setApproveModal('revenue', {{ row.id }}, '{{ row.email }}')">
+                                            Approve
+                                        </button>
+                                    {% else %}
+                                        <button type="button" name="action" value="view"
+                                                class="btn btn-warning m-1"
+                                                onclick="viewPdf('revenue', {{ row.id }}, '{{ row.email }}')">
+                                            View
+                                        </button>
+                                    {% endif %}
+                                </td>
+                                <td class="h6">
+                                    {{ row.id }}
+                                </td>
+                                <td class="h6">
+                                    {{ row.approveStatus }}
+                                </td>
+                                <td class="h6">
+                                    {{ row.description }}
+                                </td>
+                                <td class="h6">
+                                    {{ row.type }}
+                                </td>
+                                <td class="h6">
+                                    {{ row.total }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="section-expenses" class="row container card">
+            <div class="card-header">
+                <span class="h5">Expense Management</span>
+            </div>
+            <div class="card-body">
+                <div class="container rounded-1 border border-1 border-dark border-opacity-25 p-5 shadow">
+                    <table class="table table-striped nowrap jDataTable w-100"
+                           id="revenue-table">
+                        <thead>
+                        <tr>
+                            <th class="h6">Action</th>
+                            <th class="h6">No.</th>
+                            <th class="h6">Approved</th>
+                            <th class="h6">Description</th>
+                            <th class="h6">Type</th>
+                            <th class="h6">Total</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for row in expenses %}
+                            <tr>
+                                <td class="border-bottom-0">
+                                    <button type="button" name="action" value="delete"
+                                            class="btn btn-danger"
+                                            onclick="setDeleteModal('expense', {{ row.id }})">
+                                        Delete
+                                    </button>
+                                    {% if row.approveStatus == 'False' %}
+                                        <button type="button" name="action" value="{{ row.id }}"
+                                                class="btn btn-secondary mx-1"
+                                                onclick="setApproveModal('expense', {{ row.id }}, '{{ row.email }}')">
+                                            Approve
+                                        </button>
+                                    {% else %}
+                                        <button type="button" name="action" value="view"
+                                                class="btn btn-warning m-1"
+                                                onclick="viewPdf('expense', {{ row.id }}, '{{ row.email }}')">
+                                            View
+                                        </button>
+                                    {% endif %}
+                                </td>
+                                <td class="h6">{{ row.id }}</td>
+                                <td class="h6">{{ row.approveStatus }}</td>
+                                <td class="h6">{{ row.description }}</td>
+                                <td class="h6">{{ row.type }}</td>
+                                <td class="h6">{{ row.total }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <section id="section-inventories" class="row container card">
+            <div class="card-header">
+                <span class="h5">Inventory Management</span>
+            </div>
+            <div class="card-body">
+                <div class="container rounded-1 border border-1 border-dark border-opacity-25 p-5 shadow">
+                    <table class="table table-striped nowrap jDataTable w-100"
+                           id="inventory-table">
+
+                        <!--Table Header-->
+                        <thead>
+                        <tr>
+                            <th class="h6">Actions</th>
+                            <th class="h6">No.</th>
+                            <th class="h6">Approved</th>
+                            <th class="h6">Type</th>
+                            <th class="h6">Owner</th>
+                            <th class="h6">Inventory Description</th>
+                            <th class="h6">Registration Certificate Number</th>
+                            <th class="h6">Date of Ownership</th>
+                            <th class="h6">Quantity Amount</th>
+                            <th class="h6">Quantity Size</th>
+                            <th class="h6">Acquisition Cost （RM）</th>
+                            <th class="h6">Estimated Current Value (RM)</th>
+                            <th class="h6">Method of Acquisition</th>
+                        </tr>
+                        </thead>
+                        <!-- End of Table Header-->
+
+                        <!--Table Body-->
+                        <tbody>
+                        {% for row in inventories %}
+                            <tr>
+                                <!--Actions-->
+                                <td class="border-bottom-0">
+                                    <button type="button" name="action" value="delete"
+                                            class="btn btn-danger"
+                                            onclick="setDeleteModal('inventory', {{ row.id }})">
+                                        Delete
+                                    </button>
+                                    {% if row.approveStatus == 'False' %}
+                                        <button type="button" name="action" value="{{ row.id }}"
+                                                class="btn btn-secondary mx-1"
+                                                onclick="setApproveModal('inventory', {{ row.id }}, '{{ row.email }}')">
+                                            Approve
+                                        </button>
+                                    {% else %}
+                                        <button type="button" name="action" value="view"
+                                                class="btn btn-warning m-1"
+                                                onclick="viewPdf('inventory', {{ row.id }}, '{{ row.email }}')">
+                                            View
+                                        </button>
+                                    {% endif %}
+                                </td>
+                                <td class="h6">{{ row.id }}</td>
+                                <td class="h6">{{ row.approveStatus }}</td>
+                                <td class="h6">{{ row.type }}</td>
+                                <td class="h6">{{ row.owner }}</td>
+                                <td class="h6">{{ row.invDescription }}</td>
+                                <td class="h6">{{ row.regCertificateNo }} </td>
+                                <td class="h6">{{ row.dateOfOwnership }}</td>
+                                <td class="h6">{{ row.quantityAmount }}</td>
+                                <td class="h6">{{ row.quantitySize }}</td>
+                                <td class="h6">{{ row.acquisitionCost }}</td>
+                                <td class="h6">{{ row.estimatedCurrentValue }}</td>
+                                <td class="h6">{{ row.methodOfAcquisition }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                        <!--End of Table Body-->
+                    </table>
+
+                </div>
+            </div>
+        </section>
+        <section id="section-profiles" class="row container card">
+            <div class="card-header">
+                <span class="h5">Profile Management</span>
+            </div>
+            <div class="card-body">
+                <div class="container rounded-1 border border-1 border-dark border-opacity-25 p-5 shadow">
+                    <table class="table table-striped nowrap jDataTable w-100" id="revenue-table">
+                        <thead>
+                        <tr>
+                            <th class="h6">Action</th>
+                            <th class="h6">Email</th>
+                            <th class="h6">Username</th>
+                            <th class="h6">Name</th>
+                            <th class="h6">Birth</th>
+                            <th class="h6">IC</th>
+                            <th class="h6">Address 1</th>
+                            <th class="h6">Address 2</th>
+                            <th class="h6">Address 3</th>
+                            <th class="h6">Phone</th>
+                            <th class="h6">First Public Serving Date</th>
+                            <th class="h6">Current Public Serving Date</th>
+                            <th class="h6">Service Name</th>
+                            <th class="h6">Service Group</th>
+                            <th class="h6">Grade</th>
+                            <th class="h6">Job</th>
+                            <th class="h6">Spouse Name</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for row in profiles %}
+                            {% if row.role == 'user' %}
+                            <tr>
+                                <td class="border-bottom-0">
+                                    <button type="button" name="action" value="delete"
+                                            class="btn btn-danger"
+                                            onclick="setDeleteModal('user', '{{ row.email }}')">
+                                        Delete
+                                    </button>
+                                    <button type="button" name="action"
+                                            class="btn btn-secondary mx-1"
+                                            onclick="setProfileModal({{ row }})">
+                                        Modify
+                                    </button>
+                                </td>
+                                <td class="h6">{{ row.email }}</td>
+                                <td class="h6">{{ row.username }}</td>
+                                <td class="h6">{{ row.name }}</td>
+                                <td class="h6">{{ row.birth }}</td>
+                                <td class="h6">{{ row.ic }}</td>
+                                <td class="h6">{{ row.addr1 }}</td>
+                                <td class="h6">{{ row.addr2 }}</td>
+                                <td class="h6">{{ row.addr3 }}</td>
+                                <td class="h6">{{ row.phone }}</td>
+                                <td class="h6">{{ row.firstPublicServingDate }}</td>
+                                <td class="h6">{{ row.currentPublicServingDate }}</td>
+                                <td class="h6">{{ row.serviceName }}</td>
+                                <td class="h6">{{ row.serviceGroup }}</td>
+                                <td class="h6">{{ row.grade }}</td>
+                                <td class="h6">{{ row.job }}</td>
+                                <td class="h6">{{ row.spouseName }}</td>
+                            </tr>
+                            {% endif %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <form class="modal fade" id="confirmation-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-hidden="true" method="post">
+    </form>
+
+    <form class="modal fade" id="edit-user-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+          aria-hidden="true" action="{{ url_for('edit_profile') }}" method="POST">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-text ms-2 mb-2 text-danger">Please note that your action will be logged.
+                    </div>
+                    <div class="container-fluid">
+                        <!-- Personal Information -->
+                        <h5 class="card-title fw-semibold mb-4">Personal Information</h5>
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Email*
+                                        <input type="text" class="form-control" name="email" disabled>
+                                        <input type="hidden" name="email">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Username*
+                                        <input type="text" class="form-control" name="username" disabled>
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Name*
+                                        <input type="text" class="form-control" name="name">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Date of Birth*
+                                        <input type="date" class="form-control" name="birth">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Identity Card Number*
+                                        <input type="text" class="form-control" name="ic">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Address*
+                                        <input type="text" class="form-control" name="addr1">
+                                    </label>
+
+                                    <input type="text" class="form-control" name="addr2">
+
+                                    <input type="text" class="form-control" name="addr3">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Contact Number*
+                                        <input type="tel" class="form-control" name="phone">
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Personal Information -->
+
+                        <!-- Service Information -->
+                        <h5 class="card-title fw-semibold mb-4">Service Information</h5>
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">First Public Serving Date*
+                                        <input type="date" class="form-control" name="firstServingDate">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Current Public Serving Date*
+                                        <input type="date" class="form-control" name="currentServingDate">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Service Name*
+                                        <input type="text" class="form-control" name="serviceName">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Service Group*
+                                        <input type="text" class="form-control" name="serviceGroup">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Real Grade/Level*
+                                        <input type="text" class="form-control" name="grade">
+                                    </label>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Job Title*
+                                        <input type="text" class="form-control" name="job">
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End of Service Information -->
+
+                        <!-- Spouse Information -->
+                        <h5 class="card-title fw-semibold mb-4">Spouse Information</h5>
+                        <div class="card">
+                            <div class="card-body">
+
+                                <div class="mb-3">
+                                    <label class="form-label w-100">Spouse's Name
+                                        <input type="text" class="form-control" name="spouseName">
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </form>
+{% endblock %}
+{% block script %}
+    <script src="/static/js/admin-management.js"></script>
+{% endblock %}
