@@ -13,7 +13,7 @@ from flask_limiter import Limiter, RateLimitExceeded
 from flask_limiter.util import get_remote_address
 from flask_login import LoginManager, current_user, login_user, login_required, logout_user
 from flask_mail import Mail, Message
-from pypdf import PdfReader, PdfWriter
+from pypdf import PdfReader
 from pypdf.errors import PyPdfError
 from sqlalchemy import exc
 from werkzeug.utils import secure_filename
@@ -31,7 +31,9 @@ scheduler.start()
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'index'
-login_manager.login_message = u"Login session expired. Please login again."
+login_manager.login_message = u"Login session invalid. Please login again."
+login_manager.needs_refresh_message = u'Login session has expired. Please login again.'
+login_manager.needs_refresh_message_category = 'danger'
 login_manager.login_message_category = 'danger'
 
 tokens = []
@@ -77,7 +79,8 @@ def login():
                     login_user(user)
                     log_access_activity(f"User '{user.username}' with email '{email}' has logged in.")
                     flash(f'Welcome back, User {user.username}', 'success')
-                    return redirect(url_for('display_assets'))
+                    return redirect(url_for('display_assets')) if user.has_role('user') else redirect(
+                        url_for('admin_dashboard'))
             else:
                 flash('Invalid credentials for login. Please try again.', 'danger')
         except RateLimitExceeded as e:
@@ -312,26 +315,44 @@ def profile():
 def edit_profile():
     try:
         check_edit_attempts()
-        profile = Profile.query.get(current_user.email)
-        profile.name = request.form['name']
-        profile.birth = request.form['birth']
-        profile.ic = request.form['ic']
-        profile.addr1 = request.form['addr1']
-        profile.addr2 = request.form['addr2']
-        profile.addr3 = request.form['addr3']
-        profile.phone = request.form['phone']
-        profile.first_public_serving_date = datetime.strptime(request.form['firstServingDate'], '%Y-%m-%d')
-        profile.current_public_serving_date = datetime.strptime(request.form['currentServingDate'], '%Y-%m-%d')
-        profile.service_name = request.form['serviceName']
-        profile.service_group = request.form['serviceGroup']
-        profile.grade = request.form['grade']
-        profile.job = request.form['job']
-        profile.spouse_name = request.form['spouseName']
+
+        email = request.form.get('email', None)
+        profile = Profile.query.get(email if email and User.query.get(email).role == 'admin' else current_user.email)
+        profile.name = request.form.get('name', profile.name)
+        profile.birth = request.form.get('birth', profile.birth)
+        profile.ic = request.form.get('ic', profile.ic)
+        profile.addr1 = request.form.get('addr1', profile.addr1)
+        profile.addr2 = request.form.get('addr2', profile.addr2)
+        profile.addr3 = request.form.get('addr3', profile.addr3)
+        profile.phone = request.form.get('phone', profile.phone)
+
+        def parse_date(date_string):
+            return datetime.strptime(date_string, '%Y-%m-%d') if date_string else None
+
+        profile.name = request.form.get('name', profile.name)
+        profile.birth = request.form.get('birth', profile.birth)
+        profile.ic = request.form.get('ic', profile.ic)
+        profile.addr1 = request.form.get('addr1', profile.addr1)
+        profile.addr2 = request.form.get('addr2', profile.addr2)
+        profile.addr3 = request.form.get('addr3', profile.addr3)
+        profile.phone = request.form.get('phone', profile.phone)
+
+        # Set datetime attributes only if the corresponding form fields exist
+        profile.first_public_serving_date = parse_date(request.form.get('firstServingDate'))
+        profile.current_public_serving_date = parse_date(request.form.get('currentServingDate'))
+
+        profile.service_name = request.form.get('serviceName', profile.service_name)
+        profile.service_group = request.form.get('serviceGroup', profile.service_group)
+        profile.grade = request.form.get('grade', profile.grade)
+        profile.job = request.form.get('job', profile.job)
+        profile.spouse_name = request.form.get('spouseName', profile.spouse_name)
+
         db.session.add(profile)
         db.session.commit()
-        log_access_activity(f'Profile of email{current_user.email} has been edited')
+
+        log_access_activity(f'Profile of email {profile.email} has been edited by {current_user.email}')
         flash("Information has been successfully saved!", 'success')
-        return render_template('profile.html', profile=profile)
+        return render_template('profile.html', profile=profile) if not email else redirect(request.referrer)
     except exc.SQLAlchemyError as e:
         db.session.rollback()
         log_error(f"SQLAlchemyError occurred while editing the profile: {str(e)}")
@@ -345,7 +366,7 @@ def edit_profile():
         log_error(f"An unexpected error occurred while editing the profile: {str(e)}")
         flash("An unexpected error occurred. Please try again later.", "danger")
     # Redirect to an error page or the previous page
-    return redirect(url_for('profile'))
+    return redirect(request.referrer)
 
 
 @limiter.limit("3 per minute", key_func=lambda: current_user.email, error_message='Too many attempts.')
@@ -432,55 +453,6 @@ def convert_keys_to_snake_case(dictionary):
 
 
 def process_changes(asset_class, data):
-    def add_or_update_asset(asset_class, item):
-        def update_from_dict(model_instance, data):
-            # Skip if ID contains 'temp'
-            if 'id' in data and 'temp' in data['id']:
-                return
-            # Update model fields based on data dictionary
-            for key, value in data.items():
-                # Skip if the key doesn't exist in the model_instance
-                if not hasattr(model_instance, key):
-                    continue
-                setattr(model_instance, key, value)
-
-        asset = asset_class.query.get(item['id'])
-        item['approve_status'] = False
-        try:
-            if asset:
-                update_from_dict(asset, item)
-            else:
-                asset = asset_class(**item)
-                asset.id = None
-                db.session.add(asset)
-            db.session.commit()
-            Path(f"asset_pdfs/{current_user.email}").mkdir(exist_ok=True)
-            type = str(asset_class.__table__.name).lower()
-            filename = f"{type}_{item['id']}"
-            file_bytes = cache.get(f'{current_user.email}_{filename}')
-            PdfReader(io.BytesIO(file_bytes))
-            filename = secure_filename(f'{type}_{asset.id}.pdf')
-            file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
-            with open(file, 'wb') as f:
-                f.write(file_bytes)
-        except Exception as e:
-            db.session.rollback()
-            log_error(f"Error add/update item {asset}: {str(e)}")
-
-    def delete_asset(asset_class, item):
-        try:
-            asset = asset_class.query.get(item['id'])
-            if asset:
-                db.session.delete(asset)
-                type = str(asset_class.__table__.name).lower()
-                filename = secure_filename(f'{type}_{asset.id}.pdf')
-                file = os.path.join(app.config['UPLOAD_FOLDER'], f'{current_user.email}', filename)
-                db.session.commit()
-                os.remove(file)
-        except Exception as e:
-            log_error(f"Error deleting item: {str(e)}")
-            db.session.rollback()
-
     asset_type = str(asset_class.__table__.name).lower()
     for item in data.get(f'{asset_type}_changes', {}).get('additions', []) + data.get(f'{asset_type}_changes', {}).get(
             'modifications', []):
@@ -489,10 +461,61 @@ def process_changes(asset_class, data):
         delete_asset(asset_class, item)
 
 
-@app.route('/send_pdf')
+def add_or_update_asset(asset_class, item):
+    def update_from_dict(model_instance, data):
+        # Skip if ID contains 'temp'
+        if 'id' in data and 'temp' in data['id']:
+            return
+        # Update model fields based on data dictionary
+        for key, value in data.items():
+            # Skip if the key doesn't exist in the model_instance
+            if not hasattr(model_instance, key):
+                continue
+            setattr(model_instance, key, value)
+    asset = asset_class.query.get(item['id'])
+    try:
+        if asset:
+            update_from_dict(asset, item)
+        else:
+            asset = asset_class(**item)
+            asset.id = None
+            asset.approve_status = False
+            db.session.add(asset)
+        db.session.commit()
+        Path(f"asset_pdfs/{current_user.email}").mkdir(exist_ok=True)
+        type = str(asset_class.__table__.name).lower()
+        filename = f"{type}_{item['id']}"
+        file_bytes = cache.get(f'{current_user.email}_{filename}')
+        PdfReader(io.BytesIO(file_bytes))
+        filename = secure_filename(f'{type}_{asset.id}.pdf')
+        file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
+        with open(file, 'wb') as f:
+            f.write(file_bytes)
+    except Exception as e:
+        db.session.rollback()
+        log_error(f"Error add/update item {asset}: {str(e)}")
+
+
+def delete_asset(asset_class, item):
+    try:
+        asset = asset_class.query.get(item['id'])
+        if asset:
+            db.session.delete(asset)
+            type = str(asset_class.__table__.name).lower()
+            filename = secure_filename(f'{type}_{asset.id}.pdf')
+            file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
+            db.session.commit()
+            os.remove(file)
+    except Exception as e:
+        log_error(f"Error deleting item: {str(e)}")
+        db.session.rollback()
+
+
+@app.route('/send_pdf', methods=['GET', 'POST'])
 def send_pdf():
     filename = request.args.get('filename')
-    user_dir = os.path.join(app.config['UPLOAD_FOLDER'], current_user.email)
+    email = request.args.get('email')
+    user_dir = os.path.join(app.config['UPLOAD_FOLDER'], current_user.email if not email else email)
     if os.path.exists(os.path.join(user_dir, filename + '.pdf')):
         return send_from_directory(user_dir, filename + '.pdf', as_attachment=False)
     else:
@@ -506,6 +529,51 @@ def get_print_assets():
     profile_detail = Profile.query.get(current_user.email)
     assets_json = request.get_json()
     return render_template('print-assets.html', profile_detail=profile_detail, assets_json=assets_json)
+
+
+@app.route('/admin_dashboard')
+@login_required
+def admin_dashboard():
+    if current_user.role != 'admin':
+        logout_user()
+        return redirect(request.referrer)
+    revenues = convert_keys_to_camel_case([r.as_dict() for r in Revenue.query.all()])
+    expenses = convert_keys_to_camel_case([e.as_dict() for e in Expense.query.all()])
+    inventories = convert_keys_to_camel_case([i.as_dict() for i in Inventory.query.all()])
+    profiles = convert_keys_to_camel_case(
+        [{**User.query.get(p.email).as_dict(), **p.as_dict()} for p in Profile.query.all()])
+    return render_template('admin-dashboard.html', revenues=revenues, expenses=expenses, inventories=inventories,
+                           profiles=profiles, user=current_user)
+
+
+@app.route('/delete_item', methods=['POST'])
+@login_required
+def delete_item():
+    if current_user.role != 'admin':
+        logout_user()
+        return redirect(request.referrer)
+    type = str(request.form.get('type'))
+    type_class = {'revenue': Revenue, 'expense': Expense, 'inventory': Inventory, 'user': User}[type]
+    delete_asset(type_class, request.form)
+    flash('The asset is successfully deleted', 'success')
+    log_access_activity(f'The asset is successfully deleted by admin {current_user.email}')
+    return redirect(url_for('admin_dashboard'))
+
+
+@app.route('/approve_asset', methods=['GET', 'POST'])
+@login_required
+def approve_asset():
+    if current_user.role != 'admin':
+        logout_user()
+        return redirect(request.referrer)
+    type = str(request.form.get('type'))
+    type_class = {'revenue': Revenue, 'expense': Expense, 'inventory': Inventory}[type]
+    form_data = dict(request.form)
+    form_data['approve_status'] = True
+    add_or_update_asset(type_class, form_data)
+    flash('The asset is successfully approved.', 'success')
+    log_access_activity(f'The asset is successfully approved by admin {current_user.email}')
+    return redirect(url_for('admin_dashboard'))
 
 
 # Occasionally check database for unauthorized users and delete them
