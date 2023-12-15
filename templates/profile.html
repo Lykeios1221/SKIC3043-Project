@@ -41,33 +41,32 @@
                                         <label for="exampleInputName" class="form-label">Name*</label>
                                         <input type="text" class="form-control" name="name" id="exampleInputName"
                                                aria-describedby="nameHelp"
-                                               value="{{ profile.name if profile.name else '' }}" required>
+                                               value="{{ profile.name if profile.name else '' }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="exampleInputDate" class="form-label">Date of Birth*</label>
                                         <input type="date" class="form-control" name="birth" id="exampleInputDate"
                                                aria-describedby="dateHelp"
-                                               value="{{ profile.birth if profile.birth else '' }}"
-                                               required>
+                                               value="{{ profile.birth if profile.birth else '' }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputID" class="form-label">Identity Card Number*</label>
                                         <input type="text" class="form-control" name="ic" id="exampleInputID"
                                                aria-describedby="idHelp"
-                                               value="{{ profile.ic if profile.ic else '' }}" required>
+                                               value="{{ profile.ic if profile.ic else '' }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="addressLine1" class="form-label">Address*</label>
                                         <div id="addressLine1Help" class="form-text"></div>
                                         <input type="text" class="form-control" name="addr1" id="addressLine1"
                                                aria-describedby="addressLine1Help"
-                                               value="{{ profile.addr1 if profile.addr1 else '' }}" required>
+                                               value="{{ profile.addr1 if profile.addr1 else '' }}">
 
                                         <div id="addressLine2Help" class="form-text"></div>
                                         <input type="text" class="form-control" name="addr2" id="addressLine2"
                                                aria-describedby="addressLine2Help"
-                                               value="{{ profile.addr2 if profile.addr2 else '' }}" required>
+                                               value="{{ profile.addr2 if profile.addr2 else '' }}">
 
                                         <div id="addressLine3Help" class="form-text"></div>
                                         <input type="text" class="form-control" name="addr3" id="addressLine3"
@@ -78,7 +77,7 @@
                                         <label for="exampleInputContact" class="form-label">Contact Number*</label>
                                         <input type="tel" class="form-control" name="phone" id="exampleInputContact"
                                                aria-describedby="contactHelp"
-                                               value="{{ profile.phone if profile.phone else '' }}" required>
+                                               value="{{ profile.phone if profile.phone else '' }}">
                                     </div>
 
                                 </div>
@@ -95,44 +94,40 @@
                                             Date*</label>
                                         <input type="date" class="form-control" name="firstServingDate"
                                                id="firstPublicServingDate" aria-describedby="dateHelp"
-                                               value="{{ profile.first_public_serving_date if profile.first_public_serving_date else '' }}"
-                                               required>
+                                               value="{{ profile.first_public_serving_date if profile.first_public_serving_date else '' }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="currentPublicServingDate" class="form-label">Current Public
                                             Serving Date*</label>
                                         <input type="date" class="form-control" name="currentServingDate"
                                                id="currentPublicServingDate" aria-describedby="dateHelp"
-                                               value="{{ profile.current_public_serving_date if profile.current_public_serving_date else '' }}"
-                                               required>
+                                               value="{{ profile.current_public_serving_date if profile.current_public_serving_date else '' }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="serviceName" class="form-label">Service Name*</label>
                                         <input type="text" class="form-control" name="serviceName" id="serviceName"
                                                aria-describedby="serviceNameHelp"
-                                               value="{{ profile.service_name if profile.service_name else '' }}"
-                                               required>
+                                               value="{{ profile.service_name if profile.service_name else '' }}">
                                     </div>
                                     <div class="mb-3">
                                         <label for="serviceGroup" class="form-label">Service Group*</label>
                                         <input type="text" class="form-control" name="serviceGroup" id="serviceGroup"
                                                aria-describedby="serviceGroupHelp"
-                                               value="{{ profile.service_group if profile.service_group else '' }}"
-                                               required>
+                                               value="{{ profile.service_group if profile.service_group else '' }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="gradeLevel" class="form-label">Real Grade/Level*</label>
                                         <input type="text" class="form-control" name="grade" id="gradeLevel"
                                                aria-describedby="gradeLevelHelp"
-                                               value="{{ profile.grade if profile.grade else '' }}" required>
+                                               value="{{ profile.grade if profile.grade else '' }}">
                                     </div>
 
                                     <div class="mb-3">
                                         <label for="jobTitle" class="form-label">Job Title*</label>
                                         <input type="text" class="form-control" name="job" id="jobTitle"
                                                aria-describedby="jobTitleHelp"
-                                               value="{{ profile.job if profile.job else '' }}" required>
+                                               value="{{ profile.job if profile.job else '' }}" >
                                     </div>
 
                                 </div>
