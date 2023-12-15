@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2023 at 05:18 PM
+-- Generation Time: Dec 15, 2023 at 02:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -36,13 +36,6 @@ CREATE TABLE `expense` (
   `total` decimal(19,2) NOT NULL,
   `approve_status` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `expense`
---
-
-INSERT INTO `expense` (`id`, `email`, `description`, `type`, `monthly_deduction`, `total`, `approve_status`) VALUES
-(22, 'derricksaw123@gmail.com', 'test', 'Individual', 123.00, 123.00, 0);
 
 -- --------------------------------------------------------
 
@@ -96,7 +89,8 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`email`, `name`, `birth`, `ic`, `addr1`, `addr2`, `addr3`, `phone`, `first_public_serving_date`, `current_public_serving_date`, `service_name`, `service_group`, `grade`, `job`, `spouse_name`) VALUES
-('derricksaw123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('derricksaw123@gmail.com', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+('derrick_saw_wei@soc.uum.edu.my', '123123', '2023-12-13', '', '', '', '', '', NULL, NULL, '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -123,15 +117,17 @@ CREATE TABLE `user` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `authorized_status` tinyint(1) NOT NULL
+  `authorized_status` tinyint(1) NOT NULL,
+  `role` varchar(20) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`username`, `email`, `password`, `authorized_status`) VALUES
-('derrick', 'derricksaw123@gmail.com', '$2b$12$zXqMuvixYUftHbDaW9aow.fsWgJo7iaERE2/xJgT1I4HC733A..sW', 1);
+INSERT INTO `user` (`username`, `email`, `password`, `authorized_status`, `role`) VALUES
+('derrick', 'derricksaw123@gmail.com', '$2b$12$zXqMuvixYUftHbDaW9aow.fsWgJo7iaERE2/xJgT1I4HC733A..sW', 1, 'user'),
+('Derrick Saw Wei Heng', 'derrick_saw_wei@soc.uum.edu.my', '$2b$12$w6qdp1X07Tw0QYkvg4zmrOqTXc4MDYO.R5F9Ji9C/TaMWUSUUbtmK', 1, 'admin');
 
 --
 -- Indexes for dumped tables
@@ -178,19 +174,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `expense`
 --
 ALTER TABLE `expense`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `revenue`
 --
 ALTER TABLE `revenue`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Constraints for dumped tables
