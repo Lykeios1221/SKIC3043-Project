@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SKIC Inventory Website</title>
+    <link rel="stylesheet" href="../static/vendor/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css">
+
+    <link rel="shortcut icon" type="image/png" href="../static/images/logos/favicon.png"/>
+    <link rel="stylesheet" href="../static/css/styles.min.css"/>
+    <link rel="stylesheet" href="../static/css/flash-message.css">
+    <link rel="stylesheet" href="../static/css/display-assets.css">
+
+    {% block stylesheet %}
+    {% endblock %}
+</head>
+
+<body>
+{% include "flash-message.html" %}
+
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!--------------------------------------
+      Sidebar
+      ---------------------------------------->
+    {% include "sidebar.html" %}
+    <div class="body-wrapper">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</div>
+
+
+<input type='hidden' id='userAssets' data-assets='{{ user_assets }}'>
+
+<script src="../static/vendor/jquery-3.7.1.min.js"></script>
+<script src="../static/vendor/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/responsive.bootstrap5.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+
+<script>
+    $('.collapsible').on('click', function () {
+        $(this).siblings('.content').slideToggle('slow');
+    });
+</script>
+{% block script %}
+{% endblock %}
+<script src="../static/js/flash-fade.js"></script>
+</body>
+
+</html>
