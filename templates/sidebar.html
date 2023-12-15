@@ -12,37 +12,58 @@
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
             <ul id="sidebarnav">
-
-
                 <!--Functionality Section-->
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">FUNC</span>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {% if '/display_assets' in request.path %}active{% endif %}" href="{{ url_for('display_assets') }}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-article"></i>
-                </span>
-                        <span class="hide-menu">Asset Declaration</span>
-                    </a>
+                <li class="sidebar-item" id="sidebar-func">
+                    {% if not user or not user.role == 'admin' %}
+                        <a class="sidebar-link {% if '/display_assets' in request.path %}active{% endif %}"
+                           href="{{ url_for('display_assets') }}" aria-expanded="false">
+                            <span><i class="ti ti-article"></i></span>
+                            <span class="hide-menu">Asset Declaration</span>
+                        </a>
+                    {% else %}
+                        <a class="sidebar-link" onclick="addActive(this)"
+                           href="#section-revenues" aria-expanded="false">
+                            <span><i class="ti ti-article"></i></span>
+                            <span class="hide-menu">Revenue</span>
+                        </a>
+                        <a class="sidebar-link" onclick="addActive(this)"
+                           href="#section-expenses" aria-expanded="false">
+                            <span><i class="ti ti-article"></i></span>
+                            <span class="hide-menu">Expense</span>
+                        </a>
+                        <a class="sidebar-link" onclick="addActive(this)"
+                           href="#section-inventories" aria-expanded="false">
+                            <span><i class="ti ti-article"></i></span>
+                            <span class="hide-menu">Inventory</span>
+                        </a>
+                        <a class="sidebar-link" onclick="addActive(this)"
+                           href="#section-profiles" aria-expanded="false">
+                            <span><i class="ti ti-article"></i></span>
+                            <span class="hide-menu">User</span>
+                        </a>
+                    {% endif %}
                 </li>
 
-
-                <!--Authorisation Section-->
-                <li class="nav-small-cap">
-                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">AUTH</span>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link {% if '/profile' in request.path %}active{% endif %}" href="{{ url_for('profile') }}" aria-expanded="false">
+                {% if not user %}
+                    <!--Authorisation Section-->
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">AUTH</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link {% if '/profile' in request.path %}active{% endif %}"
+                           href="{{ url_for('profile') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-user-plus"></i>
                 </span>
-                        <span class="hide-menu">My Profile</span>
-                    </a>
-                </li>
-
+                            <span class="hide-menu">My Profile</span>
+                        </a>
+                    </li>
+                {% endif %}
                 <!--Extra Section-->
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
