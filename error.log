@@ -269,3 +269,48 @@ WHERE user.email = %s
 2023-12-03 23:45:39,566 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derricksaw123@gmail.com\\revenue_41.pdf'
 2023-12-03 23:50:34,309 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
 2023-12-03 23:54:45,765 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-04 00:31:35,942 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-04 00:33:58,223 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-04 00:34:24,235 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-04 11:43:28,219 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=No)>: (builtins.TypeError) Not a boolean value: 'No'
+[SQL: INSERT INTO revenue (email, description, type, total, approve_status) VALUES (%s, %s, %s, %s, %s)]
+[parameters: [{'description': 'test', 'type': 'Individual', 'email': 'derricksaw123@gmail.com', 'approve_status': 'No', 'total': '123'}]]
+2023-12-04 11:49:20,771 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=No)>: 'dict' object has no attribute 'approve_status'
+2023-12-04 11:49:59,767 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=No)>: 'dict' object has no attribute 'approve_status'
+2023-12-15 01:01:27,833 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:01:47,135 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:03:02,766 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:03:21,664 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:03:41,421 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:04:11,454 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:04:33,348 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 01:05:18,344 [ERROR]: An error occurred while deleting item: 'None'
+2023-12-15 02:08:02,654 [ERROR]: An unexpected error occurred while editing the profile: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-12-15 02:09:42,734 [ERROR]: An unexpected error occurred while editing the profile: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-12-15 02:10:36,391 [ERROR]: An unexpected error occurred while editing the profile: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+2023-12-15 02:12:40,425 [ERROR]: An unexpected error occurred while editing the profile: time data '' does not match format '%Y-%m-%d'
+2023-12-15 11:56:38,726 [ERROR]: Error deleting item: [WinError 3] The system cannot find the path specified: 'asset_pdfs\\derrick_saw_wei@soc.uum.edu.my\\revenue_52.pdf'
+2023-12-15 12:00:39,174 [ERROR]: Error add/update item <Revenue(id=52, email=derricksaw123@gmail.com, description=123, type=revenue, total=123.00, approve_status=False)>: Cannot read an empty file
+2023-12-15 12:00:43,933 [ERROR]: Error add/update item <Revenue(id=52, email=derricksaw123@gmail.com, description=123, type=revenue, total=123.00, approve_status=False)>: Cannot read an empty file
+2023-12-15 12:04:34,862 [ERROR]: Error add/update item <Revenue(id=52, email=derricksaw123@gmail.com, description=123, type=revenue, total=123.00, approve_status=False)>: Cannot read an empty file
+2023-12-15 12:04:53,844 [ERROR]: Error add/update item <Revenue(id=52, email=derricksaw123@gmail.com, description=123, type=revenue, total=123.00, approve_status=False)>: Cannot read an empty file
+2023-12-15 12:06:18,437 [ERROR]: Error add/update item <Revenue(id=52, email=derricksaw123@gmail.com, description=123, type=revenue, total=123.00, approve_status=True)>: Cannot read an empty file
+2023-12-15 12:06:46,878 [ERROR]: Error deleting item: [WinError 2] The system cannot find the file specified: 'asset_pdfs\\derrick_saw_wei@soc.uum.edu.my\\revenue_52.pdf'
+2023-12-15 13:40:05,503 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-15 14:27:34,281 [ERROR]: Unable to cache uploaded items: 413 Request Entity Too Large: The data value transmitted exceeds the capacity limit.
+2023-12-15 14:48:56,712 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=False)>: (builtins.TypeError) Not a boolean value: 'False'
+[SQL: INSERT INTO revenue (email, description, type, total, approve_status) VALUES (%s, %s, %s, %s, %s)]
+[parameters: [{'email': 'derricksaw123@gmail.com', 'approve_status': 'False', 'type': 'Individual', 'total': '123', 'description': 'test'}]]
+2023-12-15 14:48:56,717 [ERROR]: Error add/update item <Inventory(id=None, email=derricksaw123@gmail.com, type=Individual, owner=test123, inv_description=123, reg_certificate_no=123, date_of_ownership=2023-12-06, quantity_amount=123, ownership_size=123, quantity_size=123, acquisition_cost=123, estimated_current_value=123, method_of_acquisition=123, approve_status=False)>: (builtins.TypeError) Not a boolean value: 'False'
+[SQL: INSERT INTO inventory (email, type, owner, inv_description, reg_certificate_no, date_of_ownership, quantity_amount, ownership_size, quantity_size, acquisition_cost, estimated_current_value, method_of_acquisition, approve_status) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)]
+[parameters: [{'method_of_acquisition': '123', 'estimated_current_value': '123', 'quantity_size': '123', 'email': 'derricksaw123@gmail.com', 'date_of_ownership': '2 ... (63 characters truncated) ...  'inv_description': '123', 'type': 'Individual', 'reg_certificate_no': '123', 'owner': 'test123', 'quantity_amount': '123', 'acquisition_cost': '123'}]]
+2023-12-15 14:54:26,103 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=False)>: (builtins.TypeError) Not a boolean value: 'False'
+[SQL: INSERT INTO revenue (email, description, type, total, approve_status) VALUES (%s, %s, %s, %s, %s)]
+[parameters: [{'email': 'derricksaw123@gmail.com', 'approve_status': 'False', 'type': 'Individual', 'total': '123', 'description': 'test'}]]
+2023-12-15 14:55:10,912 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=False)>: (builtins.TypeError) Not a boolean value: 'False'
+[SQL: INSERT INTO revenue (email, description, type, total, approve_status) VALUES (%s, %s, %s, %s, %s)]
+[parameters: [{'email': 'derricksaw123@gmail.com', 'description': 'test', 'total': '123', 'type': 'Individual', 'approve_status': 'False'}]]
+2023-12-15 14:56:35,564 [ERROR]: Error add/update item <Revenue(id=None, email=derricksaw123@gmail.com, description=test, type=Individual, total=123, approve_status=False)>: (builtins.TypeError) Not a boolean value: 'False'
+[SQL: INSERT INTO revenue (email, description, type, total, approve_status) VALUES (%s, %s, %s, %s, %s)]
+[parameters: [{'type': 'Individual', 'total': '123', 'description': 'test', 'email': 'derricksaw123@gmail.com', 'approve_status': 'False'}]]
+2023-12-15 15:04:57,282 [ERROR]: Error add/update item <Revenue(id=53, email=derricksaw123@gmail.com, description=test, type=revenue, total=123.00, approve_status=True)>: Cannot read an empty file

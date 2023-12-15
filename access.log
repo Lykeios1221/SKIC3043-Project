@@ -2022,3 +2022,392 @@
 2023-12-03 23:50:22,505 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
 2023-12-03 23:54:30,766 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
 2023-12-03 23:54:31,081 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:04:33,358 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:04:33,661 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:04:45,329 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:04:45,383 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:09:41,830 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:09:42,110 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:26:07,175 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:26:07,468 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:27:01,853 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:27:01,897 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:27:31,368 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:27:31,433 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:27:40,634 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:27:40,645 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:28:07,826 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:28:07,873 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:30:57,245 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:30:57,648 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:31:57,288 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:31:57,331 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:32:13,220 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:32:13,231 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:33:13,594 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:33:13,910 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:34:07,810 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:34:07,837 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:34:36,273 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:34:36,308 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:34:56,293 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:34:56,301 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:37:28,124 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:37:28,427 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:37:37,011 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:37:37,054 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 00:39:52,157 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:39:52,455 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:44:57,314 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:44:57,586 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:47:40,877 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:47:41,150 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:50:04,026 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:50:04,312 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:52:37,732 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:52:38,037 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 00:53:28,069 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 00:53:28,081 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:40:40,490 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:40:40,734 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:43:16,252 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:43:16,532 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:43:28,214 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:43:28,221 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:46:09,399 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:46:09,672 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:46:19,668 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:46:19,695 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:47:43,025 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:47:43,036 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:47:51,120 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:47:51,145 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:48:17,557 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:48:17,823 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:48:20,593 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:48:20,603 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:48:28,655 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:48:28,679 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:49:11,677 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:49:11,695 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:49:20,770 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:49:20,774 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:49:59,763 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:49:59,770 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:51:00,858 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:51:01,142 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:51:08,448 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:51:08,476 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:52:10,769 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:52:10,809 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 11:53:34,191 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:53:34,444 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 11:58:55,250 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 11:58:55,508 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:01:41,818 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:01:42,066 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:05:05,850 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:05:06,112 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:27:43,319 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:27:43,593 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:31:28,033 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:31:28,327 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:34:05,264 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:34:05,552 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:36:38,887 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:36:39,203 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:39:07,187 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:39:07,470 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:45:25,683 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:45:25,986 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:47:38,645 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:47:38,920 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:52:09,885 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:52:10,166 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:54:31,561 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:54:31,859 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 12:57:25,168 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 12:57:25,452 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 13:07:03,308 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 13:07:03,558 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 13:10:17,700 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 13:10:18,014 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 16:10:36,468 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 16:10:36,786 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 16:13:43,194 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 16:13:43,499 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 16:20:59,746 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 16:21:00,039 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 16:26:09,872 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 16:26:10,201 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 17:37:25,582 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 17:37:25,901 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 17:56:50,975 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 17:56:51,318 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:04:46,566 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:04:46,923 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:08:10,867 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:08:11,177 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:14:37,865 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:14:38,161 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:18:30,646 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:18:30,952 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:21:55,388 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:21:55,673 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:24:07,753 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:24:08,037 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:28:53,298 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:28:53,572 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:31:09,195 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:31:09,472 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:33:26,942 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:33:27,218 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:39:44,623 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:39:44,903 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:42:24,609 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:42:24,874 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:43:34,130 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:43:34,142 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:44:14,037 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:44:14,054 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:45:57,605 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:45:57,846 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:46:00,918 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:46:00,926 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:46:51,613 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:46:51,642 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:46:59,836 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:46:59,843 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:47:08,464 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:47:08,501 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:47:17,117 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-12-04 18:47:44,837 [INFO]: Rate limit exceeded for manage asset of email derricksaw123@gmail.com. Error: Too many attempts.
+2023-12-04 18:48:45,394 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:48:45,395 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:49:00,290 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:49:00,290 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:49:42,966 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:49:42,966 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:50:08,249 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:50:08,531 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:50:24,056 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:50:24,057 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:50:50,021 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:50:50,022 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:52:34,991 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:52:35,276 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:52:43,041 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:52:43,041 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:54:10,854 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:54:10,855 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:54:56,585 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:54:56,934 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-04 18:55:06,004 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:55:06,005 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:55:45,902 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:55:45,903 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-04 18:56:26,387 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-04 18:56:26,414 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-14 01:42:14,804 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-14 01:42:15,078 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-14 01:49:43,945 [INFO]: Email duplication verification for 'derrick_saw_wei@soc.uum.edu.my' was successful. Duplicated status = False.
+2023-12-14 01:49:44,150 [INFO]: Sign-up attempt with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 01:49:47,313 [INFO]: User 'Derrick Saw Wei Heng' signed up with email 'derrick_saw_wei@soc.uum.edu.my'. Verification email sent.
+2023-12-14 01:50:51,680 [INFO]: User with email 'derrick_saw_wei@soc.uum.edu.my' is verified.
+2023-12-14 02:36:52,110 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-14 02:36:52,365 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-14 02:39:57,720 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-14 02:39:57,989 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-14 03:00:46,017 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-14 03:00:46,258 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-14 03:01:49,469 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-14 03:01:49,804 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-14 03:03:47,631 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:03:47,878 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:05:11,852 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:05:12,153 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:06:39,236 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:06:39,496 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:07:25,634 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:07:25,873 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:08:12,046 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:08:12,307 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:08:39,504 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:08:39,777 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:11:12,414 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:11:12,664 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 03:13:05,007 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 03:13:05,270 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:08:26,495 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:08:27,336 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:11:22,682 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:11:23,240 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:14:08,973 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:14:09,429 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:16:23,435 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:16:23,840 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:19:01,035 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:19:01,506 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:22:17,676 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:22:18,188 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:24:32,347 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:24:32,850 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:26:43,634 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:26:44,038 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 09:44:19,954 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 09:44:20,644 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 10:16:17,155 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 10:16:17,849 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 10:33:47,121 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 10:33:47,794 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 10:50:47,590 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 10:50:48,260 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 14:32:13,418 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 14:32:14,106 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 14:43:44,908 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 14:43:45,580 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 17:54:35,322 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 17:54:35,674 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 18:13:34,205 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 18:13:34,459 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 19:07:18,679 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 19:07:19,005 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 19:24:35,118 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 19:24:35,429 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 20:21:41,134 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 20:21:41,460 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 20:39:47,794 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 20:39:48,051 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 20:57:30,885 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 20:57:31,145 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 21:14:35,852 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 21:14:36,178 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 21:31:34,419 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 21:31:34,702 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 22:04:54,859 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 22:04:55,188 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 22:24:10,567 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 22:24:10,820 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 22:40:01,152 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 22:40:01,398 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-14 22:57:56,291 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-14 22:57:56,556 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 01:00:25,263 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 01:00:25,593 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 01:11:00,917 [INFO]: Revenue with ID 52 successfully deleted by admin derrick_saw_wei@soc.uum.edu.my
+2023-12-15 01:18:24,567 [INFO]: Revenue with ID 52 successfully approved by admin derrick_saw_wei@soc.uum.edu.my
+2023-12-15 01:23:37,261 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 01:23:37,534 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 01:23:48,983 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 01:23:49,235 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 01:24:15,159 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 01:24:15,397 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 01:28:46,474 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 01:28:46,728 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 01:28:58,531 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 01:28:58,787 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 01:52:13,131 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 01:52:13,400 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 01:56:24,049 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 01:56:24,293 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 01:56:39,470 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 01:56:39,739 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 02:08:02,652 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:09:42,732 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:10:36,389 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:12:40,416 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:14:41,187 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:14:41,206 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:15:22,672 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:15:22,691 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:16:56,462 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:16:56,475 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:18:49,603 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:18:49,609 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:20:14,217 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:20:14,226 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:20:26,261 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:20:26,269 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:22:02,596 [INFO]: Edit profile attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 02:22:02,603 [INFO]: Profile of email derrick_saw_wei@soc.uum.edu.my has been edited by derrick_saw_wei@soc.uum.edu.my
+2023-12-15 02:25:20,120 [INFO]: Revenue with ID 52 successfully deleted by admin derrick_saw_wei@soc.uum.edu.my
+2023-12-15 11:49:23,063 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 11:49:23,406 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 12:06:13,363 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 12:06:13,614 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 12:13:36,519 [INFO]: The asset is successfully deleted by admin derrick_saw_wei@soc.uum.edu.my
+2023-12-15 13:16:00,534 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:16:00,817 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:22:03,643 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:22:03,883 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:29:27,255 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:29:27,493 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:32:28,177 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:32:28,478 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:38:35,438 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:38:35,695 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:42:49,851 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:42:50,104 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:45:14,980 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:45:15,225 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:46:35,454 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:46:35,701 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 13:59:17,895 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 13:59:18,184 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:02:19,971 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 14:02:20,212 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 14:06:15,307 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 14:06:15,576 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 14:08:13,620 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:08:13,893 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:08:59,629 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 14:08:59,875 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 14:11:16,646 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:11:16,891 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:14:20,609 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:14:20,860 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:15:46,293 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:15:46,534 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:19:07,771 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:19:08,008 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:21:46,049 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:21:46,331 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:26:45,103 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:26:45,401 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:30:27,366 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:30:27,609 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:32:54,559 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:32:54,837 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:36:24,586 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:36:24,846 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:40:01,381 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:40:01,691 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:43:52,563 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:43:52,796 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:46:22,916 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:46:23,208 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:48:35,869 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:48:36,144 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:48:56,708 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:48:56,720 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-15 14:53:31,554 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:53:31,847 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:54:26,101 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:54:26,105 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-15 14:55:10,905 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:55:10,914 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-15 14:56:25,869 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:56:26,131 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 14:56:35,557 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 14:56:35,566 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-15 15:02:54,624 [INFO]: Login attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 15:02:54,878 [INFO]: User 'derrick' with email 'derricksaw123@gmail.com' has logged in.
+2023-12-15 15:03:02,556 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 15:04:38,578 [INFO]: Manage assets attempt for user with email 'derricksaw123@gmail.com'.
+2023-12-15 15:04:38,600 [INFO]: Email derricksaw123@gmail.com has successfully managed assets.
+2023-12-15 15:04:50,567 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 15:04:50,802 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 15:04:57,284 [INFO]: The asset is successfully approved by admin derrick_saw_wei@soc.uum.edu.my
+2023-12-15 15:07:12,541 [INFO]: Login attempt for user with email 'derrick_saw_wei@soc.uum.edu.my'.
+2023-12-15 15:07:12,787 [INFO]: User 'Derrick Saw Wei Heng' with email 'derrick_saw_wei@soc.uum.edu.my' has logged in.
+2023-12-15 15:07:23,886 [INFO]: The asset is successfully deleted by admin derrick_saw_wei@soc.uum.edu.my
