@@ -5,7 +5,6 @@ from itsdangerous import URLSafeTimedSerializer, SignatureExpired, BadSignature
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import InputRequired, DataRequired, Regexp, Email
 from flask_wtf import FlaskForm
-# import email_validator
 
 from app import app
 
@@ -20,12 +19,19 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(255), primary_key=True, nullable=False)
     password = db.Column(db.String(60), nullable=False)
     authorized_status = db.Column(db.Integer, nullable=False)
+    role = db.Column(db.String(20), nullable=False, default='user')
 
     def __repr__(self):
         return f"User('{self.email}', '{self.username}')"
 
     def get_id(self):
         return self.email
+
+    def has_role(self, role):
+        return role == self.role
+
+    def as_dict(self):
+        return {'username': self.username, 'role': self.role}
 
 
 class Profile(db.Model):
@@ -46,7 +52,7 @@ class Profile(db.Model):
     spouse_name = db.Column(db.String(255))
 
     def __repr__(self):
-        return f"<Profile(email_index={self.email_index}, service_name={self.service_name}, job={self.job})>"
+        return f"<Profile(email={self.email}, service_name={self.service_name}, job={self.job})>"
 
     def as_dict(self):
         return {column.name: str(getattr(self, column.name)) for column in self.__table__.columns}
