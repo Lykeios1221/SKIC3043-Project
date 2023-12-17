@@ -1,774 +1,784 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="container-fluid">
-        <h2 class="mb-4">Asset Declaration</h2>
-        <!--------------------------------------
-        Revenue Collapsible
-       !---------------------------------------->
-        <div class="row"
-             style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
-            <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">
-                Revenue
-                Management
-            </button>
-            <div class="content">
-                <div class="row">
-                    <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">
-                        Revenue
-                        Management</h2>
-                </div>
-
-                <div class="row">
-                    <!--Individual Revenue Table-->
-                    <div class="col-lg-6 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                    Approved Individual Revenue</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                        <tr>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Description</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Amount (RM)</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for row in user_assets.revenues %}
-                                            {% if row.type == 'Individual' and row.approveStatus == 'True' %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--Household Revenue Table-->
-                    <div class="col-lg-6 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                    Approved Household Revenue</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                        <tr>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Description</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Amount (RM)</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for row in user_assets.revenues %}
-                                            {% if row.type == 'Household' and row.approveStatus == 'True' %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Additional Revenue Table -->
-                <div class="row">
-                    <div class="col-lg-12 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="row" style="padding:30px">
-                                <div class="col px-0" style="padding-left:8px!important;">
-                                    <h2 class="card-title fw-semibold mb-4">Additional Revenue Management</h2>
-                                </div>
-                                <div class="col px-0">
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-primary m-1 mx-0"
-                                                style="width: 200px;"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#revenue-modal">
-                                            Add
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="px-0 mt-4">
-                                    <table class="table table-striped nowrap jDataTable w-100 row-border"
-                                           id="revenue-table">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <h6>Action</h6>
-                                            </th>
-                                            <th>
-                                                <h6>No.</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Approved</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Description</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Type</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Total</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        {% for row in user_assets.revenues %}
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <form method="POST" class="revenue-row-form">
-                                                        <input type="hidden" name="data" value="{{ row }}">
-                                                        <button type="submit" name="action" value="delete"
-                                                                class="btn btn-danger"> Delete
-                                                        </button>
-                                                        <button type="submit" name="action" value="modify"
-                                                                class="btn btn-secondary mx-1"
-                                                                data-bs-target="#revenue-modal"
-                                                                data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
-                                                        <button type="button" name="action" value="modify"
-                                                                class="btn btn-warning m-1"
-                                                                onclick="viewPdf('revenue', {{ row.id }})">
-                                                            View
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td class="h6">
-                                                    {{ row.id }}
-                                                </td>
-                                                <td class="h6">
-                                                    {{ row.approveStatus }}
-                                                </td>
-                                                <td class="h6">
-                                                    {{ row.description }}
-                                                </td>
-                                                <td class="h6">
-                                                    {{ row.type }}
-                                                </td>
-                                                <td class="h6">
-                                                    {{ row.total }}
-                                                </td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!--------------------------------------
-        Expenses Collapsible
-       !---------------------------------------->
-        <div class="row"
-             style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
-            <button class="collapsible" style="border:0!important;border-bottom:1px solid black!important;">
-                Expenses
-                Management
-            </button>
-            <div class="content">
-                <div class="row">
-                    <div class="row">
-                        <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">
-                            Expenses Management</h2>
-                    </div>
-                    <!--Individual Expenses Table-->
-                    <div class="col-lg-6 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                    Approved Individual Expenses</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                        <tr>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Description</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Amount (RM)</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for row in user_assets.expenses %}
-                                            {% if row.type == 'Individual' and row.approveStatus == 'True' %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Household Expenses Table-->
-                    <div class="col-lg-6 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="card-body p-4">
-                                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
-                                    Approved Household Expenses</h5>
-                                <div class="table-responsive">
-                                    <table class="table text-nowrap mb-0 align-middle">
-                                        <thead class="text-dark fs-4">
-                                        <tr>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Description</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Amount (RM)</h6>
-                                            </th>
-                                            <th class="border-bottom-0">
-                                                <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        {% for row in user_assets.expenses %}
-                                            {% if row.type == 'Household' and row.approveStatus == 'True' %}
-                                                <tr>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
-                                                    </td>
-                                                    <td class="border-bottom-0">
-                                                        <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
-                                                    </td>
-                                                </tr>
-                                            {% endif %}
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!--Additional Expenses Table-->
-                <div class="row">
-                    <div class="col-lg-12 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="row" style="padding:30px">
-                                <div class="col px-0" style="padding-left:8px!important;">
-                                    <h2 class="card-title fw-semibold mb-4">Additional Expenses Management</h2>
-                                </div>
-                                <div class="col px-0">
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-primary m-1 mx-0"
-                                                style="width: 200px"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#expense-modal">
-                                            Add
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="px-0 mt-4">
-                                    <table class="table table-striped nowrap jDataTable w-100 row-border"
-                                           id="expense-table">
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <h6>Action</h6>
-                                            </th>
-                                            <th>
-                                                <h6>No.</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Approved</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Description</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Type</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Monthly Deduction</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Total</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-
-                                        <tbody>
-                                        {% for row in user_assets.expenses %}
-                                            <tr>
-                                                <td class="border-bottom-0">
-                                                    <form method="POST" class="expense-row-form">
-                                                        <input type="hidden" name="data" value="{{ row }}">
-                                                        <button type="submit" name="action" value="delete"
-                                                                class="btn btn-danger"> Delete
-                                                        </button>
-                                                        <button type="submit" name="action" value="modify"
-                                                                class="btn btn-secondary m-1"
-                                                                data-bs-target="#expense-modal"
-                                                                data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td class="h6">{{ row.id }}</td>
-                                                <td class="h6">{{ row.approveStatus }}</td>
-                                                <td class="h6">{{ row.description }}</td>
-                                                <td class="h6">{{ row.type }}</td>
-                                                <td class="h6">{{ row.monthlyDeduction }}</td>
-                                                <td class="h6">{{ row.total }}</td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--------------------------------------
-       Inventory Collapsible
-       !---------------------------------------->
-        <div class="row"
-             style="border: 1px solid black; border-radius: 5px ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
-            <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">
-                Inventory Management
-            </button>
-            <div class="content">
-                <div class="row">
-                    <div class="row">
-                        <div class="col">
-                            <h2 class="card-title fw-semibold mb-4 mt-4"
-                                style="font-size: 30px;  padding-left:30px">Inventory
-                                Management</h2>
-                        </div>
-                        <div class="col">
-                            <div class="d-flex justify-content-end mt-4">
-                                <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
-                                        data-bs-target="#inventory-modal" data-bs-toggle="modal">Add
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Manage Inventory Table-->
-                    <div class="col-lg-12">
-                        <div class="card w-100">
-                            <div class="card-body p-4 pt-2">
-                                <div class="px-0">
-                                    <table class="table table-striped nowrap jDataTable w-100"
-                                           id="inventory-table">
-
-                                        <!--Table Header-->
-                                        <thead>
-                                        <tr>
-                                            <th>
-                                                <h6>Actions</h6>
-                                            </th>
-                                            <th>
-                                                <h6>No.</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Approved</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Type</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Owner</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Inventory Description</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Registration Certificate Number</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Date of Ownership</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Quantity Amount</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Quantity Size</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Acquisition Cost （RM）</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Estimated Current Value (RM)</h6>
-                                            </th>
-                                            <th>
-                                                <h6>Method of Acquisition</h6>
-                                            </th>
-                                        </tr>
-                                        </thead>
-                                        <!-- End of Table Header-->
-
-                                        <!--Table Body-->
-                                        <tbody>
-                                        {% for row in user_assets.inventories %}
-                                            <tr>
-                                                <!--Actions-->
-                                                <td>
-                                                    <form method="POST" class="inventory-row-form">
-                                                        <input type="hidden" name="data" value="{{ row }}">
-                                                        <button type="submit" name="action" value="delete"
-                                                                class="btn btn-danger"> Delete
-                                                        </button>
-                                                        <button type="submit" name="action" value="modify"
-                                                                class="btn btn-secondary m-1"
-                                                                data-bs-target="#inventory-modal"
-                                                                data-bs-toggle="modal">
-                                                            Modify
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                                <td class="h6">{{ row.id }}</td>
-                                                <td class="h6">{{ row.approveStatus }}</td>
-                                                <td class="h6">{{ row.type }}</td>
-                                                <td class="h6">{{ row.owner }}</td>
-                                                <td class="h6">{{ row.invDescription }}</td>
-                                                <td class="h6">{{ row.regCertificateNo }} </td>
-                                                <td class="h6">{{ row.dateOfOwnership }}</td>
-                                                <td class="h6">{{ row.quantityAmount }}</td>
-                                                <td class="h6">{{ row.quantitySize }}</td>
-                                                <td class="h6">{{ row.acquisitionCost }}</td>
-                                                <td class="h6">{{ row.estimatedCurrentValue }}</td>
-                                                <td class="h6">{{ row.methodOfAcquisition }}</td>
-                                            </tr>
-                                        {% endfor %}
-                                        </tbody>
-                                        <!--End of Table Body-->
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--------------------------------------
-        Declaration Collapsible
-       !---------------------------------------->
+  <div class="container-fluid">
+    <h2 class="mb-4">Asset Declaration</h2>
+    <!--------------------------------------
+    Revenue Collapsible
+   !---------------------------------------->
+    <div class="row"
+         style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+      <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">
+        Revenue
+        Management
+      </button>
+      <div class="content">
         <div class="row">
-            <button class="collapsible">Declaration</button>
-            <div class="content">
+          <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">
+            Revenue
+            Management</h2>
+        </div>
+
+        <div class="row">
+          <!--Individual Revenue Table-->
+          <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                  Approved Individual Revenue</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Description</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in user_assets.revenues %}
+                      {% if row.type == 'Individual' and row.approveStatus == 'True' %}
+                        <tr>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--Household Revenue Table-->
+          <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                  Approved Household Revenue</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Description</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in user_assets.revenues %}
+                      {% if row.type == 'Household' and row.approveStatus == 'True' %}
+                        <tr>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Additional Revenue Table -->
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="row" style="padding:30px">
+                <div class="col px-0" style="padding-left:8px!important;">
+                  <h2 class="card-title fw-semibold mb-4">Additional Revenue Management</h2>
+                </div>
+                <div class="col px-0">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary m-1 mx-0"
+                            style="width: 200px;"
+                            data-bs-toggle="modal"
+                            data-bs-target="#revenue-modal">
+                      Add
+                    </button>
+                  </div>
+                </div>
+                <div class="px-0 mt-4">
+                  <table class="table table-striped nowrap jDataTable w-100 row-border"
+                         id="revenue-table">
+                    <thead>
+                    <tr>
+                      <th>
+                        <h6>Action</h6>
+                      </th>
+                      <th>
+                        <h6>No.</h6>
+                      </th>
+                      <th>
+                        <h6>Approved</h6>
+                      </th>
+                      <th>
+                        <h6>Description</h6>
+                      </th>
+                      <th>
+                        <h6>Type</h6>
+                      </th>
+                      <th>
+                        <h6>Total</h6>
+                      </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for row in user_assets.revenues %}
+                      <tr>
+                        <td class="border-bottom-0">
+                          <form method="POST" class="revenue-row-form">
+                            <input type="hidden" name="data" value="{{ row }}">
+                            <button type="submit" name="action" value="delete"
+                                    class="btn btn-danger"> Delete
+                            </button>
+                            <button type="submit" name="action" value="modify"
+                                    class="btn btn-secondary mx-1"
+                                    data-bs-target="#revenue-modal"
+                                    data-bs-toggle="modal">
+                              Modify
+                            </button>
+                            <button type="button" name="action" value="modify"
+                                    class="btn btn-warning m-1"
+                                    onclick="viewPdf('revenue', {{ row.id }})">
+                              View
+                            </button>
+                          </form>
+                        </td>
+                        <td class="h6">
+                          {{ row.id }}
+                        </td>
+                        <td class="h6">
+                          {{ row.approveStatus }}
+                        </td>
+                        <td class="h6">
+                          {{ row.description }}
+                        </td>
+                        <td class="h6">
+                          {{ row.type }}
+                        </td>
+                        <td class="h6">
+                          {{ row.total }}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--------------------------------------
+    Expenses Collapsible
+   !---------------------------------------->
+    <div class="row"
+         style="border: 1px solid black; border-radius: 1% ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+      <button class="collapsible" style="border:0!important;border-bottom:1px solid black!important;">
+        Expenses
+        Management
+      </button>
+      <div class="content">
+        <div class="row">
+          <div class="row">
+            <h2 class="card-title fw-semibold mb-4 mt-4" style="font-size: 30px; padding-left:38px">
+              Expenses Management</h2>
+          </div>
+          <!--Individual Expenses Table-->
+          <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                  Approved Individual Expenses</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Description</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in user_assets.expenses %}
+                      {% if row.type == 'Individual' and row.approveStatus == 'True' %}
+                        <tr>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Household Expenses Table-->
+          <div class="col-lg-6 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4" style="padding-left: 8px!important;">
+                  Approved Household Expenses</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Description</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Amount (RM)</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Monthly Deduction (RM)</h6>
+                      </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in user_assets.expenses %}
+                      {% if row.type == 'Household' and row.approveStatus == 'True' %}
+                        <tr>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ row.description }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.total }}</h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ row.monthlyDeduction }}</h6>
+                          </td>
+                        </tr>
+                      {% endif %}
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--Additional Expenses Table-->
+        <div class="row">
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="row" style="padding:30px">
+                <div class="col px-0" style="padding-left:8px!important;">
+                  <h2 class="card-title fw-semibold mb-4">Additional Expenses Management</h2>
+                </div>
+                <div class="col px-0">
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-primary m-1 mx-0"
+                            style="width: 200px"
+                            data-bs-toggle="modal"
+                            data-bs-target="#expense-modal">
+                      Add
+                    </button>
+                  </div>
+                </div>
+                <div class="px-0 mt-4">
+                  <table class="table table-striped nowrap jDataTable w-100 row-border"
+                         id="expense-table">
+                    <thead>
+                    <tr>
+                      <th>
+                        <h6>Action</h6>
+                      </th>
+                      <th>
+                        <h6>No.</h6>
+                      </th>
+                      <th>
+                        <h6>Approved</h6>
+                      </th>
+                      <th>
+                        <h6>Description</h6>
+                      </th>
+                      <th>
+                        <h6>Type</h6>
+                      </th>
+                      <th>
+                        <h6>Monthly Deduction</h6>
+                      </th>
+                      <th>
+                        <h6>Total</h6>
+                      </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for row in user_assets.expenses %}
+                      <tr>
+                        <td class="border-bottom-0">
+                          <form method="POST" class="expense-row-form">
+                            <input type="hidden" name="data" value="{{ row }}">
+                            <button type="submit" name="action" value="delete"
+                                    class="btn btn-danger"> Delete
+                            </button>
+                            <button type="submit" name="action" value="modify"
+                                    class="btn btn-secondary m-1"
+                                    data-bs-target="#expense-modal"
+                                    data-bs-toggle="modal">
+                              Modify
+                            </button>
+                            <button type="button" name="action" value="modify"
+                                    class="btn btn-warning m-1"
+                                    onclick="viewPdf('expense', {{ row.id }})">
+                              View
+                            </button>
+                          </form>
+                        </td>
+                        <td class="h6">{{ row.id }}</td>
+                        <td class="h6">{{ row.approveStatus }}</td>
+                        <td class="h6">{{ row.description }}</td>
+                        <td class="h6">{{ row.type }}</td>
+                        <td class="h6">{{ row.monthlyDeduction }}</td>
+                        <td class="h6">{{ row.total }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------------------------
+   Inventory Collapsible
+   !---------------------------------------->
+    <div class="row"
+         style="border: 1px solid black; border-radius: 5px ; margin-bottom: 20px; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15); overflow:hidden">
+      <button class="collapsible" style="border: 0!important;border-bottom: 1px solid #000!important;">
+        Inventory Management
+      </button>
+      <div class="content">
+        <div class="row">
+          <div class="row">
+            <div class="col">
+              <h2 class="card-title fw-semibold mb-4 mt-4"
+                  style="font-size: 30px;  padding-left:30px">Inventory
+                Management</h2>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end mt-4">
+                <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
+                        data-bs-target="#inventory-modal" data-bs-toggle="modal">Add
+                </button>
+              </div>
+            </div>
+          </div>
+          <!--Manage Inventory Table-->
+          <div class="col-lg-12">
+            <div class="card w-100">
+              <div class="card-body p-4 pt-2">
+                <div class="px-0">
+                  <table class="table table-striped nowrap jDataTable w-100"
+                         id="inventory-table">
+
+                    <!--Table Header-->
+                    <thead>
+                    <tr>
+                      <th>
+                        <h6>Actions</h6>
+                      </th>
+                      <th>
+                        <h6>No.</h6>
+                      </th>
+                      <th>
+                        <h6>Approved</h6>
+                      </th>
+                      <th>
+                        <h6>Type</h6>
+                      </th>
+                      <th>
+                        <h6>Owner</h6>
+                      </th>
+                      <th>
+                        <h6>Inventory Description</h6>
+                      </th>
+                      <th>
+                        <h6>Registration Certificate Number</h6>
+                      </th>
+                      <th>
+                        <h6>Date of Ownership</h6>
+                      </th>
+                      <th>
+                        <h6>Quantity Amount</h6>
+                      </th>
+                      <th>
+                        <h6>Quantity Size</h6>
+                      </th>
+                      <th>
+                        <h6>Acquisition Cost （RM）</h6>
+                      </th>
+                      <th>
+                        <h6>Estimated Current Value (RM)</h6>
+                      </th>
+                      <th>
+                        <h6>Method of Acquisition</h6>
+                      </th>
+                    </tr>
+                    </thead>
+                    <!-- End of Table Header-->
+
+                    <!--Table Body-->
+                    <tbody>
+                    {% for row in user_assets.inventories %}
+                      <tr>
+                        <!--Actions-->
+                        <td>
+                          <form method="POST" class="inventory-row-form">
+                            <input type="hidden" name="data" value="{{ row }}">
+                            <button type="submit" name="action" value="delete"
+                                    class="btn btn-danger"> Delete
+                            </button>
+                            <button type="submit" name="action" value="modify"
+                                    class="btn btn-secondary m-1"
+                                    data-bs-target="#inventory-modal"
+                                    data-bs-toggle="modal">
+                              Modify
+                            </button>
+                            <button type="button" name="action" value="modify"
+                                    class="btn btn-warning m-1"
+                                    onclick="viewPdf('inventory', {{ row.id }})">
+                              View
+                            </button>
+                          </form>
+                        </td>
+                        <td class="h6">{{ row.id }}</td>
+                        <td class="h6">{{ row.approveStatus }}</td>
+                        <td class="h6">{{ row.type }}</td>
+                        <td class="h6">{{ row.owner }}</td>
+                        <td class="h6">{{ row.invDescription }}</td>
+                        <td class="h6">{{ row.regCertificateNo }} </td>
+                        <td class="h6">{{ row.dateOfOwnership }}</td>
+                        <td class="h6">{{ row.quantityAmount }}</td>
+                        <td class="h6">{{ row.quantitySize }}</td>
+                        <td class="h6">{{ row.acquisitionCost }}</td>
+                        <td class="h6">{{ row.estimatedCurrentValue }}</td>
+                        <td class="h6">{{ row.methodOfAcquisition }}</td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                    <!--End of Table Body-->
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--------------------------------------
+    Declaration Collapsible
+   !---------------------------------------->
+    <div class="row">
+      <button class="collapsible">Declaration</button>
+      <div class="content">
+        <div class="row">
+
+          <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="row" style="padding:30px">
+                <div class="col">
+                  <h2 class="card-title fw-semibold mb-4">Declaration</h2>
+                </div>
+                <p>I confirm that the information provided above is accurate and up-to-date.
+                  <br>
+                  I am the lawful owner of these assets, and I am responsible for all legal
+                  obligations associated
+                  with them.<br>
+                  I understand the significance of this declaration, and I am aware of the
+                  consequences of providing
+                  false information or misrepresentation of ownership.</p>
                 <div class="row">
-
-                    <div class="col-lg-12 d-flex align-items-stretch">
-                        <div class="card w-100">
-                            <div class="row" style="padding:30px">
-                                <div class="col">
-                                    <h2 class="card-title fw-semibold mb-4">Declaration</h2>
-                                </div>
-                                <p>I confirm that the information provided above is accurate and up-to-date.
-                                    <br>
-                                    I am the lawful owner of these assets, and I am responsible for all legal
-                                    obligations associated
-                                    with them.<br>
-                                    I understand the significance of this declaration, and I am aware of the
-                                    consequences of providing
-                                    false information or misrepresentation of ownership.</p>
-                                <div class="row">
-                                    <div class="d-flex justify-content-end">
-                                        <button type="button" class="btn btn-outline-primary m-1"
-                                                style="width: 200px"
-                                                id="printAssets">View
-                                        </button>
-                                        <button type="button" class="btn btn-primary m-1" id="commitAssets"
-                                                style="width: 200px">Submit
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="revenue-modal" tabindex="-1" role="dialog"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="revenueModalLabel">Revenue Management</h4>
-                    <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
-                            data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                  <div class="d-flex justify-content-end">
+                    <button type="button" class="btn btn-outline-primary m-1"
+                            style="width: 200px"
+                            id="printAssets">View
                     </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form content -->
-                    <form id="revenue-form" method="POST">
-                        <input name="email" type="hidden" value="{{ email }}">
-                        <input name="id" value="" type="hidden">
-                        <div class="mb-3 form-group">
-                            <label for="revenueFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-                            <input type="file" name="revenueFile" class="form-control" id="revenueFile"
-                                   accept="application/pdf" required>
-                            <div class="invalid-feedback">
-                                Please select a valid PDF or refresh and try again.
-                            </div>
-                        </div>
-                        <input type="hidden" name="approveStatus" value="False">
-                        <div class="mb-3 form-group">
-                            <label for="revenueDescription" class="form-label">Description*</label>
-                            <input type="text" name="description" class="form-control" id="revenueDescription"
-                                   required
-                                   placeholder="Enter the description.">
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="revenueType" class="form-label">Type*</label>
-                            <select id="revenueType" name="type" class="form-select" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Household">Household</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="revenueTotal" class="form-label">Total (RM)*</label>
-                            <input type="number" name="total" class="form-control" id="revenueTotal" step="0.01"
-                                   placeholder="Enter the total." required>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" id="submitButton"
-                                    style="width: 300px; margin: 10px;">Submit
-                            </button>
-                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                                    style="width: 300px; margin: 10px;">Cancel
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="expense-modal" tabindex="-1" role="dialog"
-         aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="revenueModalLabel">Expense Management</h4>
-                    <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
-                            data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn btn-primary m-1" id="commitAssets"
+                            style="width: 200px">Submit
                     </button>
+                  </div>
                 </div>
-                <div class="modal-body">
-                    <!-- Form content -->
-                    <form id="expense-form" method="POST">
-                        <div class="mb-3 form-group">
-                            <label for="expenseFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-                            <input type="file" name="expenseFile" class="form-control" id="expenseFile" required>
-                            <div class="invalid-feedback">
-                                Please select a valid PDF or refresh and try again.
-                            </div>
-                        </div>
-                        <input name="email" hidden="hidden" value="{{ email }}">
-                        <input name="id" value="" hidden="hidden">
-                        <input type="hidden" name="approveStatus" value="False">
-                        <div class="mb-3 form-group">
-                            <label for="expenseDescription" class="form-label">Description*</label>
-                            <input type="text" name="description" class="form-control" id="expenseDescription"
-                                   required placeholder="Enter the description.">
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="expenseType" class="form-label">Type*</label>
-                            <select id="expenseType" name="type" class="form-select" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Household">Household</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="expenseMonthly" class="form-label">Monthly Deduction (RM)*</label>
-                            <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
-                                   id="expenseMonthly"
-                                   placeholder="Enter the monthly deduction." required>
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="expenseTotal" class="form-label">Total (RM)*</label>
-                            <input type="number" name="total" class="form-control" step="0.01" id="expenseTotal"
-                                   placeholder="Enter the total." required>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" id="submitButton"
-                                    style="width: 300px; margin: 10px;">Submit
-                            </button>
-                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                                    style="width: 300px; margin: 10px;">Cancel
-                            </button>
-                        </div>
-                    </form>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  </div>
 
-    <div class="modal fade" id="inventory-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="inventoryModalLabel">Inventory Management</h4>
-                    <button type="button" class="close bg-white border-0" style="width: 30px; height: 30px;"
-                            data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form content -->
-                    <form id="inventory-form" method="POST">
-                        <input name="id" value="" hidden="hidden">
-                        <input type="hidden" name="approveStatus" value="False">
-                        <input name="email" hidden="hidden" value="{{ email }}">
-                        <div class="mb-3 form-group">
-                            <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-                            <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
-                                   required>
-                            <div class="invalid-feedback">
-                                Please select a valid PDF or refresh and try again.
-                            </div>
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="invType" class="form-label">Type*</label>
-                            <select id="invType" name="type" class="form-select" required>
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Individual">Individual</option>
-                                <option value="Household">Household</option>
-                            </select>
-                        </div>
-                        <div class="mb-3 form-group">
-                            <label for="owner" class="form-label">Owner*</label>
-                            <input type="text" class="form-control" name="owner" id="owner"
-                                   placeholder="Enter the owner."
-                                   required>
-                        </div>
-
-                        <div class="mb-3  form-group">
-                            <label for="desc" class="form-label">Inventory Description*</label>
-                            <input type="text" class="form-control" name="invDescription" id="desc"
-                                   placeholder="Enter the asset description." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="regNo" class="form-label">Registration Certificate Number*</label>
-                            <input type="text" class="form-control" name="regCertificateNo" id="regNo"
-                                   placeholder="Enter the registration certificate number." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="dateOfOwnership" class="form-label">Date of Ownership*</label>
-                            <input type="date" class="form-control" name="dateOfOwnership" id="dateOfOwnership"
-                                   placeholder="Enter the date of ownership." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="quantity" class="form-label">Quantity Amount*</label>
-                            <input type="text" class="form-control" name="quantityAmount" id="quantityAmount"
-                                   placeholder="Enter the quantity amount." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="ownershipSize" class="form-label">Ownership Size*</label>
-                            <input type="text" class="form-control" name="ownershipSize" id="ownershipSize"
-                                   placeholder="Enter the ownership size." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="quantitySize" class="form-label">Quantity Size*</label>
-                            <input type="text" class="form-control" name="quantitySize" id="quantitySize"
-                                   placeholder="Enter the quantity size." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="acquisitionCost" class="form-label">Acquisition Cost (RM)*</label>
-                            <input type="text" class="form-control" name="acquisitionCost" id="acquisitionCost"
-                                   placeholder="Enter the acquisition cost." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="estimatedValue" class="form-label">Estimated Current Value (RM)*</label>
-                            <input type="text" class="form-control" name="estimatedCurrentValue" id="estimatedValue"
-                                   placeholder="Enter the estimated current value." required>
-                        </div>
-
-                        <div class="mb-3 form-group">
-                            <label for="acquisitionMethod" class="form-label">Method of Acquisition*</label>
-                            <input type="text" class="form-control" name="methodOfAcquisition"
-                                   id="acquisitionMethod"
-                                   placeholder="Enter the method of acquisition." required>
-                        </div>
-
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" id="submitInventoryButton"
-                                    style="width: 300px; margin: 10px;">Submit
-                            </button>
-                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                                    style="width: 300px; margin: 10px;">Cancel
-                            </button>
-                        </div>
-                    </form>
-                </div>
+  <!-- Modal -->
+  <div class="modal fade" id="revenue-modal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="revenueModalLabel">Revenue Management</h4>
+          <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
+                  data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Form content -->
+          <form id="revenue-form" method="POST">
+            <input name="email" type="hidden" value="{{ email }}">
+            <input name="id" value="" type="hidden">
+            <div class="mb-3 form-group">
+              <label for="revenueFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+              <input type="file" name="revenueFile" class="form-control" id="revenueFile"
+                     accept="application/pdf" required>
+              <div class="invalid-feedback">
+                Please select a valid PDF or refresh and try again.
+              </div>
             </div>
+            <input type="hidden" name="approveStatus" value="False">
+            <div class="mb-3 form-group">
+              <label for="revenueDescription" class="form-label">Description*</label>
+              <input type="text" name="description" class="form-control" id="revenueDescription"
+                     required
+                     placeholder="Enter the description.">
+            </div>
+            <div class="mb-3 form-group">
+              <label for="revenueType" class="form-label">Type*</label>
+              <select id="revenueType" name="type" class="form-select" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Individual">Individual</option>
+                <option value="Household">Household</option>
+              </select>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="revenueTotal" class="form-label">Total (RM)*</label>
+              <input type="number" name="total" class="form-control" id="revenueTotal" step="0.01"
+                     placeholder="Enter the total." required>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" id="submitButton"
+                      style="width: 300px; margin: 10px;">Submit
+              </button>
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                      style="width: 300px; margin: 10px;">Cancel
+              </button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
+
+  <div class="modal fade" id="expense-modal" tabindex="-1" role="dialog"
+       aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="revenueModalLabel">Expense Management</h4>
+          <button type="button" class="close bg-white border-0" style="width:30px;height:30px;"
+                  data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Form content -->
+          <form id="expense-form" method="POST">
+            <div class="mb-3 form-group">
+              <label for="expenseFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+              <input type="file" name="expenseFile" class="form-control" accept="application/pdf" id="expenseFile" required>
+              <div class="invalid-feedback">
+                Please select a valid PDF or refresh and try again.
+              </div>
+            </div>
+            <input name="email" hidden="hidden" value="{{ email }}">
+            <input name="id" value="" hidden="hidden">
+            <input type="hidden" name="approveStatus" value="False">
+            <div class="mb-3 form-group">
+              <label for="expenseDescription" class="form-label">Description*</label>
+              <input type="text" name="description" class="form-control" id="expenseDescription"
+                     required placeholder="Enter the description.">
+            </div>
+            <div class="mb-3 form-group">
+              <label for="expenseType" class="form-label">Type*</label>
+              <select id="expenseType" name="type" class="form-select" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Individual">Individual</option>
+                <option value="Household">Household</option>
+              </select>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="expenseMonthly" class="form-label">Monthly Deduction (RM)*</label>
+              <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
+                     id="expenseMonthly"
+                     placeholder="Enter the monthly deduction." required>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="expenseTotal" class="form-label">Total (RM)*</label>
+              <input type="number" name="total" class="form-control" step="0.01" id="expenseTotal"
+                     placeholder="Enter the total." required>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" id="submitButton"
+                      style="width: 300px; margin: 10px;">Submit
+              </button>
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                      style="width: 300px; margin: 10px;">Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="inventory-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="inventoryModalLabel">Inventory Management</h4>
+          <button type="button" class="close bg-white border-0" style="width: 30px; height: 30px;"
+                  data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Form content -->
+          <form id="inventory-form" method="POST">
+            <input name="id" value="" hidden="hidden">
+            <input type="hidden" name="approveStatus" value="False">
+            <input name="email" hidden="hidden" value="{{ email }}">
+            <div class="mb-3 form-group">
+              <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+              <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
+                     required>
+              <div class="invalid-feedback">
+                Please select a valid PDF or refresh and try again.
+              </div>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="invType" class="form-label">Type*</label>
+              <select id="invType" name="type" class="form-select" required>
+                <option value="" disabled selected>Select an option</option>
+                <option value="Individual">Individual</option>
+                <option value="Household">Household</option>
+              </select>
+            </div>
+            <div class="mb-3 form-group">
+              <label for="owner" class="form-label">Owner*</label>
+              <input type="text" class="form-control" name="owner" id="owner"
+                     placeholder="Enter the owner."
+                     required>
+            </div>
+
+            <div class="mb-3  form-group">
+              <label for="desc" class="form-label">Inventory Description*</label>
+              <input type="text" class="form-control" name="invDescription" id="desc"
+                     placeholder="Enter the asset description." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="regNo" class="form-label">Registration Certificate Number*</label>
+              <input type="text" class="form-control" name="regCertificateNo" id="regNo"
+                     placeholder="Enter the registration certificate number." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="dateOfOwnership" class="form-label">Date of Ownership*</label>
+              <input type="date" class="form-control" name="dateOfOwnership" id="dateOfOwnership"
+                     placeholder="Enter the date of ownership." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="quantity" class="form-label">Quantity Amount*</label>
+              <input type="text" class="form-control" name="quantityAmount" id="quantityAmount"
+                     placeholder="Enter the quantity amount." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="ownershipSize" class="form-label">Ownership Size*</label>
+              <input type="text" class="form-control" name="ownershipSize" id="ownershipSize"
+                     placeholder="Enter the ownership size." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="quantitySize" class="form-label">Quantity Size*</label>
+              <input type="text" class="form-control" name="quantitySize" id="quantitySize"
+                     placeholder="Enter the quantity size." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="acquisitionCost" class="form-label">Acquisition Cost (RM)*</label>
+              <input type="text" class="form-control" name="acquisitionCost" id="acquisitionCost"
+                     placeholder="Enter the acquisition cost." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="estimatedValue" class="form-label">Estimated Current Value (RM)*</label>
+              <input type="text" class="form-control" name="estimatedCurrentValue" id="estimatedValue"
+                     placeholder="Enter the estimated current value." required>
+            </div>
+
+            <div class="mb-3 form-group">
+              <label for="acquisitionMethod" class="form-label">Method of Acquisition*</label>
+              <input type="text" class="form-control" name="methodOfAcquisition"
+                     id="acquisitionMethod"
+                     placeholder="Enter the method of acquisition." required>
+            </div>
+
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary" id="submitInventoryButton"
+                      style="width: 300px; margin: 10px;">Submit
+              </button>
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                      style="width: 300px; margin: 10px;">Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %}
 {% block script %}
-    <script src="../static/js/manage-assets.js"></script>
+  <script src="/static/js/manage-assets.js"></script>
 {% endblock %}
