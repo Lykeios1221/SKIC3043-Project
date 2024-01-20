@@ -107,10 +107,8 @@
                 </div>
                 <div class="col px-0">
                   <div class="d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary m-1 mx-0"
-                            style="width: 200px;"
-                            data-bs-toggle="modal"
-                            data-bs-target="#revenue-modal">
+                    <button type="button" class="btn btn-primary m-1 mx-0" id="add-revenue"
+                            style="width: 200px;">
                       Add
                     </button>
                   </div>
@@ -120,48 +118,30 @@
                          id="revenue-table">
                     <thead>
                     <tr>
-                      <th>
-                        <h6>Action</h6>
-                      </th>
-                      <th>
-                        <h6>No.</h6>
-                      </th>
-                      <th>
-                        <h6>Approved</h6>
-                      </th>
-                      <th>
-                        <h6>Description</h6>
-                      </th>
-                      <th>
-                        <h6>Type</h6>
-                      </th>
-                      <th>
-                        <h6>Total</h6>
-                      </th>
+                      <th style="width: 3px"></th>
+                      <th>Action</th>
+                      <th>No.</th>
+                      <th>Approved</th>
+                      <th>Description</th>
+                      <th>Type</th>
+                      <th>Total</th>
                     </tr>
                     </thead>
 
                     <tbody>
                     {% for row in user_assets.revenues %}
                       <tr>
+                        <td></td>
                         <td class="border-bottom-0">
-                          <form method="POST" class="revenue-row-form">
-                            <input type="hidden" name="data" value="{{ row }}">
-                            <button type="submit" name="action" value="delete"
-                                    class="btn btn-danger"> Delete
-                            </button>
-                            <button type="submit" name="action" value="modify"
-                                    class="btn btn-secondary mx-1"
-                                    data-bs-target="#revenue-modal"
-                                    data-bs-toggle="modal">
-                              Modify
-                            </button>
-                            <button type="button" name="action" value="modify"
-                                    class="btn btn-warning m-1"
-                                    onclick="viewPdf('revenue', {{ row.id }})">
-                              View
-                            </button>
-                          </form>
+                          <button type="button" data-id="{{ row.id }}" data-type="revenue"
+                                  class="btn btn-danger btn-delete">Delete
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="revenue" data-row="{{ row }}"
+                                  class="btn btn-secondary btn-modify">Modify
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="revenue"
+                                  class="btn btn-warning btn-view">View
+                          </button>
                         </td>
                         <td class="h6">
                           {{ row.id }}
@@ -305,9 +285,7 @@
                 <div class="col px-0">
                   <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-primary m-1 mx-0"
-                            style="width: 200px"
-                            data-bs-toggle="modal"
-                            data-bs-target="#expense-modal">
+                            style="width: 200px" id="add-expense">
                       Add
                     </button>
                   </div>
@@ -317,6 +295,7 @@
                          id="expense-table">
                     <thead>
                     <tr>
+                      <th style="width: 3px;"></th>
                       <th>
                         <h6>Action</h6>
                       </th>
@@ -344,24 +323,17 @@
                     <tbody>
                     {% for row in user_assets.expenses %}
                       <tr>
+                        <td></td>
                         <td class="border-bottom-0">
-                          <form method="POST" class="expense-row-form">
-                            <input type="hidden" name="data" value="{{ row }}">
-                            <button type="submit" name="action" value="delete"
-                                    class="btn btn-danger"> Delete
-                            </button>
-                            <button type="submit" name="action" value="modify"
-                                    class="btn btn-secondary m-1"
-                                    data-bs-target="#expense-modal"
-                                    data-bs-toggle="modal">
-                              Modify
-                            </button>
-                            <button type="button" name="action" value="modify"
-                                    class="btn btn-warning m-1"
-                                    onclick="viewPdf('expense', {{ row.id }})">
-                              View
-                            </button>
-                          </form>
+                          <button type="button" data-id="{{ row.id }}" data-type="expense"
+                                  class="btn btn-danger btn-delete">Delete
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="expense" data-row="{{ row }}"
+                                  class="btn btn-secondary btn-modify">Modify
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="expense"
+                                  class="btn btn-warning btn-view">View
+                          </button>
                         </td>
                         <td class="h6">{{ row.id }}</td>
                         <td class="h6">{{ row.approveStatus }}</td>
@@ -399,8 +371,7 @@
             </div>
             <div class="col">
               <div class="d-flex justify-content-end mt-4">
-                <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px"
-                        data-bs-target="#inventory-modal" data-bs-toggle="modal">Add
+                <button type="button" class="btn btn-primary m-1 mx-0" style="width: 200px" id="add-inventory">Add
                 </button>
               </div>
             </div>
@@ -416,6 +387,7 @@
                     <!--Table Header-->
                     <thead>
                     <tr>
+                      <th style="width: 3px;"></th>
                       <th>
                         <h6>Actions</h6>
                       </th>
@@ -464,24 +436,17 @@
                     {% for row in user_assets.inventories %}
                       <tr>
                         <!--Actions-->
+                        <td></td>
                         <td>
-                          <form method="POST" class="inventory-row-form">
-                            <input type="hidden" name="data" value="{{ row }}">
-                            <button type="submit" name="action" value="delete"
-                                    class="btn btn-danger"> Delete
-                            </button>
-                            <button type="submit" name="action" value="modify"
-                                    class="btn btn-secondary m-1"
-                                    data-bs-target="#inventory-modal"
-                                    data-bs-toggle="modal">
-                              Modify
-                            </button>
-                            <button type="button" name="action" value="modify"
-                                    class="btn btn-warning m-1"
-                                    onclick="viewPdf('inventory', {{ row.id }})">
-                              View
-                            </button>
-                          </form>
+                          <button type="button" data-id="{{ row.id }}" data-type="inventory"
+                                  class="btn btn-danger btn-delete">Delete
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="inventory" data-row="{{ row }}"
+                                  class="btn btn-secondary btn-modify">Modify
+                          </button>
+                          <button type="button" data-id="{{ row.id }}" data-type="inventory"
+                                  class="btn btn-warning btn-view">View
+                          </button>
                         </td>
                         <td class="h6">{{ row.id }}</td>
                         <td class="h6">{{ row.approveStatus }}</td>
@@ -551,8 +516,7 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="revenue-modal" tabindex="-1" role="dialog"
-       aria-hidden="true">
+  <form class="modal fade" id="revenue-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -564,53 +528,51 @@
         </div>
         <div class="modal-body">
           <!-- Form content -->
-          <form id="revenue-form" method="POST">
-            <input name="email" type="hidden" value="{{ email }}">
-            <input name="id" value="" type="hidden">
-            <div class="mb-3 form-group">
-              <label for="revenueFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-              <input type="file" name="revenueFile" class="form-control" id="revenueFile"
-                     accept="application/pdf" required>
-              <div class="invalid-feedback">
-                Please select a valid PDF or refresh and try again.
-              </div>
+          <input name="id" value="" type="hidden">
+          <input name="email" type="hidden" value="{{ email }}">
+          <div class="mb-3 form-group">
+            <label for="revenueFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+            <input type="file" name="revenueFile" class="form-control pdfupload" id="revenueFile"
+                   accept="application/pdf" required>
+            <div class="invalid-feedback">
+              Please select a valid PDF or refresh and try again.
             </div>
-            <input type="hidden" name="approveStatus" value="False">
-            <div class="mb-3 form-group">
-              <label for="revenueDescription" class="form-label">Description*</label>
-              <input type="text" name="description" class="form-control" id="revenueDescription"
-                     required
-                     placeholder="Enter the description.">
-            </div>
-            <div class="mb-3 form-group">
-              <label for="revenueType" class="form-label">Type*</label>
-              <select id="revenueType" name="type" class="form-select" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="Individual">Individual</option>
-                <option value="Household">Household</option>
-              </select>
-            </div>
-            <div class="mb-3 form-group">
-              <label for="revenueTotal" class="form-label">Total (RM)*</label>
-              <input type="number" name="total" class="form-control" id="revenueTotal" step="0.01"
-                     placeholder="Enter the total." required>
-            </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary" id="submitButton"
-                      style="width: 300px; margin: 10px;">Submit
-              </button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                      style="width: 300px; margin: 10px;">Cancel
-              </button>
-            </div>
-          </form>
+          </div>
+          <input type="hidden" name="approveStatus" value="False">
+          <div class="mb-3 form-group">
+            <label for="revenueDescription" class="form-label">Description*</label>
+            <input type="text" name="description" class="form-control" id="revenueDescription"
+                   required
+                   placeholder="Enter the description.">
+          </div>
+          <div class="mb-3 form-group">
+            <label for="revenueType" class="form-label">Type*</label>
+            <select id="revenueType" name="type" class="form-select" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Individual">Individual</option>
+              <option value="Household">Household</option>
+            </select>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="revenueTotal" class="form-label">Total (RM)*</label>
+            <input type="number" name="total" class="form-control" id="revenueTotal" step="0.01"
+                   placeholder="Enter the total." required>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" id="submitButton"
+                    style="width: 300px; margin: 10px;">Submit
+            </button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                    style="width: 300px; margin: 10px;">Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 
-  <div class="modal fade" id="expense-modal" tabindex="-1" role="dialog"
-       aria-hidden="true">
+  <form class="modal fade" id="expense-modal" tabindex="-1" role="dialog"
+        aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -622,56 +584,56 @@
         </div>
         <div class="modal-body">
           <!-- Form content -->
-          <form id="expense-form" method="POST">
-            <div class="mb-3 form-group">
-              <label for="expenseFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-              <input type="file" name="expenseFile" class="form-control" accept="application/pdf" id="expenseFile" required>
-              <div class="invalid-feedback">
-                Please select a valid PDF or refresh and try again.
-              </div>
+          <div class="mb-3 form-group">
+            <label for="expenseFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+            <input type="file" name="expenseFile" class="form-control pdfupload" accept="application/pdf"
+                   id="expenseFile"
+                   required>
+            <div class="invalid-feedback">
+              Please select a valid PDF or refresh and try again.
             </div>
-            <input name="email" hidden="hidden" value="{{ email }}">
-            <input name="id" value="" hidden="hidden">
-            <input type="hidden" name="approveStatus" value="False">
-            <div class="mb-3 form-group">
-              <label for="expenseDescription" class="form-label">Description*</label>
-              <input type="text" name="description" class="form-control" id="expenseDescription"
-                     required placeholder="Enter the description.">
-            </div>
-            <div class="mb-3 form-group">
-              <label for="expenseType" class="form-label">Type*</label>
-              <select id="expenseType" name="type" class="form-select" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="Individual">Individual</option>
-                <option value="Household">Household</option>
-              </select>
-            </div>
-            <div class="mb-3 form-group">
-              <label for="expenseMonthly" class="form-label">Monthly Deduction (RM)*</label>
-              <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
-                     id="expenseMonthly"
-                     placeholder="Enter the monthly deduction." required>
-            </div>
-            <div class="mb-3 form-group">
-              <label for="expenseTotal" class="form-label">Total (RM)*</label>
-              <input type="number" name="total" class="form-control" step="0.01" id="expenseTotal"
-                     placeholder="Enter the total." required>
-            </div>
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary" id="submitButton"
-                      style="width: 300px; margin: 10px;">Submit
-              </button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                      style="width: 300px; margin: 10px;">Cancel
-              </button>
-            </div>
-          </form>
+          </div>
+          <input name="id" value="" hidden="hidden">
+          <input name="email" type="hidden" value="{{ email }}">
+          <input type="hidden" name="approveStatus" value="False">
+          <div class="mb-3 form-group">
+            <label for="expenseDescription" class="form-label">Description*</label>
+            <input type="text" name="description" class="form-control" id="expenseDescription"
+                   required placeholder="Enter the description.">
+          </div>
+          <div class="mb-3 form-group">
+            <label for="expenseType" class="form-label">Type*</label>
+            <select id="expenseType" name="type" class="form-select" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Individual">Individual</option>
+              <option value="Household">Household</option>
+            </select>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="expenseMonthly" class="form-label">Monthly Deduction (RM)*</label>
+            <input type="number" name="monthlyDeduction" class="form-control" step="0.01"
+                   id="expenseMonthly"
+                   placeholder="Enter the monthly deduction." required>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="expenseTotal" class="form-label">Total (RM)*</label>
+            <input type="number" name="total" class="form-control" step="0.01" id="expenseTotal"
+                   placeholder="Enter the total." required>
+          </div>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" id="submitButton"
+                    style="width: 300px; margin: 10px;">Submit
+            </button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                    style="width: 300px; margin: 10px;">Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 
-  <div class="modal fade" id="inventory-modal" tabindex="-1" role="dialog" aria-hidden="true">
+  <form class="modal fade" id="inventory-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -683,102 +645,104 @@
         </div>
         <div class="modal-body">
           <!-- Form content -->
-          <form id="inventory-form" method="POST">
-            <input name="id" value="" hidden="hidden">
-            <input type="hidden" name="approveStatus" value="False">
-            <input name="email" hidden="hidden" value="{{ email }}">
-            <div class="mb-3 form-group">
-              <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
-              <input type="file" name="inventoryFile" class="form-control" id="inventoryFile"
-                     required>
-              <div class="invalid-feedback">
-                Please select a valid PDF or refresh and try again.
-              </div>
+          <input name="id" value="" hidden="hidden">
+          <input name="email" type="hidden" value="{{ email }}">
+          <input type="hidden" name="approveStatus" value="False">
+          <div class="mb-3 form-group">
+            <label for="inventoryFile" class="form-label">Upload Proof (PDF <2MB Only)*</label>
+            <input type="file" name="inventoryFile" class="form-control pdfupload" accept="application/pdf"
+                   id="inventoryFile"
+                   required>
+            <div class="invalid-feedback">
+              Please select a valid PDF or refresh and try again.
             </div>
-            <div class="mb-3 form-group">
-              <label for="invType" class="form-label">Type*</label>
-              <select id="invType" name="type" class="form-select" required>
-                <option value="" disabled selected>Select an option</option>
-                <option value="Individual">Individual</option>
-                <option value="Household">Household</option>
-              </select>
-            </div>
-            <div class="mb-3 form-group">
-              <label for="owner" class="form-label">Owner*</label>
-              <input type="text" class="form-control" name="owner" id="owner"
-                     placeholder="Enter the owner."
-                     required>
-            </div>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="invType" class="form-label">Type*</label>
+            <select id="invType" name="type" class="form-select" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="Individual">Individual</option>
+              <option value="Household">Household</option>
+            </select>
+          </div>
+          <div class="mb-3 form-group">
+            <label for="owner" class="form-label">Owner*</label>
+            <input type="text" class="form-control" name="owner" id="owner"
+                   placeholder="Enter the owner."
+                   required>
+          </div>
 
-            <div class="mb-3  form-group">
-              <label for="desc" class="form-label">Inventory Description*</label>
-              <input type="text" class="form-control" name="invDescription" id="desc"
-                     placeholder="Enter the asset description." required>
-            </div>
+          <div class="mb-3  form-group">
+            <label for="desc" class="form-label">Inventory Description*</label>
+            <input type="text" class="form-control" name="invDescription" id="desc"
+                   placeholder="Enter the asset description." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="regNo" class="form-label">Registration Certificate Number*</label>
-              <input type="text" class="form-control" name="regCertificateNo" id="regNo"
-                     placeholder="Enter the registration certificate number." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="regNo" class="form-label">Registration Certificate Number*</label>
+            <input type="text" class="form-control" name="regCertificateNo" id="regNo"
+                   placeholder="Enter the registration certificate number." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="dateOfOwnership" class="form-label">Date of Ownership*</label>
-              <input type="date" class="form-control" name="dateOfOwnership" id="dateOfOwnership"
-                     placeholder="Enter the date of ownership." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="dateOfOwnership" class="form-label">Date of Ownership*</label>
+            <input type="date" class="form-control" name="dateOfOwnership" id="dateOfOwnership"
+                   placeholder="Enter the date of ownership." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="quantity" class="form-label">Quantity Amount*</label>
-              <input type="text" class="form-control" name="quantityAmount" id="quantityAmount"
-                     placeholder="Enter the quantity amount." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="quantity" class="form-label">Quantity Amount*</label>
+            <input type="text" class="form-control" name="quantityAmount" id="quantityAmount"
+                   placeholder="Enter the quantity amount." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="ownershipSize" class="form-label">Ownership Size*</label>
-              <input type="text" class="form-control" name="ownershipSize" id="ownershipSize"
-                     placeholder="Enter the ownership size." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="ownershipSize" class="form-label">Ownership Size*</label>
+            <input type="text" class="form-control" name="ownershipSize" id="ownershipSize"
+                   placeholder="Enter the ownership size." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="quantitySize" class="form-label">Quantity Size*</label>
-              <input type="text" class="form-control" name="quantitySize" id="quantitySize"
-                     placeholder="Enter the quantity size." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="quantitySize" class="form-label">Quantity Size*</label>
+            <input type="text" class="form-control" name="quantitySize" id="quantitySize"
+                   placeholder="Enter the quantity size." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="acquisitionCost" class="form-label">Acquisition Cost (RM)*</label>
-              <input type="text" class="form-control" name="acquisitionCost" id="acquisitionCost"
-                     placeholder="Enter the acquisition cost." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="acquisitionCost" class="form-label">Acquisition Cost (RM)*</label>
+            <input type="text" class="form-control" name="acquisitionCost" id="acquisitionCost"
+                   placeholder="Enter the acquisition cost." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="estimatedValue" class="form-label">Estimated Current Value (RM)*</label>
-              <input type="text" class="form-control" name="estimatedCurrentValue" id="estimatedValue"
-                     placeholder="Enter the estimated current value." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="estimatedValue" class="form-label">Estimated Current Value (RM)*</label>
+            <input type="text" class="form-control" name="estimatedCurrentValue" id="estimatedValue"
+                   placeholder="Enter the estimated current value." required>
+          </div>
 
-            <div class="mb-3 form-group">
-              <label for="acquisitionMethod" class="form-label">Method of Acquisition*</label>
-              <input type="text" class="form-control" name="methodOfAcquisition"
-                     id="acquisitionMethod"
-                     placeholder="Enter the method of acquisition." required>
-            </div>
+          <div class="mb-3 form-group">
+            <label for="acquisitionMethod" class="form-label">Method of Acquisition*</label>
+            <input type="text" class="form-control" name="methodOfAcquisition"
+                   id="acquisitionMethod"
+                   placeholder="Enter the method of acquisition." required>
+          </div>
 
-            <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-primary" id="submitInventoryButton"
-                      style="width: 300px; margin: 10px;">Submit
-              </button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
-                      style="width: 300px; margin: 10px;">Cancel
-              </button>
-            </div>
-          </form>
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary" id="submitInventoryButton"
+                    style="width: 300px; margin: 10px;">Submit
+            </button>
+            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal"
+                    style="width: 300px; margin: 10px;">Cancel
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
 {% endblock %}
 {% block script %}
+  <script type="text/javascript">
+    const userAsset = {{ user_assets | tojson | safe }};
+  </script>
   <script src="/static/js/manage-assets.js"></script>
 {% endblock %}

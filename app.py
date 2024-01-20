@@ -18,15 +18,13 @@ app.config['RECAPTCHA_PUBLIC_KEY'] = '6LctxBQpAAAAAPWXDeszLc6JdfN4qzWJEFEh4bB4'
 app.config['RECAPTCHA_PRIVATE_KEY'] = '6LctxBQpAAAAABurREhgk1Uh_iRYIQlNX2bbkzGz'
 app.config['RECAPTCHA_OPTIONS'] = {'theme': 'white'}
 
+app.config["SESSION_PERMANENT"] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = 120
+app.config['SESSION_REFRESH_EACH_REQUEST'] = True
 
 # app.config['UPLOAD_FOLDER'] = 'cache'
 app.config['UPLOAD_EXTENSIONS'] = ['pdf']
 app.config['UPLOAD_FOLDER'] = 'asset_pdfs'
-app.config['MAX_CONTENT_LENGTH'] = 2 * 1000 * 1000
 
-app.config['CACHE_TYPE'] = 'FileSystemCache'
-app.config['CACHE_THRESHOLD'] = 1000
-app.config['CACHE_DIR'] = 'cache'
 
 import api

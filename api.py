@@ -1,14 +1,15 @@
 import io
+import json
 import os
 import re
 from datetime import datetime
+from functools import wraps
 from pathlib import Path
 from smtplib import SMTPException
 
-from flask import render_template, request, flash, url_for, redirect, jsonify, send_from_directory, send_file
+from flask import render_template, request, flash, url_for, redirect, jsonify, send_from_directory, abort
 from flask_apscheduler import APScheduler
 from flask_bcrypt import Bcrypt
-from flask_caching import Cache
 from flask_limiter import Limiter, RateLimitExceeded
 from flask_limiter.util import get_remote_address
 from flask_login import LoginManager, current_user, login_user, login_required, logout_user
@@ -32,13 +33,12 @@ scheduler.start()
 login_manager = LoginManager(app)
 login_manager.login_view = 'index'
 login_manager.login_message = u"Login session invalid. Please login again."
+login_manager.refresh_view = "index"
 login_manager.needs_refresh_message = u'Login session has expired. Please login again.'
 login_manager.needs_refresh_message_category = 'danger'
 login_manager.login_message_category = 'danger'
 
 tokens = []
-
-cache = Cache(app)
 
 limiter = Limiter(app=app, key_func=lambda: current_user.email, storage_uri="memory://", )
 
@@ -48,15 +48,25 @@ def user_loader(user_email):
     return User.query.get(user_email)
 
 
-@app.route('/', methods=['GET', 'POST'])
+def limit_content_length(max_length):
+    def decorator(f):
+        @wraps(f)
+        def wrapper(*args, **kwargs):
+            cl = request.content_length
+            if cl is not None and cl > max_length:
+                abort(413)
+            return f(*args, **kwargs)
+
+        return wrapper
+
+    return decorator
+
+
+@app.route('/', methods=['GET'])
 def index():
     login_form = LoginForm()
     sign_up_form = SignupForm()
     return render_template('index.html', login_form=login_form, sign_up_form=sign_up_form)
-
-
-def check_login_attempts_for_email(email):
-    log_access_activity(f"Failed login attempt for user with email '{email}'.")
 
 
 @app.route('/login', methods=['POST'])
@@ -89,6 +99,12 @@ def login():
     else:
         flash('Invalid input for login. Please check your credentials and try again.', 'danger')
     return redirect(url_for('index'))
+
+
+@limiter.limit("3 per minute", key_func=lambda: f"failed_login:{request.form.get('email')}",
+               error_message='Failed login attempts.')
+def check_login_attempts_for_email(email):
+    log_access_activity(f"Failed login attempt for user with email '{email}'.")
 
 
 @limiter.limit("5 per minute", key_func=get_remote_address, error_message='Too many attempts.')
@@ -317,7 +333,8 @@ def edit_profile():
         check_edit_attempts()
 
         email = request.form.get('email', None)
-        profile = Profile.query.get(email if email and User.query.get(email).role == 'admin' else current_user.email)
+        print(email)
+        profile = Profile.query.get(email if email else current_user.email)
         profile.name = request.form.get('name', profile.name)
         profile.birth = request.form.get('birth', profile.birth)
         profile.ic = request.form.get('ic', profile.ic)
@@ -399,22 +416,40 @@ def convert_keys_to_camel_case(dictionary):
 
 
 @app.route('/validate_pdf', methods=['POST'])
+@limit_content_length(2 * 1024 * 1024)
 @login_required
 def validate_pdf():
+    result = False
     try:
         files = request.files
-        key = list(files.keys())[0]
         file_bytes = list(files.values())[0].read()
-        PdfReader(io.BytesIO(file_bytes))
-        cache.set(f'{current_user.email}_{key}', file_bytes)
+        PdfReader(io.BytesIO(file_bytes), True)
         result = True
     except PyPdfError as e:
         log_error(f'Unable to parse the PDF bytes: {str(e)}')
-        result = False
+        result = 'Invalid file format (required PDf format).'
     except Exception as e:
-        log_error(f'Unable to cache uploaded items: {str(e)}')
-        result = False
+        log_error(f"An unexpected error occurred while validating pdf: {str(e)}")
+        result = 'Expected error. Please refresh and try again.'
     return jsonify(result=result)
+
+
+@app.errorhandler(413)
+def files_too_large(e):
+    log_error(f'File size too large: {str(e)}')
+    return jsonify(result='File size must be equal or smaller than 2Mb.')
+
+
+def update_from_dict(model_instance, data):
+    # Skip if ID contains 'temp'
+    if 'id' in data and 'temp' in data['id']:
+        return
+    # Update model fields based on data dictionary
+    for key, value in data.items():
+        # Skip if the key doesn't exist in the model_instance
+        if not hasattr(model_instance, key):
+            continue
+        setattr(model_instance, key, value)
 
 
 @app.route('/manage_assets', methods=['POST'])
@@ -422,10 +457,19 @@ def validate_pdf():
 def manage_assets():
     try:
         check_manage_assets_rate()
-        data = convert_keys_to_snake_case(request.get_json())
-        process_changes(Revenue, data)
-        process_changes(Expense, data)
-        process_changes(Inventory, data)
+        data = convert_keys_to_snake_case(
+            json.loads(request.form.get('data').replace('"True"', 'true').replace('"False"', 'false')))
+        files = request.files
+        for category, value_list in data['add'].items():
+            asset_class = eval(category.capitalize())
+            for data_dict in value_list:
+                add_or_update_asset(asset_class, data_dict,
+                                    files.get(f'{asset_class.__tablename__}_file_{data_dict["id"]}'))
+
+        for category, removeIds in data['delete'].items():
+            asset_class = eval(category.capitalize())
+            for removeId in removeIds:
+                delete_asset(asset_class, str(removeId))
 
         log_access_activity(f"Email {current_user.email} has successfully managed assets.")
     except RateLimitExceeded as e:
@@ -433,6 +477,46 @@ def manage_assets():
         log_access_activity(
             f"Rate limit exceeded for manage asset of email {current_user.email}. Error: {e.description}")
     return url_for('display_assets')
+
+
+def add_or_update_asset(asset_class, item, file):
+    asset = asset_class.query.get(item['id'])
+    try:
+        if asset:
+            update_from_dict(asset, item)
+        else:
+            asset = asset_class(**item)
+            asset.id = None
+            db.session.add(asset)
+        asset.approve_status = False
+        db.session.commit()
+        Path(f"asset_pdfs/{asset.email}").mkdir(exist_ok=True)
+        type = str(asset_class.__tablename__)
+
+        file_bytes = file.read()
+        PdfReader(io.BytesIO(file_bytes))
+        filename = secure_filename(f'{type}_{asset.id}.pdf')
+        file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
+        with open(file, 'wb') as f:
+            f.write(file_bytes)
+    except Exception as e:
+        db.session.rollback()
+        log_error(f"Error add/update item {asset}: {str(e)}")
+
+
+def delete_asset(asset_class, id):
+    try:
+        asset = asset_class.query.get(id)
+        if asset:
+            db.session.delete(asset)
+            type = str(asset_class.__table__.name).lower()
+            filename = secure_filename(f'{type}_{asset.id}.pdf')
+            file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
+            db.session.commit()
+            os.remove(file)
+    except Exception as e:
+        log_error(f"Error deleting item: {str(e)}")
+        db.session.rollback()
 
 
 @limiter.limit("3 per minute", key_func=lambda: current_user.email, error_message='Too many attempts.')
@@ -452,75 +536,14 @@ def convert_keys_to_snake_case(dictionary):
         return dictionary
 
 
-def process_changes(asset_class, data):
-    asset_type = str(asset_class.__table__.name).lower()
-    for item in data.get(f'{asset_type}_changes', {}).get('additions', []) + data.get(f'{asset_type}_changes', {}).get(
-            'modifications', []):
-        add_or_update_asset(asset_class, item)
-    for item in data.get(f'{asset_type}_changes', {}).get('deletions', []):
-        delete_asset(asset_class, item)
-
-
-def add_or_update_asset(asset_class, item):
-    def update_from_dict(model_instance, data):
-        # Skip if ID contains 'temp'
-        if 'id' in data and 'temp' in data['id']:
-            return
-        # Update model fields based on data dictionary
-        for key, value in data.items():
-            # Skip if the key doesn't exist in the model_instance
-            if not hasattr(model_instance, key):
-                continue
-            setattr(model_instance, key, value)
-    asset = asset_class.query.get(item['id'])
-    try:
-        if asset:
-            update_from_dict(asset, item)
-        else:
-            asset = asset_class(**item)
-            asset.id = None
-            asset.approve_status = False
-            db.session.add(asset)
-        db.session.commit()
-        Path(f"asset_pdfs/{current_user.email}").mkdir(exist_ok=True)
-        type = str(asset_class.__table__.name).lower()
-        filename = f"{type}_{item['id']}"
-        file_bytes = cache.get(f'{current_user.email}_{filename}')
-        PdfReader(io.BytesIO(file_bytes))
-        filename = secure_filename(f'{type}_{asset.id}.pdf')
-        file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
-        with open(file, 'wb') as f:
-            f.write(file_bytes)
-    except Exception as e:
-        db.session.rollback()
-        log_error(f"Error add/update item {asset}: {str(e)}")
-
-
-def delete_asset(asset_class, item):
-    try:
-        asset = asset_class.query.get(item['id'])
-        if asset:
-            db.session.delete(asset)
-            type = str(asset_class.__table__.name).lower()
-            filename = secure_filename(f'{type}_{asset.id}.pdf')
-            file = os.path.join(app.config['UPLOAD_FOLDER'], f'{asset.email}', filename)
-            db.session.commit()
-            os.remove(file)
-    except Exception as e:
-        log_error(f"Error deleting item: {str(e)}")
-        db.session.rollback()
-
-
 @app.route('/send_pdf', methods=['GET', 'POST'])
 def send_pdf():
     filename = request.args.get('filename')
-    email = request.args.get('email')
+    email = request.args.get('email', None)
     user_dir = os.path.join(app.config['UPLOAD_FOLDER'], current_user.email if not email else email)
     if os.path.exists(os.path.join(user_dir, filename + '.pdf')):
         return send_from_directory(user_dir, filename + '.pdf', as_attachment=False)
-    else:
-        file = cache.get(f'{current_user.email}_{filename}')
-        return send_file(io.BytesIO(file), as_attachment=False, mimetype='application/pdf')
+    return 'Not exist'
 
 
 @app.route('/get_print_assets', methods=['POST'])
@@ -528,6 +551,7 @@ def send_pdf():
 def get_print_assets():
     profile_detail = Profile.query.get(current_user.email)
     assets_json = request.get_json()
+    print(assets_json)
     return render_template('print-assets.html', profile_detail=profile_detail, assets_json=assets_json)
 
 
@@ -554,7 +578,7 @@ def delete_item():
         return redirect(request.referrer)
     type = str(request.form.get('type'))
     type_class = {'revenue': Revenue, 'expense': Expense, 'inventory': Inventory, 'user': User}[type]
-    delete_asset(type_class, request.form)
+    delete_asset(type_class, request.form.get('id'))
     flash('The asset is successfully deleted', 'success')
     log_access_activity(f'The asset is successfully deleted by admin {current_user.email}')
     return redirect(url_for('admin_dashboard'))
@@ -566,13 +590,17 @@ def approve_asset():
     if current_user.role != 'admin':
         logout_user()
         return redirect(request.referrer)
-    type = str(request.form.get('type'))
-    type_class = {'revenue': Revenue, 'expense': Expense, 'inventory': Inventory}[type]
-    form_data = dict(request.form)
-    form_data['approve_status'] = True
-    add_or_update_asset(type_class, form_data)
-    flash('The asset is successfully approved.', 'success')
-    log_access_activity(f'The asset is successfully approved by admin {current_user.email}')
+    try:
+        type_class = eval(request.form.get('type').capitalize())
+        asset = type_class.query.get(request.form.get('id'))
+        asset.approve_status = True
+        db.session.add(asset)
+        db.session.commit()
+        flash('The asset is successfully approved.', 'success')
+        log_access_activity(f'The asset is successfully approved by admin {current_user.email}')
+    except Exception as e:
+        log_error(f"Error approve item: {str(e)}")
+        db.session.rollback()
     return redirect(url_for('admin_dashboard'))
 
 
